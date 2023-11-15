@@ -1,6 +1,6 @@
 package models;
 
-import ive.statera.Biome;
+import enums.BiomeEnum;
 
 public class Animal {
     private String name;

@@ -18,10 +18,11 @@ public class LandController {
     }
 
     @FXML
-    public void initialize(int nbRows, int nbCols) {
+    public void initialize() {
         // Ajout des rectangles cliquables à la grille
-        for (int row = 0; row < nbRows; row++) {
-            for (int col  = 0; col < nbCols; col++) {
+
+        for (int row = 0; row < 4; row++) {
+            for (int col  = 0; col < 8; col++) {
                 Rectangle rectangle = createClickableRectangle();
                 gridPane.add(rectangle, row, col);
             }
