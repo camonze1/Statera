@@ -1,4 +1,4 @@
-package ive.statera;
+package models;
 
 import enums.BiomeEnum;
 
