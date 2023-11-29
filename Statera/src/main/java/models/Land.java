@@ -1,5 +1,7 @@
 package models;
 
+import enums.BiomeEnum;
+
 import java.util.ArrayList;
 
 public class Land {
@@ -8,6 +10,8 @@ public class Land {
     private int vegetationBalance;
     private int waterBalance;
     private int animalBalance;
+    private Integer Lignes;
+    private Integer Colonnes;
 
     // Lists
     private ArrayList<Animal> animal;
@@ -15,16 +19,20 @@ public class Land {
     // Attributs
     private int nbHuman;
     private int nbAnimal;
+    private ArrayList<ArrayList<Biome>> land;
 
     // Constructor with parameters
-    public Land(int humanBalance, int vegetationBalance, int waterBalance, int animalBalance, ArrayList<Animal> animal, int nbHuman, int nbAnimal) {
-        this.humanBalance = humanBalance;
-        this.vegetationBalance = vegetationBalance;
-        this.waterBalance = waterBalance;
-        this.animalBalance = animalBalance;
-        this.animal = animal;
-        this.nbHuman = nbHuman;
-        this.nbAnimal = nbAnimal;
+    public Land(int ligne, int colonne) {
+        this.land = new ArrayList<ArrayList<Biome>>();
+        for (int i = 0; i < ligne; i++) {
+            ArrayList<Biome> TableauPro = new ArrayList<Biome>();
+            for (int j = 0; j < colonne; j++) {
+                TableauPro.add(new Wasteland());
+            }
+            this.land.add(TableauPro);
+        }
+        this.Lignes=ligne;
+        this.Colonnes=colonne;
     }
 
     // Methods
@@ -50,11 +58,22 @@ public class Land {
 
 
     }
-    public void getLandSize(){
-        // TODO
+
+    public int[] getLandSize(){;
+        return new int[]{this.Lignes,this.Colonnes};
     }
-    public void getOccupiedPlot(){
-
-
+    public int getLandSizeTotal(){;
+        return this.Lignes*this.Colonnes;
+    }
+    public int getOccupiedPlot(){
+        int ctr = 0;
+        for (int i = 0; i < this.land.get(1).size(); i++) {
+            for (int j = 0; j < this.land.get(1).size(); j++) {
+                if (this.land.get(i).get(j).getType() != BiomeEnum.WASTELAND) {
+                    ctr = ctr + 1;
+                }
+            }
+        }
+        return ctr;
     }
 }
