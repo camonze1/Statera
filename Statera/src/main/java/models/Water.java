@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.paint.Color;
 
 public class Water extends Biome {
 
@@ -12,6 +13,7 @@ public class Water extends Biome {
         this.vegetationProportion = 0;
         this.buildingProportion = 0;
         this.waterValue = 20;
+        this.color= Color.BLUE;
 
     }
 

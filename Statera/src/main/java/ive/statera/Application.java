@@ -15,6 +15,7 @@ public class Application extends javafx.application.Application {
         stage.getIcons().add(new Image(Application.class.getResource("img/statera_logo.png").openStream()));
         stage.setTitle("Statera");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

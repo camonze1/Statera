@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.paint.Color;
 
 public class Jungle extends Biome {
 
@@ -12,6 +13,7 @@ public class Jungle extends Biome {
         this.buildingProportion = 0;
         this.cost.replace("Forest",2);
         this.cost.replace("Grass",2);
+        this.color= Color.GREENYELLOW;
 
     }
 

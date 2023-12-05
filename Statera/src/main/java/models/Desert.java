@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.paint.Color;
 
 public class Desert extends Biome {
 
@@ -12,6 +13,7 @@ public class Desert extends Biome {
         this.buildingProportion = 0;
         this.cost.replace("Grass",3);
         this.cost.replace("Water",2);
+        this.color= Color.YELLOW;
     }
 
     public boolean isOccupied() {
