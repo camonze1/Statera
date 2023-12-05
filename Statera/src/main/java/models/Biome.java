@@ -4,6 +4,11 @@ import enums.BiomeEnum;
 
 import java.util.HashMap;
 
+import javafx.fxml.FXML;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+
 public abstract class Biome {
 
     protected BiomeEnum type;
@@ -12,6 +17,10 @@ public abstract class Biome {
     protected int vegetationProportion;
     protected int buildingProportion;
     protected HashMap<String, Integer> cost;
+    @FXML
+    protected Rectangle rectangle;
+
+    protected Color color  ;
 
     public Biome(){
         this.cost = new HashMap<String, Integer>();
@@ -28,6 +37,8 @@ public abstract class Biome {
     public BiomeEnum getType() {
         return this.type;
     }
+
+    public Color getColor(){return this.color;}
     public void setType(BiomeEnum type) {
         this.type = type;
     }
