@@ -1,5 +1,6 @@
 package models;
 
+import controllers.LandController;
 import enums.BiomeEnum;
 
 import java.util.HashMap;
@@ -37,6 +38,11 @@ public abstract class Biome {
     public BiomeEnum getType() {
         return this.type;
     }
+    public Rectangle getRectangle(){
+        return this.rectangle;}
+    public void setRectangle(Rectangle rectangle1){
+        this.rectangle = rectangle1;}
+
 
     public Color getColor(){return this.color;}
     public void setType(BiomeEnum type) {
