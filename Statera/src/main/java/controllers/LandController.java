@@ -4,6 +4,9 @@ import enums.BiomeEnum;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Text;
 import models.Biome;
 import models.Land;
@@ -15,7 +18,7 @@ import javafx.scene.shape.Rectangle;
 
 public class LandController {
 
-    private BiomeEnum BiomeSelected = BiomeEnum.BUILDING;
+    private BiomeEnum BiomeSelected;
 
     @FXML
     private Label texteTitre; //= new Label();
@@ -33,7 +36,6 @@ public class LandController {
         land.setBiome(1, 1, BiomeEnum.WATER);
         land.setBiome(2, 2, BiomeEnum.DESERT);
         land.setBiome(1, 2, BiomeEnum.DESERT);
-        land.setBiome(4, 4, BiomeEnum.JUNGLE);
         land.setBiome(3, 2, BiomeEnum.BUILDING);
         land.setBiome(0, 0, BiomeEnum.WATER);
 
@@ -45,11 +47,18 @@ public class LandController {
             for (int col  = 0; col < land.getLandSize()[1]; col++) {
 
                 Rectangle rectangle = new Rectangle(25, 25);
-                rectangle.setFill(this.land.getBiome(row, col).getColor());
+
+                System.out.println(row);
+                System.out.println(col);
+
+                System.out.println(this.land.getBiome(row, col).getImage());
+
+                new ImagePattern(this.land.getBiome(row, col).getImage());
+
+                rectangle.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
+
                 rectangle.setOnMouseClicked(event -> handleRectangleClick(rectangle));
                 this.land.getBiome(row, col).setRectangle(rectangle);
-
-
             }
         }
         afficher();
@@ -67,7 +76,10 @@ public class LandController {
 
         // creer un rectangle pour ce nouveau biome
         Rectangle rectangle2 = new Rectangle(25, 25);
-        rectangle2.setFill(this.land.getBiome(rowIndex, colIndex).getColor());
+        //rectangle2.setFill(this.land.getBiome(rowIndex, colIndex).getColor());
+
+        //Image img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/java/image.png");
+        rectangle2.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
         rectangle2.setOnMouseClicked(event -> handleRectangleClick(rectangle2));
 
         // ajoute ce nouveau rectangle a ce biome
@@ -88,6 +100,35 @@ public class LandController {
                 gridPane.add(this.land.getBiome(row, col).getRectangle(), row, col);
             }
         }
+    }
+
+    @FXML
+    public void onClickedGrassButton(){
+        BiomeSelected = BiomeEnum.GRASS;
+    }
+    @FXML
+    public void onClickedBuildingButton(){
+        BiomeSelected = BiomeEnum.BUILDING;
+    }
+    @FXML
+    public void onClickedDesertButton(){
+        BiomeSelected = BiomeEnum.DESERT;
+    }
+    @FXML
+    public void onClickedForestButton(){
+        BiomeSelected = BiomeEnum.FOREST;
+    }
+    @FXML
+    public void onClickedJungleButton(){
+        BiomeSelected = BiomeEnum.JUNGLE;
+    }
+    @FXML
+    public void onClickedMountainButton(){
+        BiomeSelected = BiomeEnum.MOUNTAIN;
+    }
+    @FXML
+    public void onClickedWaterButton(){
+        BiomeSelected = BiomeEnum.WATER;
     }
 }
 

@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 public class Water extends Biome {
@@ -14,6 +15,7 @@ public class Water extends Biome {
         this.buildingProportion = 0;
         this.waterValue = 20;
         this.color= Color.BLUE;
+        this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/water.png");
 
     }
 

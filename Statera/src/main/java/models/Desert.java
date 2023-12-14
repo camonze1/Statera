@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 public class Desert extends Biome {
@@ -14,6 +15,7 @@ public class Desert extends Biome {
         this.cost.replace("Grass",3);
         this.cost.replace("Water",2);
         this.color= Color.YELLOW;
+        this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/desert.png");
     }
 
     public boolean isOccupied() {

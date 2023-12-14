@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 public class Mountain extends Biome{
@@ -15,6 +16,7 @@ public class Mountain extends Biome{
         this.cost.replace("Grass",2);
         this.cost.replace("Water",1);
         this.color= Color.WHITE;
+        this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/forest.png");
     }
 
     public boolean isOccupied() {
