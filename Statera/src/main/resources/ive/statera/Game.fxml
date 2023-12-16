@@ -17,6 +17,13 @@
             </font></Label>
          <GridPane fx:id="gridPane" layoutX="70.0" layoutY="70.0" prefHeight="50.0" prefWidth="57.0">
          </GridPane>
+         <Button fx:id="BuildingButton" layoutX="600" layoutY="100" mnemonicParsing="false" onAction="#onClickedBuildingButton" text="Building" />
+         <Button fx:id="DesertButton" layoutX="600" layoutY="140" mnemonicParsing="false" onAction="#onClickedDesertButton" text="Desert" />
+         <Button fx:id="ForestButton" layoutX="600" layoutY="180" mnemonicParsing="false" onAction="#onClickedForestButton" text="Forest" />
+         <Button fx:id="JungleButton" layoutX="600" layoutY="220" mnemonicParsing="false" onAction="#onClickedJungleButton" text="Jungle" />
+         <Button fx:id="MountainButton" layoutX="600" layoutY="260" mnemonicParsing="false" onAction="#onClickedMountainButton" text="Moutain" />
+         <Button fx:id="GrassButton" layoutX="600" layoutY="300" mnemonicParsing="false" onAction="#onClickedGrassButton" text="Grass" />
+         <Button fx:id="WaterButton" layoutX="600" layoutY="340" mnemonicParsing="false" onAction="#onClickedWaterButton" text="Water" />
       </children>
    </AnchorPane>
 </VBox>

@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 public class Jungle extends Biome {
