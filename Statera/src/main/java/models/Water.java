@@ -15,7 +15,8 @@ public class Water extends Biome {
         this.buildingProportion = 0;
         this.waterValue = 20;
         this.color= Color.BLUE;
-        this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/water.png");
+        this.img = new Image(getClass().getResource("/ive/statera/img/tiles/water.png").toExternalForm());
+
 
     }
 

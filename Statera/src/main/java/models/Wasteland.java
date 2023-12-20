@@ -20,11 +20,11 @@ public class Wasteland extends Biome {
         int n = r.nextInt(6);
         System.out.println(n);
         if (n==0){
-            this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/wasteland_full.png");
+            this.img = new Image(getClass().getResource("/ive/statera/img/tiles/wasteland_empty.png").toExternalForm());
 
         }
         else {
-            this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/wasteland_empty.png");
+            this.img = new Image(getClass().getResource("/ive/statera/img/tiles/wasteland_full.png").toExternalForm());
 
         }
     }

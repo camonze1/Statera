@@ -15,7 +15,7 @@ public class Forest extends Biome {
         this.cost.replace("Grass",1);
         this.cost.replace("Water",1);
         this.color= Color.DARKGREEN;
-        this.img = new Image("C:/Users/julie/OneDrive/Documents/Polytech/4a/IVE/life-on-land/Statera/src/main/resources/ive/statera/img/Game Designs/forest.png");
+        this.img = new Image(getClass().getResource("/ive/statera/img/tiles/forest.png").toExternalForm());
     }
 
     public boolean isOccupied() {
