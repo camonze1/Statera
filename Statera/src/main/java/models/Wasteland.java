@@ -18,7 +18,7 @@ public class Wasteland extends Biome {
 
         Random r = new Random();
         int n = r.nextInt(6);
-        System.out.println(n);
+//        .out.println(n);
         if (n==0){
             this.img = new Image(getClass().getResource("/ive/statera/img/tiles/wasteland_empty.png").toExternalForm());
 

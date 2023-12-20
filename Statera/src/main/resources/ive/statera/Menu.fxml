@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.MenuController"
+            prefHeight="400.0" prefWidth="600.0">
+
+  <Button fx:id="BuildingButton" layoutX="600" layoutY="100" mnemonicParsing="false" onAction="#onClickedBuildingButton" text="Building" />
+  <Button fx:id="DesertButton" layoutX="600" layoutY="140" mnemonicParsing="false" onAction="#onClickedDesertButton" text="Desert" />
+  <Button fx:id="ForestButton" layoutX="600" layoutY="180" mnemonicParsing="false" onAction="#onClickedForestButton" text="Forest" />
+  <Button fx:id="JungleButton" layoutX="600" layoutY="220" mnemonicParsing="false" onAction="#onClickedJungleButton" text="Jungle" />
+  <Button fx:id="MountainButton" layoutX="600" layoutY="260" mnemonicParsing="false" onAction="#onClickedMountainButton" text="Moutain" />
+  <Button fx:id="GrassButton" layoutX="600" layoutY="300" mnemonicParsing="false" onAction="#onClickedGrassButton" text="Grass" />
+  <Button fx:id="WaterButton" layoutX="600" layoutY="340" mnemonicParsing="false" onAction="#onClickedWaterButton" text="Water" />
+
+</AnchorPane>
