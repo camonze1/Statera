@@ -4,21 +4,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import java.net.URL?>
 
-<VBox alignment="CENTER" prefHeight="363.0" prefWidth="397.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-  </padding>
-  <AnchorPane prefHeight="537.0" prefWidth="358.0">
-    <children>
-      <Label fx:id="texteTitre" layoutX="110.0" layoutY="10.0" text="Statera">
-        <font>
-          <Font size="12.0" />
-        </font>
-      </Label>
-      <Button fx:id="menu" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedMenu" text="≡" />
-      <GridPane fx:id="gridPane" layoutX="70.0" layoutY="70.0" prefHeight="50.0" prefWidth="57.0">
-      </GridPane>
-    </children>
-  </AnchorPane>
+<!--<VBox alignment="CENTER" prefHeight="363.0" prefWidth="397.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController" >-->
+<!--  <stylesheets>-->
+<!--    <URL value="@css/Game.css" />-->
+<!--  </stylesheets>-->
+<!--  <AnchorPane prefHeight="537.0" prefWidth="358.0">-->
+<!--    <children>-->
+<!--      <Label fx:id="texteTitre" layoutX="110.0" layoutY="10.0" text="Statera"></Label>-->
+<!--      <Button fx:id="menu" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedMenu" text="≡" styleClass="menu-button"/>-->
+<!--      <GridPane fx:id="gridPane" layoutX="70.0" layoutY="70.0" prefHeight="50.0" prefWidth="57.0">-->
+<!--      </GridPane>-->
+<!--    </children>-->
+<!--  </AnchorPane>-->
+<!--</VBox>-->
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController" styleClass="body">
+  <stylesheets>
+    <URL value="@css/Game.css"/>
+  </stylesheets>
+
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
+    <Button HBox.hgrow="ALWAYS" fx:id="menu" prefWidth="10.0" mnemonicParsing="false" onAction="#onClickedMenu" text="≡"
+            styleClass="menu-button"/>
+    <ProgressBar fx:id="progressBar" prefHeight="400.0" prefWidth="510.0" styleClass="progress-bar"/>
+    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="right-column"/>
+  </HBox>
+
+  <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
+    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="left-column"/>
+    <GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="320.0" styleClass="main-grid">
+    </GridPane>
+    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="right-column"/>
+  </HBox>
+
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
+    <!-- Contenu du pied de page -->
+  </HBox>
 </VBox>
+
+
