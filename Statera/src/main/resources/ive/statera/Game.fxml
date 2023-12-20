@@ -5,20 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="363.0" prefWidth="397.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController">
+<VBox alignment="CENTER" prefHeight="363.0" prefWidth="397.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController">
   <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
   <AnchorPane prefHeight="537.0" prefWidth="358.0">
     <children>
-      <Label fx:id="texteTitre" layoutX="220.0" layoutY="10.0" text="Welcome to the game Statera!">
+      <Label fx:id="texteTitre" layoutX="110.0" layoutY="10.0" text="Statera">
         <font>
-          <Font size="12.0"/>
+          <Font size="12.0" />
         </font>
       </Label>
-      <Button fx:id="menu" layoutX="600 " layoutY="60" mnemonicParsing="false"
-              onAction="#onClickedMenu" text="≡"/>
+      <Button fx:id="menu" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedMenu" text="≡" />
       <GridPane fx:id="gridPane" layoutX="70.0" layoutY="70.0" prefHeight="50.0" prefWidth="57.0">
       </GridPane>
     </children>

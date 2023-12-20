@@ -11,7 +11,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Game.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 700);
         stage.getIcons().add(new Image(Application.class.getResource("img/statera_logo.png").openStream()));
         stage.setTitle("Statera");
         stage.setScene(scene);

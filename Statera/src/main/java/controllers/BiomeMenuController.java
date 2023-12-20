@@ -29,6 +29,10 @@ public class BiomeMenuController {
     }
   }
 
+  public void onClickedHome(ActionEvent event) {
+    openPreviousScene(event);
+  }
+
   @FXML
   public void onClickedGrassButton(ActionEvent event) {
     BiomeSelected = BiomeEnum.GRASS;
