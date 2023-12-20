@@ -14,9 +14,6 @@ import java.io.IOException;
 public class MenuController {
   private BiomeEnum BiomeSelected;
 
-  public void Initialize() {
-    System.out.println("MenuController");
-  }
   private void openPreviousScene(ActionEvent event) {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Game.fxml"));
@@ -31,6 +28,7 @@ public class MenuController {
       e.printStackTrace();
     }
   }
+
   @FXML
   public void onClickedGrassButton(ActionEvent event) {
     BiomeSelected = BiomeEnum.GRASS;

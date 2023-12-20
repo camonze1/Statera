@@ -21,17 +21,12 @@ public class LandController {
   private BiomeEnum BiomeSelected;
 
   @FXML
-  private Label texteTitre;
-
-  @FXML
   private GridPane gridPane;
-  Land land;
+  private Land land;
 
   @FXML
   public void initialize() {
-
-
-    this.land = new Land(20, 20);
+    this.land = new Land(15, 15);
 
     land.setBiome(1, 1, BiomeEnum.WATER);
     land.setBiome(2, 2, BiomeEnum.DESERT);
@@ -51,16 +46,14 @@ public class LandController {
     show();
   }
 
-
   public void handleRectangleClick(Rectangle rectangle) {
-
     int colIndex = GridPane.getRowIndex(rectangle);
     int rowIndex = GridPane.getColumnIndex(rectangle);
     this.land.setBiome(rowIndex, colIndex, this.BiomeSelected);
-    Rectangle rectangle2 = new Rectangle(25, 25);
-    rectangle2.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
-    rectangle2.setOnMouseClicked(event -> handleRectangleClick(rectangle2));
-    this.land.getBiome(rowIndex, colIndex).setRectangle(rectangle2);
+    Rectangle biomeRectangle = new Rectangle(25, 25);
+    biomeRectangle.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
+    biomeRectangle.setOnMouseClicked(event -> handleRectangleClick(biomeRectangle));
+    this.land.getBiome(rowIndex, colIndex).setRectangle(biomeRectangle);
     System.out.println(this.BiomeSelected);
     show();
   }
@@ -92,6 +85,5 @@ public class LandController {
     System.out.println("Biome sélectionné dans GameController : " + biomeSelected);
     this.BiomeSelected = biomeSelected;
   }
-
 }
 
