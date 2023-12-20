@@ -36,24 +36,24 @@ public class LandController {
 
     for (int row = 0; row < land.getLandSize()[0]; row++) {
       for (int col = 0; col < land.getLandSize()[1]; col++) {
-        Rectangle rectangle = new Rectangle(25, 25);
+        Rectangle plot = new Rectangle(35, 35);
         new ImagePattern(this.land.getBiome(row, col).getImage());
-        rectangle.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
-        rectangle.setOnMouseClicked(event -> handleRectangleClick(rectangle));
-        this.land.getBiome(row, col).setRectangle(rectangle);
+        plot.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
+        plot.setOnMouseClicked(event -> handleRectangleClick(plot));
+        this.land.getBiome(row, col).setRectangle(plot);
       }
     }
     show();
   }
 
-  public void handleRectangleClick(Rectangle rectangle) {
-    int colIndex = GridPane.getRowIndex(rectangle);
-    int rowIndex = GridPane.getColumnIndex(rectangle);
+  public void handleRectangleClick(Rectangle plot) {
+    int colIndex = GridPane.getRowIndex(plot);
+    int rowIndex = GridPane.getColumnIndex(plot);
     this.land.setBiome(rowIndex, colIndex, this.BiomeSelected);
-    Rectangle biomeRectangle = new Rectangle(25, 25);
-    biomeRectangle.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
-    biomeRectangle.setOnMouseClicked(event -> handleRectangleClick(biomeRectangle));
-    this.land.getBiome(rowIndex, colIndex).setRectangle(biomeRectangle);
+    Rectangle biomePlot = new Rectangle(35, 35);
+    biomePlot.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
+    biomePlot.setOnMouseClicked(event -> handleRectangleClick(biomePlot));
+    this.land.getBiome(rowIndex, colIndex).setRectangle(biomePlot);
     System.out.println(this.BiomeSelected);
     show();
   }
@@ -67,8 +67,9 @@ public class LandController {
     }
   }
 
+
   @FXML
-  public void onClickedSelectLandButton(ActionEvent event) {
+  public void onClickedMenu(ActionEvent event){
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
@@ -81,9 +82,13 @@ public class LandController {
     }
   }
 
+
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     System.out.println("Biome sélectionné dans GameController : " + biomeSelected);
     this.BiomeSelected = biomeSelected;
   }
 }
 
+//A FAIRE : FAIRE UN FOND DE COULEUR POUR QUE CE SOIT PLUS JOLIE
+//CREER UN BOUTON MENU EN HAUT A GAUCHE DU LANDCONTROLLER POUR ALLER DANS LE MENU OU IL Y AURA LE BOUTON SELECTIONNER UN BIOME
+//ET LE BOUTON REVENIR AU MENU PRINCIPAL

@@ -14,13 +14,13 @@
     <children>
       <Label fx:id="texteTitre" layoutX="220.0" layoutY="10.0" text="Welcome to the game Statera!">
         <font>
-          <Font size="24.0"/>
+          <Font size="12.0"/>
         </font>
       </Label>
+      <Button fx:id="menu" layoutX="600 " layoutY="60" mnemonicParsing="false"
+              onAction="#onClickedMenu" text="≡"/>
       <GridPane fx:id="gridPane" layoutX="70.0" layoutY="70.0" prefHeight="50.0" prefWidth="57.0">
       </GridPane>
-      <Button fx:id="SelectLand" layoutX="600 " layoutY="60" mnemonicParsing="false"
-              onAction="#onClickedSelectLandButton" text="Select Land"/>
     </children>
   </AnchorPane>
 </VBox>
