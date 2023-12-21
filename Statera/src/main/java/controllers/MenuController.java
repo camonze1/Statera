@@ -17,8 +17,8 @@ public class MenuController {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/BiomeMenu.fxml"));
       Scene scene = new Scene(loader.load(), 600, 500);
-      biomeMenuController = loader.getController();
-      biomeMenuController.setLandController(landController);
+      this.biomeMenuController = loader.getController();
+      this.biomeMenuController.setLandController(this.landController);
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Select Biome - Statera");
       stage.setScene(scene);

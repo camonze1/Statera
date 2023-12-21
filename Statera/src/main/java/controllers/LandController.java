@@ -20,18 +20,18 @@ public class LandController {
   @FXML
   private GridPane gridPane;
   private Land land;
-  private BiomeEnum BiomeSelected;
+  private BiomeEnum biomeSelected;
 
   @FXML
   public void initialize() {
     this.land = new Land(15, 15);
-    land.setBiome(1, 1, BiomeEnum.WATER);
-    land.setBiome(2, 2, BiomeEnum.DESERT);
-    land.setBiome(1, 2, BiomeEnum.DESERT);
-    land.setBiome(3, 2, BiomeEnum.BUILDING);
-    land.setBiome(0, 0, BiomeEnum.WATER);
-    for (int row = 0; row < land.getLandSize()[0]; row++) {
-      for (int col = 0; col < land.getLandSize()[1]; col++) {
+    this.land.setBiome(1, 1, BiomeEnum.WATER);
+    this.land.setBiome(1, 2, BiomeEnum.DESERT);
+    this.land.setBiome(3, 2, BiomeEnum.BUILDING);
+    this.land.setBiome(2, 2, BiomeEnum.DESERT);
+    this.land.setBiome(0, 0, BiomeEnum.WATER);
+    for (int row = 0; row < this.land.getLandSize()[0]; row++) {
+      for (int col = 0; col < this.land.getLandSize()[1]; col++) {
         Rectangle plot = new Rectangle(35, 35);
         new ImagePattern(this.land.getBiome(row, col).getImage());
         plot.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
@@ -45,18 +45,19 @@ public class LandController {
   public void handleRectangleClick(Rectangle plot) {
     int colIndex = GridPane.getRowIndex(plot);
     int rowIndex = GridPane.getColumnIndex(plot);
+
     if (this.land.getBiome(rowIndex, colIndex).getType() == BiomeEnum.FREEWASTELAND) {
       System.out.println("La tile sur laquelle tu viens de cliquer est un biome : " + this.land.getBiome(rowIndex, colIndex).getType());
-      this.land.setBiome(rowIndex, colIndex, this.BiomeSelected);
+      this.land.setBiome(rowIndex, colIndex, this.biomeSelected);
       Rectangle biomePlot = new Rectangle(35, 35);
       biomePlot.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
       biomePlot.setOnMouseClicked(event -> handleRectangleClick(biomePlot));
       this.land.getBiome(rowIndex, colIndex).setRectangle(biomePlot);
-      System.out.println("Tu viens de poser un biome : " + this.BiomeSelected);
+      System.out.println("Tu viens de poser un biome : " + this.biomeSelected);
       show();
     } else {
-      if(this.BiomeSelected != null){
-      showNotAllowedPopup();
+      if (this.biomeSelected != null) {
+        showNotAllowedPopup();
       }
     }
   }
@@ -70,10 +71,10 @@ public class LandController {
   }
 
   public void show() {
-    gridPane.getChildren().clear();
-    for (int row = 0; row < land.getLandSize()[0]; row++) {
-      for (int col = 0; col < land.getLandSize()[1]; col++) {
-        gridPane.add(this.land.getBiome(row, col).getRectangle(), row, col);
+    this.gridPane.getChildren().clear();
+    for (int row = 0; row < this.land.getLandSize()[0]; row++) {
+      for (int col = 0; col < this.land.getLandSize()[1]; col++) {
+        this.gridPane.add(this.land.getBiome(row, col).getRectangle(), row, col);
       }
     }
   }
@@ -96,6 +97,6 @@ public class LandController {
   }
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {
-    this.BiomeSelected = biomeSelected;
+    this.biomeSelected = biomeSelected;
   }
 }

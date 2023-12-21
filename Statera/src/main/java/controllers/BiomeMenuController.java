@@ -8,11 +8,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BiomeMenuController {
-  private BiomeEnum BiomeSelected;
+  private BiomeEnum biomeSelected;
   private LandController landController;
 
   public void selectBiomeAndClose(ActionEvent event) {
-    landController.setBiomeSelected(this.BiomeSelected);
+    this.landController.setBiomeSelected(this.biomeSelected);
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
@@ -26,51 +26,50 @@ public class BiomeMenuController {
 
   @FXML
   public void onClickedGrassButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.GRASS;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
-    landController.setBiomeSelected(this.BiomeSelected);
+    this.biomeSelected = BiomeEnum.GRASS;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
   @FXML
   public void onClickedBuildingButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.BUILDING;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
+    this.biomeSelected = BiomeEnum.BUILDING;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
   @FXML
   public void onClickedDesertButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.DESERT;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
+    this.biomeSelected = BiomeEnum.DESERT;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
   @FXML
   public void onClickedForestButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.FOREST;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
+    this.biomeSelected = BiomeEnum.FOREST;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
   @FXML
   public void onClickedJungleButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.JUNGLE;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
+    this.biomeSelected = BiomeEnum.JUNGLE;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
   @FXML
   public void onClickedMountainButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.MOUNTAIN;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
+    this.biomeSelected = BiomeEnum.MOUNTAIN;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
   @FXML
   public void onClickedWaterButton(ActionEvent event) {
-    BiomeSelected = BiomeEnum.WATER;
-    System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
+    this.biomeSelected = BiomeEnum.WATER;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
 
