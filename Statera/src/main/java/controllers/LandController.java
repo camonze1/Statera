@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import models.Land;
@@ -19,11 +20,18 @@ public class LandController {
 
   @FXML
   private GridPane gridPane;
+
+  @FXML
+  private ProgressBar environmentProgressBar;
   private Land land;
   private BiomeEnum biomeSelected;
 
   @FXML
   public void initialize() {
+    initializeLand();
+  }
+
+  public void initializeLand(){
     this.land = new Land(15, 15);
     this.land.setBiome(1, 1, BiomeEnum.WATER);
     this.land.setBiome(1, 2, BiomeEnum.DESERT);
@@ -39,13 +47,13 @@ public class LandController {
         this.land.getBiome(row, col).setRectangle(plot);
       }
     }
+    updateEnvironmentProgressBar();
     show();
   }
 
   public void handleRectangleClick(Rectangle plot) {
     int colIndex = GridPane.getRowIndex(plot);
     int rowIndex = GridPane.getColumnIndex(plot);
-
     if (this.land.getBiome(rowIndex, colIndex).getType() == BiomeEnum.FREEWASTELAND) {
       System.out.println("La tile sur laquelle tu viens de cliquer est un biome : " + this.land.getBiome(rowIndex, colIndex).getType());
       this.land.setBiome(rowIndex, colIndex, this.biomeSelected);
@@ -53,13 +61,34 @@ public class LandController {
       biomePlot.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
       biomePlot.setOnMouseClicked(event -> handleRectangleClick(biomePlot));
       this.land.getBiome(rowIndex, colIndex).setRectangle(biomePlot);
-      System.out.println("Tu viens de poser un biome : " + this.biomeSelected);
+      updateEnvironmentProgressBar();
       show();
     } else {
       if (this.biomeSelected != null) {
         showNotAllowedPopup();
       }
     }
+
+    System.out.println("Tu viens de poser un biome : " + this.biomeSelected);
+    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
+    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
+    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
+    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
+    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
+    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
+    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
+    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
+    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
+    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
+    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
+    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
+    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
+    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
+    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
+    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
+    System.out.println("Environment balance : " + this.land.environmentBalance());
+    this.land.biosphereBalance();
+
   }
 
   private void showNotAllowedPopup() {
@@ -94,6 +123,11 @@ public class LandController {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public void updateEnvironmentProgressBar() {
+    double balance = this.land.environmentBalance();
+    environmentProgressBar.setProgress(balance / 100.0);
   }
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {

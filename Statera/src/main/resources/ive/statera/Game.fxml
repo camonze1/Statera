@@ -11,7 +11,7 @@
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
     <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" prefWidth="10.0" styleClass="menu-button" text="≡" HBox.hgrow="ALWAYS" />
-    <ProgressBar fx:id="progressBar" prefHeight="400.0" prefWidth="510.0" progress="0.63" styleClass="progress-bar" />
+    <ProgressBar fx:id="environmentProgressBar" prefHeight="400.0" prefWidth="510.0" styleClass="progress-bar" />
     <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS" />
   </HBox>
 

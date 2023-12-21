@@ -16,7 +16,7 @@
   </HBox>
 
   <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">
-    <Button fx:id="homeButton" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" />
+    <Button fx:id="homeButton" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home" />
     <Button fx:id="buildingButton" layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickedBuildingButton" text="Building" />
     <Button fx:id="desertButton" layoutX="300.0" layoutY="118.0" mnemonicParsing="false" onAction="#onClickedDesertButton" text="Desert" />
     <Button fx:id="forestButton" layoutX="300.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickedForestButton" text="Forest" />

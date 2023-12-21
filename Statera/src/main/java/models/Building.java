@@ -17,6 +17,7 @@ public class Building extends Biome {
     this.cost.replace("Water", 1);
     this.color = Color.BLACK;
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_building.jpg").toExternalForm());
+    this.animalProportion = 0;
   }
 
   public boolean isOccupied() {

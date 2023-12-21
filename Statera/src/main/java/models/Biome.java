@@ -15,6 +15,7 @@ public abstract class Biome {
 
   protected BiomeEnum type;
   protected String description;
+  protected int animalProportion;
   protected int waterProportion;
   protected int vegetationProportion;
   protected int buildingProportion;
@@ -29,6 +30,7 @@ public abstract class Biome {
     this.cost.put("Building", 0);
     this.cost.put("Desert", 0);
     this.cost.put("BlockedWasteland", 0);
+    this.cost.put("FreeWasteland", 0);
     this.cost.put("Forest", 0);
     this.cost.put("Grass", 0);
     this.cost.put("Jungle", 0);
@@ -99,6 +101,10 @@ public abstract class Biome {
 
   public void setCost(HashMap<String, Integer> cost) {
     this.cost = cost;
+  }
+
+  public int getAnimalProportion() {
+    return this.animalProportion;
   }
 
 }

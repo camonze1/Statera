@@ -13,12 +13,10 @@ public class BiomeMenuController {
 
   public void selectBiomeAndClose(ActionEvent event) {
     this.landController.setBiomeSelected(this.biomeSelected);
-    Scene scene = ((Node) event.getSource()).getScene();
-    Stage stage = (Stage) scene.getWindow();
-    stage.close();
+    home(event);
   }
 
-  public void onClickedHome(ActionEvent event) {
+  public void home(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
