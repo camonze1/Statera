@@ -28,9 +28,19 @@ public class BiomeMenuController {
       e.printStackTrace();
     }
   }
+//  public void openPreviousScene(ActionEvent event) {
+//    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Game.fxml"));
+//    LandController landController = loader.getController();
+//    landController.setBiomeSelected(this.BiomeSelected);
+//    Scene scene = ((Node) event.getSource()).getScene();
+//    Stage stage = (Stage) scene.getWindow();
+//    stage.close();
+//  }
 
   public void onClickedHome(ActionEvent event) {
-    openPreviousScene(event);
+    Scene scene = ((Node) event.getSource()).getScene();
+    Stage stage = (Stage) scene.getWindow();
+    stage.close();
   }
 
   @FXML
@@ -80,9 +90,5 @@ public class BiomeMenuController {
     BiomeSelected = BiomeEnum.WATER;
     System.out.println("Le biome que tu viens de choisir est : " + BiomeSelected);
     openPreviousScene(event);
-  }
-
-  public BiomeEnum getBiomeSelected() {
-    return BiomeSelected;
   }
 }

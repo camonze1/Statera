@@ -23,17 +23,16 @@ public class LandController {
   @FXML
   private GridPane gridPane;
   private Land land;
-
+  @FXML
+  private BiomeMenuController biomeMenuController;
   @FXML
   public void initialize() {
     this.land = new Land(15, 15);
-
     land.setBiome(1, 1, BiomeEnum.WATER);
     land.setBiome(2, 2, BiomeEnum.DESERT);
     land.setBiome(1, 2, BiomeEnum.DESERT);
     land.setBiome(3, 2, BiomeEnum.BUILDING);
     land.setBiome(0, 0, BiomeEnum.WATER);
-
     for (int row = 0; row < land.getLandSize()[0]; row++) {
       for (int col = 0; col < land.getLandSize()[1]; col++) {
         Rectangle plot = new Rectangle(35, 35);
@@ -73,19 +72,18 @@ public class LandController {
 
 
   @FXML
-  public void onClickedMenu(ActionEvent event){
+  public void onClickedMenu(ActionEvent event) {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
-      Scene scene = new Scene(root);
-      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      stage.setScene(scene);
-      stage.show();
+      Scene scene = new Scene(root, 600, 500);
+      Stage menuStage = new Stage();
+      menuStage.setScene(scene);
+      menuStage.show();
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
-
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     this.BiomeSelected = biomeSelected;
