@@ -15,6 +15,7 @@ public class Jungle extends Biome {
     this.cost.replace("Forest", 2);
     this.cost.replace("Grass", 2);
     this.color = Color.GREENYELLOW;
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_jungle.jpg").toExternalForm());
 
   }
 

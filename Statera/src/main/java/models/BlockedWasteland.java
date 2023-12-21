@@ -15,18 +15,7 @@ public class BlockedWasteland extends Biome {
     this.vegetationProportion = 0;
     this.buildingProportion = 0;
     this.color = Color.GRAY;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/blocked_wasteland.png").toExternalForm());
-
-
-//    Random r = new Random();
-//    int n = r.nextInt(6);
-//    if (n == 0) {
-//      this.img = new Image(getClass().getResource("/ive/statera/img/tiles/free_wasteland.png").toExternalForm());
-//
-//    } else {
-//      this.img = new Image(getClass().getResource("/ive/statera/img/tiles/blocked_wasteland.png").toExternalForm());
-//
-//    }
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_wasteland_blocked.jpg").toExternalForm());
   }
 
   public boolean isOccupied() {

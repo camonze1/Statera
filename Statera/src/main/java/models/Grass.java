@@ -14,7 +14,7 @@ public class Grass extends Biome {
     this.buildingProportion = 0;
     this.cost.replace("BlockedWasteland", 1);
     this.color = Color.GREEN;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/grass.png").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_grass.jpg").toExternalForm());
   }
 
   public boolean isOccupied() {

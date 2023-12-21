@@ -15,7 +15,7 @@ public class Desert extends Biome {
     this.cost.replace("Grass", 3);
     this.cost.replace("Water", 2);
     this.color = Color.YELLOW;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/desert.png").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_desert.jpg").toExternalForm());
   }
 
   public boolean isOccupied() {

@@ -15,7 +15,7 @@ public class Forest extends Biome {
     this.cost.replace("Grass", 1);
     this.cost.replace("Water", 1);
     this.color = Color.DARKGREEN;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/forest.png").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_forest.jpg").toExternalForm());
   }
 
   public boolean isOccupied() {
