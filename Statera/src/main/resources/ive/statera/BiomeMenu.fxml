@@ -2,24 +2,20 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BiomeMenuController">
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
-  <Label fx:id="texteTitre" layoutX="110.0" layoutY="10.0" text="Choose the type of biome you want to put on your land !">
-    <font>
-      <Font size="15.0" />
-    </font>
+  <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" text="Choose the type of biome you want to put on your land !">
   </Label>
-  <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" />
-  <Button fx:id="BuildingButton" layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickedBuildingButton" text="Building" />
-  <Button fx:id="DesertButton" layoutX="300.0" layoutY="118.0" mnemonicParsing="false" onAction="#onClickedDesertButton" text="Desert" />
-  <Button fx:id="ForestButton" layoutX="300.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickedForestButton" text="Forest" />
-  <Button fx:id="JungleButton" layoutX="300.0" layoutY="198.0" mnemonicParsing="false" onAction="#onClickedJungleButton" text="Jungle" />
-  <Button fx:id="MountainButton" layoutX="300.0" layoutY="238.0" mnemonicParsing="false" onAction="#onClickedMountainButton" text="Moutain" />
-  <Button fx:id="GrassButton" layoutX="300.0" layoutY="278.0" mnemonicParsing="false" onAction="#onClickedGrassButton" text="Grass" />
-  <Button fx:id="WaterButton" layoutX="300.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickedWaterButton" text="Water" />
+  <Button fx:id="homeButton" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" />
+  <Button fx:id="buildingButton" layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickedBuildingButton" text="Building" />
+  <Button fx:id="desertButton" layoutX="300.0" layoutY="118.0" mnemonicParsing="false" onAction="#onClickedDesertButton" text="Desert" />
+  <Button fx:id="forestButton" layoutX="300.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickedForestButton" text="Forest" />
+  <Button fx:id="jungleButton" layoutX="300.0" layoutY="198.0" mnemonicParsing="false" onAction="#onClickedJungleButton" text="Jungle" />
+  <Button fx:id="mountainButton" layoutX="300.0" layoutY="238.0" mnemonicParsing="false" onAction="#onClickedMountainButton" text="Moutain" />
+  <Button fx:id="grassButton" layoutX="300.0" layoutY="278.0" mnemonicParsing="false" onAction="#onClickedGrassButton" text="Grass" />
+  <Button fx:id="waterButton" layoutX="300.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickedWaterButton" text="Water" />
 </AnchorPane>

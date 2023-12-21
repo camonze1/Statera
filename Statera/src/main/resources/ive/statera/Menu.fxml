@@ -9,14 +9,14 @@
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
-  <Label fx:id="texteTitre" layoutX="110.0" layoutY="10.0" text="Choose something you want to see or to do !">
+  <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" text="Choose something you want to see or to do !">
     <font>
       <Font size="12.0" />
     </font>
   </Label>
   <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" />
 
-  <Button fx:id="SelectLand" layoutX="300.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton" text="Select biome" />
+  <Button fx:id="selectLand" layoutX="300.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton" text="Select biome" />
   <Button fx:id="quitGame" layoutX="400.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedQuitGame" text="Quit game" />
 
 </AnchorPane>

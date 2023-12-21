@@ -44,17 +44,18 @@ public class LandController {
   public void handleRectangleClick(Rectangle plot) {
     int colIndex = GridPane.getRowIndex(plot);
     int rowIndex = GridPane.getColumnIndex(plot);
-    if (this.land.getBiome(rowIndex, colIndex).getType() == BiomeEnum.BLOCKEDWASTELAND) {
+    if (this.land.getBiome(rowIndex, colIndex).getType() == BiomeEnum.FREEWASTELAND) {
+      System.out.println("La tile sur laquelle tu viens de cliquer est un biome : " + this.land.getBiome(rowIndex, colIndex).getType());
+      this.land.setBiome(rowIndex, colIndex, this.BiomeSelected);
+      Rectangle biomePlot = new Rectangle(35, 35);
+      biomePlot.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
+      biomePlot.setOnMouseClicked(event -> handleRectangleClick(biomePlot));
+      this.land.getBiome(rowIndex, colIndex).setRectangle(biomePlot);
+      System.out.println("Tu viens de poser un biome : " + this.BiomeSelected);
+      show();
+    } else {
       return;
     }
-    System.out.println("La tile sur laquelle tu viens de cliquer est un biome : " + this.land.getBiome(rowIndex, colIndex).getType());
-    this.land.setBiome(rowIndex, colIndex, this.BiomeSelected);
-    Rectangle biomePlot = new Rectangle(35, 35);
-    biomePlot.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
-    biomePlot.setOnMouseClicked(event -> handleRectangleClick(biomePlot));
-    this.land.getBiome(rowIndex, colIndex).setRectangle(biomePlot);
-    System.out.println("Tu viens de poser un biome : " + this.BiomeSelected);
-    show();
   }
 
   public void show() {
