@@ -5,18 +5,27 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-  </padding>
-  <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" text="Choose something you want to see or to do !">
-    <font>
-      <Font size="12.0" />
-    </font>
-  </Label>
-  <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" />
 
-  <Button fx:id="selectLand" layoutX="300.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton" text="Select biome" />
-  <Button fx:id="quitGame" layoutX="400.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedQuitGame" text="Quit game" />
+<?import java.net.URL?>
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController" styleClass="global">
+  <stylesheets>
+    <URL value="@css/Menu.css"/>
+  </stylesheets>
 
-</AnchorPane>
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
+    <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" text="MENU" styleClass="title">
+    </Label>
+  </HBox>
+
+  <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">
+    <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" styleClass="home-button"/>
+    <Button fx:id="selectBiome" layoutX="300.0" layoutY="88.0" mnemonicParsing="false"
+            onAction="#onClickedSelectBiomeButton" text="Select biome" styleClass="select-biome-button"/>
+    <Button fx:id="quitGame" layoutX="400.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedQuitGame"
+            text="Quit game" styleClass="quit-button"/>
+  </HBox>
+
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
+  </HBox>
+</VBox>

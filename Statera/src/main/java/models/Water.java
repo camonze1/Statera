@@ -16,9 +16,7 @@ public class Water extends Biome {
     this.buildingProportion = 0;
     this.waterValue = 20;
     this.color = Color.BLUE;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/water.png").toExternalForm());
-
-
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_water.jpg").toExternalForm());
   }
 
   public boolean isOccupied() {

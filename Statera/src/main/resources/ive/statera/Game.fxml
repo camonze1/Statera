@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.net.URL?>
 
-
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController" styleClass="body">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController">
   <stylesheets>
-    <URL value="@css/Game.css"/>
+    <URL value="@css/Game.css" />
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Button HBox.hgrow="ALWAYS" fx:id="menu" prefWidth="10.0" mnemonicParsing="false" onAction="#onClickedMenu" text="≡"
-            styleClass="menu-button"/>
-    <ProgressBar fx:id="progressBar" prefHeight="400.0" prefWidth="510.0" styleClass="progress-bar"/>
-    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="right-column"/>
+    <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" prefWidth="10.0" styleClass="menu-button" text="≡" HBox.hgrow="ALWAYS" />
+    <ProgressBar fx:id="progressBar" prefHeight="400.0" prefWidth="510.0" progress="0.63" styleClass="progress-bar" />
+    <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS" />
   </HBox>
 
-  <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
-    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="left-column"/>
+  <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">
+    <Region prefWidth="10.0" styleClass="left-column" HBox.hgrow="ALWAYS" />
     <GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="320.0" styleClass="main-grid">
     </GridPane>
-    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="right-column"/>
+    <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS" />
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
   </HBox>
 </VBox>
-
-

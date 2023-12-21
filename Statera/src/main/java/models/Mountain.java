@@ -16,6 +16,8 @@ public class Mountain extends Biome {
     this.cost.replace("Grass", 2);
     this.cost.replace("Water", 1);
     this.color = Color.WHITE;
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_mountain.jpg").toExternalForm());
+
   }
 
   public boolean isOccupied() {
