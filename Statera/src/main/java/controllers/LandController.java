@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import models.Land;
@@ -54,8 +55,18 @@ public class LandController {
       System.out.println("Tu viens de poser un biome : " + this.BiomeSelected);
       show();
     } else {
-      return;
+      if(this.BiomeSelected != null){
+      showNotAllowedPopup();
+      }
     }
+  }
+
+  private void showNotAllowedPopup() {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Attention");
+    alert.setHeaderText(null);
+    alert.setContentText("Tu ne peux pas poser une tuile qui n'est pas libre.");
+    alert.showAndWait();
   }
 
   public void show() {
