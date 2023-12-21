@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
 
-<VBox alignment="CENTER" prefHeight="363.0" prefWidth="397.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-  </padding>
-   <AnchorPane prefHeight="537.0" prefWidth="358.0">
-      <children>
-         <Label fx:id="texteTitre" layoutX="220.0" layoutY="10.0" text="Welcome to the game Statera!">
-            <font>
-               <Font size="24.0" />
-            </font></Label>
-         <GridPane fx:id="gridPane" layoutX="70.0" layoutY="70.0" prefHeight="50.0" prefWidth="57.0">
-         </GridPane>
-         <Button fx:id="BuildingButton" layoutX="600" layoutY="100" mnemonicParsing="false" onAction="#onClickedBuildingButton" text="Building" />
-         <Button fx:id="DesertButton" layoutX="600" layoutY="140" mnemonicParsing="false" onAction="#onClickedDesertButton" text="Desert" />
-         <Button fx:id="ForestButton" layoutX="600" layoutY="180" mnemonicParsing="false" onAction="#onClickedForestButton" text="Forest" />
-         <Button fx:id="JungleButton" layoutX="600" layoutY="220" mnemonicParsing="false" onAction="#onClickedJungleButton" text="Jungle" />
-         <Button fx:id="MountainButton" layoutX="600" layoutY="260" mnemonicParsing="false" onAction="#onClickedMountainButton" text="Moutain" />
-         <Button fx:id="GrassButton" layoutX="600" layoutY="300" mnemonicParsing="false" onAction="#onClickedGrassButton" text="Grass" />
-         <Button fx:id="WaterButton" layoutX="600" layoutY="340" mnemonicParsing="false" onAction="#onClickedWaterButton" text="Water" />
-      </children>
-   </AnchorPane>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController" styleClass="body">
+  <stylesheets>
+    <URL value="@css/Game.css"/>
+  </stylesheets>
+
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
+    <Button HBox.hgrow="ALWAYS" fx:id="menu" prefWidth="10.0" mnemonicParsing="false" onAction="#onClickedMenu" text="≡"
+            styleClass="menu-button"/>
+    <ProgressBar fx:id="progressBar" prefHeight="400.0" prefWidth="510.0" styleClass="progress-bar"/>
+    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="right-column"/>
+  </HBox>
+
+  <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
+    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="left-column"/>
+    <GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="320.0" styleClass="main-grid">
+    </GridPane>
+    <Region HBox.hgrow="ALWAYS" prefWidth="10.0" styleClass="right-column"/>
+  </HBox>
+
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
+  </HBox>
 </VBox>
+
+
