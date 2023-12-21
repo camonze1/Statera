@@ -6,20 +6,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Land {
-  // Balance of the land
   private int humanBalance;
-  private int vegetationBalance;
-  private int waterBalance;
   private int animalBalance;
-
-  // Lists
-  private ArrayList<Animal> animal;
-
-  // Attributs
+  private int naturalBiomeBalance;
+  private int waterBalance;
+  private int buildingBalance;
   private int nbHuman;
+  private int nbAnimal;
+  private ArrayList<Animal> animal;
   private ArrayList<ArrayList<Biome>> land;
 
-  // Constructor with parameters
   public Land(int ligne, int colonne) {
     this.land = new ArrayList<ArrayList<Biome>>();
     Random random = new Random();
@@ -35,25 +31,6 @@ public class Land {
       }
       this.land.add(lines);
     }
-  }
-
-  // Methods
-  // Balance global du jeu -> 50% biosphere 50% environnement
-  public void globalBalance() {
-    // TODO
-
-  }
-
-  // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
-  public void biosphereBalance() {
-    // TODO
-    // get les proportions des animals et humans par plot dans tout le land
-  }
-
-  // Balance des environments -> 40% de vegetation 40% de water 20% d'infrastructures pour tout le land
-  public void environmentBalance() {
-    // TODO
-    // get les proportions de chaque biome dans tout le land
   }
 
   public Biome getBiome(int ligne, int colonne) {
@@ -80,36 +57,111 @@ public class Land {
     } else if (type == BiomeEnum.FREEWASTELAND) {
       land.get(ligne).set(colonne, new FreeWasteland());
     }
-
   }
 
-  public BiomeEnum getBiomeType(int ligne, int colonne) {
-    return land.get(ligne).get(colonne).getType();
+  public int getNumberOfNaturalBiome() {
+    return getNumberOfOccupiedPlotByType(BiomeEnum.GRASS) + getNumberOfOccupiedPlotByType(BiomeEnum.FOREST) + getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE) + getNumberOfOccupiedPlotByType(BiomeEnum.DESERT) + getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN);
   }
 
-  public int getNumberAnimal() {
-    return animal.size();
+  public double getBalanceOfNaturalBiome() {
+    int totalPlot = getTotalOfNonBlockedWastelandPlot();
+    double targetNaturalBiomePercentage = 0.4;
+    int targetNumberOfNaturalBiomes = (int) (targetNaturalBiomePercentage * totalPlot);
+    System.out.println("targetNumberOfNaturalBiomes : " + targetNumberOfNaturalBiomes);
+    double currentNaturalBiomePercentage = (double) getNumberOfNaturalBiome() / totalPlot;
+    double naturalBiomeBalance = (Math.abs(currentNaturalBiomePercentage - targetNaturalBiomePercentage) / targetNaturalBiomePercentage) * 100;
+    return 100 - naturalBiomeBalance;
+  }
+
+  public double getBalanceOfWaterBiome() {
+    int totalPlot = getTotalOfNonBlockedWastelandPlot();
+    double targetWaterPercentage = 0.4;
+    int targetNumberOfWaterBiomes = (int) (targetWaterPercentage * totalPlot);
+    System.out.println("targetNumberOfWaterBiomes : " + targetNumberOfWaterBiomes);
+    double currentWaterPercentage = (double) getNumberOfOccupiedPlotByType(BiomeEnum.WATER) / totalPlot;
+    double waterBalance = (Math.abs(currentWaterPercentage - targetWaterPercentage) / targetWaterPercentage) * 100;
+    return 100 - waterBalance;
+  }
+
+  public double getBalanceOfBuildingBiome() {
+    int totalPlot = getTotalOfNonBlockedWastelandPlot();
+    double targetBuildingPercentage = 0.2;
+    int targetNumberOfBuildingBiomes = (int) (targetBuildingPercentage * totalPlot);
+    System.out.println("targetNumberOfBuildingBiomes : " + targetNumberOfBuildingBiomes);
+    double currentBuildingPercentage = (double) getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) / totalPlot;
+    double buildingBalance = (Math.abs(currentBuildingPercentage - targetBuildingPercentage) / targetBuildingPercentage) * 100;
+    return 100 - buildingBalance;
+  }
+
+  public double environmentBalance() {
+    return ((getBalanceOfNaturalBiome() + getBalanceOfBuildingBiome() + getBalanceOfWaterBiome()) / 3);
+  }
+
+  public int getNumberOfOccupiedPlot() {
+    int numberOccupiedPlot = 0;
+    for (int i = 0; i < this.land.get(1).size(); i++) {
+      for (int j = 0; j < this.land.get(1).size(); j++) {
+        if (this.land.get(i).get(j).getType() != BiomeEnum.BLOCKEDWASTELAND && this.land.get(i).get(j).getType() != BiomeEnum.FREEWASTELAND) {
+          numberOccupiedPlot = numberOccupiedPlot + 1;
+        }
+      }
+    }
+    return numberOccupiedPlot;
+  }
+
+  public int getNumberOfOccupiedPlotByType(BiomeEnum type) {
+    int numberOccupiedPlot = 0;
+    for (int i = 0; i < this.land.get(1).size(); i++) {
+      for (int j = 0; j < this.land.get(1).size(); j++) {
+        if (this.land.get(i).get(j).getType() == type) {
+          numberOccupiedPlot = numberOccupiedPlot + 1;
+        }
+      }
+    }
+    return numberOccupiedPlot;
+  }
+
+  public int getTotalOfNonBlockedWastelandPlot() {
+    int totalNumberOfAvailablePlot = 0;
+    for (int i = 0; i < this.land.get(1).size(); i++) {
+      for (int j = 0; j < this.land.get(1).size(); j++) {
+        if (this.land.get(i).get(j).getType() != BiomeEnum.BLOCKEDWASTELAND) {
+          totalNumberOfAvailablePlot = totalNumberOfAvailablePlot + 1;
+        }
+      }
+    }
+    return totalNumberOfAvailablePlot;
+  }
+
+  public int getNumberOfNonOccupiedPlot() {
+    int numberNonOccupiedPlot = 0;
+    for (int i = 0; i < this.land.get(1).size(); i++) {
+      for (int j = 0; j < this.land.get(1).size(); j++) {
+        if (this.land.get(i).get(j).getType() == BiomeEnum.BLOCKEDWASTELAND || this.land.get(i).get(j).getType() == BiomeEnum.FREEWASTELAND) {
+          numberNonOccupiedPlot = numberNonOccupiedPlot + 1;
+        }
+      }
+    }
+    return numberNonOccupiedPlot;
   }
 
   public int[] getLandSize() {
-    ;
     return new int[]{this.land.size(), this.land.get(0).size()};
   }
 
   public int getLandSizeTotal() {
-    ;
     return this.land.size() * this.land.get(0).size();
   }
 
-  public int getOccupiedPlot() {
-    int ctr = 0;
-    for (int i = 0; i < this.land.get(1).size(); i++) {
-      for (int j = 0; j < this.land.get(1).size(); j++) {
-        if (this.land.get(i).get(j).getType() != BiomeEnum.BLOCKEDWASTELAND) {
-          ctr = ctr + 1;
-        }
-      }
-    }
-    return ctr;
+  public void globalBalance() {
+    // TODO
+    // Balance global du jeu -> 50% biosphere 50% environnement
   }
+
+  public void biosphereBalance() {
+    // TODO
+    // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
+    // get les proportions des animals et humans par plot dans tout le land
+  }
+
 }

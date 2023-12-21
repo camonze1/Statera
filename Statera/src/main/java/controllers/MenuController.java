@@ -28,7 +28,7 @@ public class MenuController {
     }
   }
 
-  public void onClickedHome(ActionEvent event) {
+  public void home(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
@@ -40,6 +40,11 @@ public class MenuController {
 
   public void setLandController(LandController landController) {
     this.landController = landController;
+  }
+
+  public void onClickedReplayGame(ActionEvent event) {
+    home(event);
+    landController.initializeLand();
   }
 
   public BiomeMenuController getBiomeMenuController() {

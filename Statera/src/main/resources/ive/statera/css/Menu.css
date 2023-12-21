@@ -14,7 +14,7 @@
     -fx-padding: 10px;
 }
 
-.home-button {
+.button {
     -fx-font-size: 12px;
     -fx-background-color: #e1d9d9;
     -fx-text-fill: black;
@@ -28,43 +28,8 @@
     -fx-font-family: default;
 }
 
-.home-button:hover {
+.button:hover {
     -fx-background-color: #cec7c7;
 }
 
-.select-biome-button {
-    -fx-font-size: 12px;
-    -fx-background-color: #e1d9d9;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    -fx-min-width: 100px;
-    -fx-max-width: 100px;
-    -fx-min-height: 25px;
-    -fx-max-height: 25px;
-    -fx-alignment: center top;
-    -fx-background-radius: 2px;
-    -fx-font-family: default;
-}
-
-.select-biome-button:hover {
-    -fx-background-color: #cec7c7;
-}
-
-.quit-button {
-    -fx-font-size: 12px;
-    -fx-background-color: #e1d9d9;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    -fx-min-width: 100px;
-    -fx-max-width: 100px;
-    -fx-min-height: 25px;
-    -fx-max-height: 25px;
-    -fx-alignment: center top;
-    -fx-background-radius: 2px;
-    -fx-font-family: default;
-}
-
-.quit-button:hover {
-    -fx-background-color: #cec7c7;
-}
 

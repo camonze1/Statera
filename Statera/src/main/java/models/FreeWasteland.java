@@ -16,6 +16,7 @@ public class FreeWasteland extends Biome {
     this.buildingProportion = 0;
     this.color = Color.LIGHTGRAY;
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/free_wasteland.png").toExternalForm());
+    this.animalProportion = 0;
 
 //    Random r = new Random();
 //    int n = r.nextInt(6);
