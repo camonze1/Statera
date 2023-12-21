@@ -3,14 +3,12 @@ package controllers;
 import enums.BiomeEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import models.Land;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
@@ -18,13 +16,11 @@ import java.io.IOException;
 
 public class LandController {
 
-  private BiomeEnum BiomeSelected;
-
   @FXML
   private GridPane gridPane;
   private Land land;
-  @FXML
-  private BiomeMenuController biomeMenuController;
+  private BiomeEnum BiomeSelected;
+
   @FXML
   public void initialize() {
     this.land = new Land(15, 15);
@@ -70,7 +66,6 @@ public class LandController {
     }
   }
 
-
   @FXML
   public void onClickedMenu(ActionEvent event) {
     try {
@@ -78,6 +73,9 @@ public class LandController {
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
       Stage menuStage = new Stage();
+      MenuController menuController = loader.getController();
+      menuController.setLandController(this);
+      menuStage.setTitle("Menu - Statera");
       menuStage.setScene(scene);
       menuStage.show();
     } catch (IOException e) {

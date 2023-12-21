@@ -16,5 +16,7 @@
   </Label>
   <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#onClickedHome" text="Home" />
 
-  <Button fx:id="SelectLand" layoutX="300.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton" text="Select Land" />
+  <Button fx:id="SelectLand" layoutX="300.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton" text="Select biome" />
+  <Button fx:id="quitGame" layoutX="400.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedQuitGame" text="Quit game" />
+
 </AnchorPane>
