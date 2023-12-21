@@ -3,6 +3,7 @@ package models;
 import enums.BiomeEnum;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Land {
   // Balance of the land
@@ -21,12 +22,18 @@ public class Land {
   // Constructor with parameters
   public Land(int ligne, int colonne) {
     this.land = new ArrayList<ArrayList<Biome>>();
+    Random random = new Random();
     for (int i = 0; i < ligne; i++) {
-      ArrayList<Biome> TableauPro = new ArrayList<Biome>();
+      ArrayList<Biome> lines = new ArrayList<Biome>();
       for (int j = 0; j < colonne; j++) {
-        TableauPro.add(new Wasteland());
+        int randomValue = random.nextInt(6);
+        if (randomValue == 0) {
+          lines.add(new FreeWasteland());
+        } else {
+          lines.add(new BlockedWasteland());
+        }
       }
-      this.land.add(TableauPro);
+      this.land.add(lines);
     }
   }
 
@@ -68,8 +75,10 @@ public class Land {
       land.get(ligne).set(colonne, new Forest());
     } else if (type == BiomeEnum.JUNGLE) {
       land.get(ligne).set(colonne, new Jungle());
-    } else if (type == BiomeEnum.WASTELAND) {
-      land.get(ligne).set(colonne, new Wasteland());
+    } else if (type == BiomeEnum.BLOCKEDWASTELAND) {
+      land.get(ligne).set(colonne, new BlockedWasteland());
+    } else if (type == BiomeEnum.FREEWASTELAND) {
+      land.get(ligne).set(colonne, new FreeWasteland());
     }
 
   }
@@ -96,7 +105,7 @@ public class Land {
     int ctr = 0;
     for (int i = 0; i < this.land.get(1).size(); i++) {
       for (int j = 0; j < this.land.get(1).size(); j++) {
-        if (this.land.get(i).get(j).getType() != BiomeEnum.WASTELAND) {
+        if (this.land.get(i).get(j).getType() != BiomeEnum.BLOCKEDWASTELAND) {
           ctr = ctr + 1;
         }
       }

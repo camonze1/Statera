@@ -41,7 +41,6 @@
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
-    <!-- Contenu du pied de page -->
   </HBox>
 </VBox>
 

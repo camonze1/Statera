@@ -28,7 +28,7 @@ public abstract class Biome {
     this.cost = new HashMap<String, Integer>();
     this.cost.put("Building", 0);
     this.cost.put("Desert", 0);
-    this.cost.put("Wasteland", 0);
+    this.cost.put("BlockedWasteland", 0);
     this.cost.put("Forest", 0);
     this.cost.put("Grass", 0);
     this.cost.put("Jungle", 0);
