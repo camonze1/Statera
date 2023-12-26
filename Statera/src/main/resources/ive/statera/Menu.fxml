@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
-
-<?import java.net.URL?>
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController" styleClass="global">
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
   <stylesheets>
-    <URL value="@css/Menu.css"/>
+    <URL value="@css/Menu.css" />
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" text="MENU" styleClass="title">
+    <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="MENU">
     </Label>
   </HBox>
 
-  <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">
-    <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home" styleClass="home-button"/>
-    <Button fx:id="selectBiome" layoutX="300.0" layoutY="88.0" mnemonicParsing="false"
-            onAction="#onClickedSelectBiomeButton" text="Select biome" styleClass="select-biome-button"/>
-    <Button fx:id="replayGame" layoutX="400.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedReplayGame"
-            text="Replay game" styleClass="replay-button"/>
-    <Button fx:id="quitGame" layoutX="400.0" layoutY="88.0" mnemonicParsing="false" onAction="#onClickedQuitGame"
-            text="Quit game" styleClass="quit-button"/>
-
+  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
+    <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button" text="Home" />
   </HBox>
+
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
+       <Button fx:id="selectBiome" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton" styleClass="select-biome-button" text="Select biome" />
+       <Button fx:id="viewBalance" mnemonicParsing="false" onAction="#onClickedViewBalanceButton" styleClass="view-balance-button" text="View balance" />
+   </HBox>
+
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
+       <Button fx:id="replayGame" mnemonicParsing="false" onAction="#onClickedReplayGame" styleClass="replay-button" text="Replay game" />
+       <Button fx:id="quitGame" mnemonicParsing="false" onAction="#onClickedQuitGame" styleClass="quit-button" text="Quit game" />
+   </HBox>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
   </HBox>

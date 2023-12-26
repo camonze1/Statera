@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
@@ -15,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class LandController {
 
@@ -23,6 +25,8 @@ public class LandController {
 
   @FXML
   private ProgressBar environmentProgressBar;
+  @FXML
+  private Label PercentLabel;
   private Land land;
   private BiomeEnum biomeSelected;
 
@@ -31,7 +35,7 @@ public class LandController {
     initializeLand();
   }
 
-  public void initializeLand(){
+  public void initializeLand() {
     this.land = new Land(15, 15);
     this.land.setBiome(1, 1, BiomeEnum.WATER);
     this.land.setBiome(1, 2, BiomeEnum.DESERT);
@@ -128,9 +132,17 @@ public class LandController {
   public void updateEnvironmentProgressBar() {
     double balance = this.land.environmentBalance();
     environmentProgressBar.setProgress(balance / 100.0);
+    Double roundedValue = roundToFirstDecimal(balance);
+    PercentLabel.setText("" + roundedValue + "%");
   }
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     this.biomeSelected = biomeSelected;
   }
+
+
+  private double roundToFirstDecimal(double value) {
+    return Math.round(value * 10.0) / 10.0;
+  }
+
 }

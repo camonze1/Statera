@@ -11,8 +11,13 @@
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
     <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" prefWidth="10.0" styleClass="menu-button" text="≡" HBox.hgrow="ALWAYS" />
-    <ProgressBar fx:id="environmentProgressBar" prefHeight="400.0" prefWidth="510.0" styleClass="progress-bar" />
-    <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS" />
+      <VBox>
+         <children>
+           <Label text="Global balance :" styleClass="label"/>
+           <ProgressBar fx:id="environmentProgressBar" maxHeight="31.0" minHeight="19.0" minWidth="358.0" prefHeight="19.0" prefWidth="358.0" styleClass="progress-bar" />
+         </children>
+      </VBox>
+    <Label fx:id="PercentLabel" styleClass="label" />
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">

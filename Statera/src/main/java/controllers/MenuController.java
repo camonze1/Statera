@@ -12,6 +12,7 @@ import java.io.IOException;
 public class MenuController {
   private LandController landController;
   private BiomeMenuController biomeMenuController;
+  private BalanceController balanceController;
   @FXML
   public void onClickedSelectBiomeButton(ActionEvent event) {
     try {
@@ -21,6 +22,22 @@ public class MenuController {
       this.biomeMenuController.setLandController(this.landController);
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Select Biome - Statera");
+      stage.setScene(scene);
+      stage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @FXML
+  public void onClickedViewBalanceButton(ActionEvent event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Balance.fxml"));
+      Scene scene = new Scene(loader.load(), 600, 500);
+      this.balanceController = loader.getController();
+      this.balanceController.setLandController(this.landController);
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      stage.setTitle("View balance  -  Statera");
       stage.setScene(scene);
       stage.show();
     } catch (IOException e) {
@@ -50,4 +67,5 @@ public class MenuController {
   public BiomeMenuController getBiomeMenuController() {
     return biomeMenuController;
   }
+
 }
