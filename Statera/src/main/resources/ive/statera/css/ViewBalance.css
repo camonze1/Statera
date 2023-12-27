@@ -1,7 +1,7 @@
 .global {
     -fx-background-color: #454862;
+    -fx-padding: 0px;
 }
-
 
 .title {
     -fx-font-size: 50px;
@@ -10,9 +10,28 @@
     -fx-padding: 50px 15px 15px 15px;
 }
 
+/* HEADER */
+.header {
+    -fx-padding: 10px 10px 10px 30px;
+    -fx-spacing: 80px;
+}
+
 .body {
-    -fx-spacing: 30px;
+    -fx-spacing: 20px;
     -fx-padding: 10px;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    -fx-padding: 0px;
+    -fx-min-height: 25px;
+    -fx-max-height: 25px;
+    -fx-max-width: 550px;
+    -fx-min-width: 300px;
 }
 
 .button {
@@ -31,4 +50,10 @@
 
 .button:hover {
     -fx-background-color: #cec7c7;
+}
+
+/* FOOTER */
+.footer {
+    -fx-padding: 10px;
+    -fx-spacing: 100px;
 }

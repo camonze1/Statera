@@ -3,6 +3,7 @@ package controllers;
 import enums.BiomeEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -22,13 +23,21 @@ public class LandController {
 
   @FXML
   private GridPane gridPane;
-
-  @FXML
-  private ProgressBar environmentProgressBar;
-  @FXML
-  private Label PercentLabel;
   private Land land;
   private BiomeEnum biomeSelected;
+
+  @FXML
+  private ProgressBar environmentBalanceProgressBar;
+  @FXML
+  private Label environmentBalanceLabel;
+
+  private double naturalBiomeBalance;
+  private double naturalBiomeBalanceRoundedValue;
+  private double buildingBiomeBalance;
+  private double buildingBiomeBalanceRoundedValue;
+  private double waterBiomeBalance;
+  private double waterBiomeBalanceRoundedValue;
+
 
   @FXML
   public void initialize() {
@@ -51,7 +60,7 @@ public class LandController {
         this.land.getBiome(row, col).setRectangle(plot);
       }
     }
-    updateEnvironmentProgressBar();
+    updateBalance();
     show();
   }
 
@@ -65,7 +74,7 @@ public class LandController {
       biomePlot.setFill(new ImagePattern(this.land.getBiome(rowIndex, colIndex).getImage()));
       biomePlot.setOnMouseClicked(event -> handleRectangleClick(biomePlot));
       this.land.getBiome(rowIndex, colIndex).setRectangle(biomePlot);
-      updateEnvironmentProgressBar();
+      updateBalance();
       show();
     } else {
       if (this.biomeSelected != null) {
@@ -119,8 +128,10 @@ public class LandController {
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
       Stage menuStage = new Stage();
+
       MenuController menuController = loader.getController();
       menuController.setLandController(this);
+
       menuStage.setTitle("Menu - Statera");
       menuStage.setScene(scene);
       menuStage.show();
@@ -128,13 +139,42 @@ public class LandController {
       e.printStackTrace();
     }
   }
+  @FXML
+  public void onClickedViewBalance(ActionEvent event) {
+    try {
 
-  public void updateEnvironmentProgressBar() {
-    double balance = this.land.environmentBalance();
-    environmentProgressBar.setProgress(balance / 100.0);
-    Double roundedValue = roundToFirstDecimal(balance);
-    PercentLabel.setText("" + roundedValue + "%");
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/ViewBalance.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage viewBalanceStage = new Stage();
+
+      ViewBalanceController viewBalanceController = loader.getController();
+      viewBalanceController.setLandController(this);
+
+      viewBalanceStage.setTitle("View balance - Statera");
+      viewBalanceStage.setScene(scene);
+      viewBalanceStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
+  public void updateBalance() {
+    double environmentBalance = this.land.environmentBalance();
+    environmentBalanceProgressBar.setProgress(environmentBalance / 100.0);
+    Double environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
+    environmentBalanceLabel.setText("" + environmentBalanceRoundedValue + "%");
+
+    naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
+    naturalBiomeBalanceRoundedValue = roundToFirstDecimal(naturalBiomeBalance);
+
+    buildingBiomeBalance = this.land.getBalanceOfBuildingBiome();
+    buildingBiomeBalanceRoundedValue = roundToFirstDecimal(buildingBiomeBalance);
+
+    waterBiomeBalance = this.land.getBalanceOfWaterBiome();
+    waterBiomeBalanceRoundedValue = roundToFirstDecimal(waterBiomeBalance);
+  }
+
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     this.biomeSelected = biomeSelected;
@@ -144,5 +184,22 @@ public class LandController {
   private double roundToFirstDecimal(double value) {
     return Math.round(value * 10.0) / 10.0;
   }
+
+  public ProgressBar getEnvironmentBalanceProgressBar(){
+    return environmentBalanceProgressBar;
+  }
+  public Label getEnvironmentBalanceLabel(){
+    return environmentBalanceLabel;
+  }
+  public double getNaturalBiomeBalance(){
+    return naturalBiomeBalance;
+  }
+  public double getNaturalBiomeBalanceRoundedValue(){
+    return naturalBiomeBalanceRoundedValue;
+  }
+  public double getBuildingBiomeBalance(){return buildingBiomeBalance;}
+  public double getBuildingBiomeBalanceRoundedValue(){return buildingBiomeBalanceRoundedValue;}
+  public double getWaterBiomeBalance(){return waterBiomeBalance;}
+  public double getWaterBiomeBalanceRoundedValue(){return waterBiomeBalanceRoundedValue;}
 
 }
