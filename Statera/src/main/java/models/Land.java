@@ -59,6 +59,7 @@ public class Land {
     }
   }
 
+  // This function gives the number of plots whose type is a natural biome.
   public int getNumberOfNaturalBiome() {
     return getNumberOfOccupiedPlotByType(BiomeEnum.GRASS) + getNumberOfOccupiedPlotByType(BiomeEnum.FOREST) + getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE) + getNumberOfOccupiedPlotByType(BiomeEnum.DESERT) + getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN);
   }
@@ -97,6 +98,7 @@ public class Land {
     return ((getBalanceOfNaturalBiome() + getBalanceOfBuildingBiome() + getBalanceOfWaterBiome()) / 3);
   }
 
+  // This function gives the number of occupied plots.
   public int getNumberOfOccupiedPlot() {
     int numberOccupiedPlot = 0;
     for (int i = 0; i < this.land.get(1).size(); i++) {
@@ -109,6 +111,7 @@ public class Land {
     return numberOccupiedPlot;
   }
 
+  // This function displays the number of occupied plots of the type entered.
   public int getNumberOfOccupiedPlotByType(BiomeEnum type) {
     int numberOccupiedPlot = 0;
     for (int i = 0; i < this.land.get(1).size(); i++) {
@@ -121,6 +124,7 @@ public class Land {
     return numberOccupiedPlot;
   }
 
+  // This function gives the number of unblocked plots.
   public int getTotalOfNonBlockedWastelandPlot() {
     int totalNumberOfAvailablePlot = 0;
     for (int i = 0; i < this.land.get(1).size(); i++) {
@@ -133,6 +137,7 @@ public class Land {
     return totalNumberOfAvailablePlot;
   }
 
+  // This function gives the number of unoccupied plots. Wasteland biomes are considered unoccupied.
   public int getNumberOfNonOccupiedPlot() {
     int numberNonOccupiedPlot = 0;
     for (int i = 0; i < this.land.get(1).size(); i++) {

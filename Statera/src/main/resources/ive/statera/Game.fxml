@@ -10,9 +10,16 @@
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" prefWidth="10.0" styleClass="menu-button" text="≡" HBox.hgrow="ALWAYS" />
-    <ProgressBar fx:id="environmentProgressBar" prefHeight="400.0" prefWidth="510.0" styleClass="progress-bar" />
-    <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS" />
+    <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" styleClass="menu-button" text="≡" />
+      <VBox>
+           <Label styleClass="label" text="Global balance :" />
+           <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar" />
+      </VBox>
+    <Label fx:id="environmentBalanceLabel" styleClass="label" />
+    </HBox>
+
+  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
+      <Button fx:id="viewBalance" mnemonicParsing="false" onAction="#onClickedViewBalance" styleClass="view-balance-button" text="View balance" />
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">

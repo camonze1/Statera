@@ -18,6 +18,10 @@
     -fx-min-width: 500px;
 }
 
+.label {
+    -fx-text-fill: white;
+}
+
 /* MENU BUTTON */
 .menu-button {
     -fx-font-size: 22px;

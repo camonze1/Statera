@@ -1,0 +1,59 @@
+.global {
+    -fx-background-color: #454862;
+    -fx-padding: 0px;
+}
+
+.title {
+    -fx-font-size: 50px;
+    -fx-font-family: "Bahnschrift";
+    -fx-font-weight: bold;
+    -fx-padding: 50px 15px 15px 15px;
+}
+
+/* HEADER */
+.header {
+    -fx-padding: 10px 10px 10px 30px;
+    -fx-spacing: 80px;
+}
+
+.body {
+    -fx-spacing: 20px;
+    -fx-padding: 10px;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+    -fx-padding: 0px;
+    -fx-min-height: 25px;
+    -fx-max-height: 25px;
+    -fx-max-width: 550px;
+    -fx-min-width: 300px;
+}
+
+.button {
+    -fx-font-size: 12px;
+    -fx-background-color: #e1d9d9;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+    -fx-min-width: 100px;
+    -fx-max-width: 100px;
+    -fx-min-height: 25px;
+    -fx-max-height: 25px;
+    -fx-alignment: center top;
+    -fx-background-radius: 2px;
+    -fx-font-family: default;
+}
+
+.button:hover {
+    -fx-background-color: #cec7c7;
+}
+
+/* FOOTER */
+.footer {
+    -fx-padding: 10px;
+    -fx-spacing: 100px;
+}
