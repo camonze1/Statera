@@ -19,22 +19,22 @@ public abstract class Biome {
   protected int waterProportion;
   protected int vegetationProportion;
   protected int buildingProportion;
-  protected HashMap<String, Integer> cost;
+  protected HashMap<BiomeEnum, Integer> cost;
   @FXML
   protected Rectangle rectangle;
   protected Image img;
   protected Color color;
 
   public Biome() {
-    this.cost = new HashMap<String, Integer>();
-    this.cost.put("Building", 0);
-    this.cost.put("Desert", 0);
-    this.cost.put("BlockedWasteland", 0);
-    this.cost.put("FreeWasteland", 0);
-    this.cost.put("Forest", 0);
-    this.cost.put("Grass", 0);
-    this.cost.put("Jungle", 0);
-    this.cost.put("Water", 0);
+    this.cost = new HashMap<BiomeEnum, Integer>();
+    this.cost.put(BiomeEnum.BUILDING, 0);
+    this.cost.put(BiomeEnum.DESERT, 0);
+    this.cost.put(BiomeEnum.BLOCKEDWASTELAND, 0);
+    this.cost.put(BiomeEnum.FREEWASTELAND, 0);
+    this.cost.put(BiomeEnum.FOREST , 0);
+    this.cost.put(BiomeEnum.GRASS, 0);
+    this.cost.put(BiomeEnum.JUNGLE, 0);
+    this.cost.put(BiomeEnum.WATER, 0);
   }
 
   public abstract boolean isOccupied();
@@ -71,6 +71,14 @@ public abstract class Biome {
     this.description = description;
   }
 
+  public HashMap<BiomeEnum, Integer> getCost() {
+    return this.cost;
+  }
+
+  public void setCost(HashMap<BiomeEnum, Integer> cost) {
+    this.cost = cost;
+  }
+
   public int getWaterProportion() {
     return this.waterProportion;
   }
@@ -93,14 +101,6 @@ public abstract class Biome {
 
   public void setBuildingProportion(int buildingProportion) {
     this.buildingProportion = buildingProportion;
-  }
-
-  public HashMap<String, Integer> getCost() {
-    return this.cost;
-  }
-
-  public void setCost(HashMap<String, Integer> cost) {
-    this.cost = cost;
   }
 
   public int getAnimalProportion() {

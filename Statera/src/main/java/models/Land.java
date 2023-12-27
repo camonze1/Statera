@@ -1,9 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
-
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Land {
   private int humanBalance;
@@ -16,12 +14,12 @@ public class Land {
   private ArrayList<Animal> animal;
   private ArrayList<ArrayList<Biome>> land;
 
-  public Land(int ligne, int colonne) {
+  public Land(int line, int column) {
     this.land = new ArrayList<ArrayList<Biome>>();
     Random random = new Random();
-    for (int i = 0; i < ligne; i++) {
+    for (int i = 0; i < line; i++) {
       ArrayList<Biome> lines = new ArrayList<Biome>();
-      for (int j = 0; j < colonne; j++) {
+      for (int j = 0; j < column; j++) {
         int randomValue = random.nextInt(6);
         if (randomValue == 0) {
           lines.add(new FreeWasteland());
@@ -33,29 +31,29 @@ public class Land {
     }
   }
 
-  public Biome getBiome(int ligne, int colonne) {
-    return land.get(ligne).get(colonne);
+  public Biome getBiome(int line, int column) {
+    return this.land.get(line).get(column);
   }
 
-  public void setBiome(int ligne, int colonne, BiomeEnum type) {
+  public void setBiome(int line, int column, BiomeEnum type) {
     if (type == BiomeEnum.GRASS) {
-      land.get(ligne).set(colonne, new Grass());
+      this.land.get(line).set(column, new Grass());
     } else if (type == BiomeEnum.WATER) {
-      land.get(ligne).set(colonne, new Water());
+      this.land.get(line).set(column, new Water());
     } else if (type == BiomeEnum.DESERT) {
-      land.get(ligne).set(colonne, new Desert());
+      this.land.get(line).set(column, new Desert());
     } else if (type == BiomeEnum.MOUNTAIN) {
-      land.get(ligne).set(colonne, new Mountain());
+      this.land.get(line).set(column, new Mountain());
     } else if (type == BiomeEnum.BUILDING) {
-      land.get(ligne).set(colonne, new Building());
+      this.land.get(line).set(column, new Building());
     } else if (type == BiomeEnum.FOREST) {
-      land.get(ligne).set(colonne, new Forest());
+      this.land.get(line).set(column, new Forest());
     } else if (type == BiomeEnum.JUNGLE) {
-      land.get(ligne).set(colonne, new Jungle());
+      this.land.get(line).set(column, new Jungle());
     } else if (type == BiomeEnum.BLOCKEDWASTELAND) {
-      land.get(ligne).set(colonne, new BlockedWasteland());
+      this.land.get(line).set(column, new BlockedWasteland());
     } else if (type == BiomeEnum.FREEWASTELAND) {
-      land.get(ligne).set(colonne, new FreeWasteland());
+      this.land.get(line).set(column, new FreeWasteland());
     }
   }
 
@@ -95,6 +93,37 @@ public class Land {
 
   public double environmentBalance() {
     return ((getBalanceOfNaturalBiome() + getBalanceOfBuildingBiome() + getBalanceOfWaterBiome()) / 3);
+  }
+
+  public HashMap<BiomeEnum, Integer> getCostOfPlot(int line, int column) {
+    HashMap<BiomeEnum, Integer> cost = new HashMap<BiomeEnum, Integer>();
+    HashMap<BiomeEnum, Integer> temp = this.land.get(line).get(column).getCost();
+    for (BiomeEnum key : temp.keySet()) {
+      if (temp.get(key) != 0) {
+        cost.put(key, temp.get(key));
+      }
+    }
+    return cost;
+  }
+
+  public BiomeEnum getTypeOfBiomeByCoordinatesOnClick(int line, int column) {
+    return this.land.get(line).get(column).getType();
+  }
+  public List<int[]> getCoordinatesByBiomeType(BiomeEnum biomeType) {
+    List<int[]> coordinatesList = new ArrayList<>();
+    for (int i = 0; i < this.land.size(); i++) {
+      for (int j = 0; j < this.land.get(0).size(); j++) {
+        if (this.land.get(i).get(j).getType() == biomeType) {
+          int[] coordinates = {i, j};
+          coordinatesList.add(coordinates);
+        }
+      }
+    }
+    return coordinatesList;
+  }
+
+  public void setFreeWasteland(int line, int column) {
+    this.land.get(line).set(column, new FreeWasteland());
   }
 
   public int getNumberOfOccupiedPlot() {
