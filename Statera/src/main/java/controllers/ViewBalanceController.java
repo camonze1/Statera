@@ -28,6 +28,7 @@ public class ViewBalanceController {
     @FXML
     private Label waterBiomeBalanceLabel;
 
+
     public void setLandController(LandController landController) {
         this.landController = landController;
         if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
