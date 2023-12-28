@@ -12,9 +12,9 @@ public class Mountain extends Biome {
     this.waterProportion = 0;
     this.vegetationProportion = 1;
     this.buildingProportion = 0;
-    this.cost.replace("Forest", 1);
-    this.cost.replace("Grass", 2);
-    this.cost.replace("Water", 1);
+    this.cost.replace(BiomeEnum.FOREST, 1);
+    this.cost.replace(BiomeEnum.GRASS, 2);
+    this.cost.replace(BiomeEnum.WATER, 1);
     this.color = Color.WHITE;
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_mountain.jpg").toExternalForm());
     this.animalProportion = 8;

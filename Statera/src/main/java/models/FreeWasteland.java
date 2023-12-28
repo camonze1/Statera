@@ -18,15 +18,6 @@ public class FreeWasteland extends Biome {
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/free_wasteland.png").toExternalForm());
     this.animalProportion = 0;
 
-//    Random r = new Random();
-//    int n = r.nextInt(6);
-//    if (n == 0) {
-//      this.img = new Image(getClass().getResource("/ive/statera/img/tiles/free_wasteland.png").toExternalForm());
-//
-//    } else {
-//      this.img = new Image(getClass().getResource("/ive/statera/img/tiles/blocked_wasteland.png").toExternalForm());
-//
-//    }
   }
 
   public boolean isOccupied() {
