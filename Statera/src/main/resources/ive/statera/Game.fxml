@@ -4,29 +4,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LandController">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" styleClass="global"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.LandController">
   <stylesheets>
-    <URL value="@css/Game.css" />
+    <URL value="@css/Game.css"/>
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" styleClass="menu-button" text="≡" />
-      <VBox>
-           <Label styleClass="label" text="Global balance :" />
-           <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar" />
-      </VBox>
-    <Label fx:id="environmentBalanceLabel" styleClass="label" />
-    </HBox>
+    <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" styleClass="menu-button" text="≡"/>
+    <VBox>
+      <Label styleClass="label" text="Global balance :"/>
+      <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+    </VBox>
+    <Label fx:id="environmentBalanceLabel" styleClass="label"/>
+  </HBox>
+
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-      <Button fx:id="viewBalance" mnemonicParsing="false" onAction="#onClickedViewBalance" styleClass="view-balance-button" text="View balance" />
+    <Button fx:id="viewBalance" mnemonicParsing="false" onAction="#onClickedBalance" styleClass="view-balance-button"
+            text="View balance"/>
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">
-    <Region prefWidth="10.0" styleClass="left-column" HBox.hgrow="ALWAYS" />
+    <Region prefWidth="10.0" styleClass="left-column" HBox.hgrow="ALWAYS"/>
     <GridPane fx:id="gridPane" prefHeight="400.0" prefWidth="320.0" styleClass="main-grid">
     </GridPane>
-    <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS" />
+    <Region prefWidth="10.0" styleClass="right-column" HBox.hgrow="ALWAYS"/>
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">

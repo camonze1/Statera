@@ -108,7 +108,7 @@ public class Land {
     return cost;
   }
 
-  public BiomeEnum getTypeOfBiomeByCoordinatesOnClick(int line, int column) {
+  public BiomeEnum getTypeOfBiomeByCoordinate(int line, int column) {
     return this.land.get(line).get(column).getType();
   }
   public List<int[]> getCoordinatesByBiomeType(BiomeEnum biomeType) {

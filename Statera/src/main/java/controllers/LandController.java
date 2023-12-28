@@ -3,7 +3,6 @@ package controllers;
 import enums.BiomeEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -22,25 +21,21 @@ import java.util.List;
 import java.util.Random;
 
 public class LandController {
-
-  @FXML
-  private GridPane gridPane;
   private Land land;
   private BiomeEnum biomeSelected;
   private Random random = new Random();
-
-  @FXML
-  private ProgressBar environmentBalanceProgressBar;
-  @FXML
-  private Label environmentBalanceLabel;
-
   private double naturalBiomeBalance;
   private double naturalBiomeBalanceRoundedValue;
   private double buildingBiomeBalance;
   private double buildingBiomeBalanceRoundedValue;
   private double waterBiomeBalance;
   private double waterBiomeBalanceRoundedValue;
-
+  @FXML
+  private GridPane gridPane;
+  @FXML
+  private ProgressBar environmentBalanceProgressBar;
+  @FXML
+  private Label environmentBalanceLabel;
 
   @FXML
   public void initialize() {
@@ -104,44 +99,7 @@ public class LandController {
 //    System.out.println("Environment balance : " + this.land.environmentBalance());
   }
 
-  @FXML
-  public void onClickedMenu(ActionEvent event) {
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
-      Parent root = loader.load();
-      Scene scene = new Scene(root, 600, 500);
-      Stage menuStage = new Stage();
-
-      MenuController menuController = loader.getController();
-      menuController.setLandController(this);
-
-      menuStage.setTitle("Menu - Statera");
-      menuStage.setScene(scene);
-      menuStage.show();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-  @FXML
-  public void onClickedViewBalance(ActionEvent event) {
-    try {
-
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/ViewBalance.fxml"));
-      Parent root = loader.load();
-      Scene scene = new Scene(root, 600, 500);
-      Stage viewBalanceStage = new Stage();
-
-      ViewBalanceController viewBalanceController = loader.getController();
-      viewBalanceController.setLandController(this);
-
-      viewBalanceStage.setTitle("View balance - Statera");
-      viewBalanceStage.setScene(scene);
-      viewBalanceStage.show();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
+  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
   public void updateBalance() {
     double environmentBalance = this.land.environmentBalance();
     environmentBalanceProgressBar.setProgress(environmentBalance / 100.0);
@@ -157,6 +115,8 @@ public class LandController {
     waterBiomeBalance = this.land.getBalanceOfWaterBiome();
     waterBiomeBalanceRoundedValue = roundToFirstDecimal(waterBiomeBalance);
   }
+  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
+
 
   public void buyBiome(int line, int column, BiomeEnum biomeSelected) {
     this.land.setBiome(line, column, biomeSelected);
@@ -219,25 +179,81 @@ public class LandController {
     this.biomeSelected = biomeSelected;
   }
 
+  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
   private double roundToFirstDecimal(double value) {
     return Math.round(value * 10.0) / 10.0;
   }
 
-  public ProgressBar getEnvironmentBalanceProgressBar(){
+  public ProgressBar getEnvironmentBalanceProgressBar() {
     return environmentBalanceProgressBar;
   }
-  public Label getEnvironmentBalanceLabel(){
+
+  public Label getEnvironmentBalanceLabel() {
     return environmentBalanceLabel;
   }
-  public double getNaturalBiomeBalance(){
+
+  public double getNaturalBiomeBalance() {
     return naturalBiomeBalance;
   }
-  public double getNaturalBiomeBalanceRoundedValue(){
+
+  public double getNaturalBiomeBalanceRoundedValue() {
     return naturalBiomeBalanceRoundedValue;
   }
-  public double getBuildingBiomeBalance(){return buildingBiomeBalance;}
-  public double getBuildingBiomeBalanceRoundedValue(){return buildingBiomeBalanceRoundedValue;}
-  public double getWaterBiomeBalance(){return waterBiomeBalance;}
-  public double getWaterBiomeBalanceRoundedValue(){return waterBiomeBalanceRoundedValue;}
 
+  public double getBuildingBiomeBalance() {
+    return buildingBiomeBalance;
+  }
+
+  public double getBuildingBiomeBalanceRoundedValue() {
+    return buildingBiomeBalanceRoundedValue;
+  }
+
+  public double getWaterBiomeBalance() {
+    return waterBiomeBalance;
+  }
+
+  public double getWaterBiomeBalanceRoundedValue() {
+    return waterBiomeBalanceRoundedValue;
+  }
+
+  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
+
+  @FXML
+  public void onClickedMenu(ActionEvent event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage menuStage = new Stage();
+
+      MenuController menuController = loader.getController();
+      menuController.setLandController(this);
+
+      menuStage.setTitle("Menu - Statera");
+      menuStage.setScene(scene);
+      menuStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @FXML
+  public void onClickedBalance(ActionEvent event) {
+    try {
+
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Balance.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage viewBalanceStage = new Stage();
+
+      BalanceMenuController balanceMenuController = loader.getController();
+      balanceMenuController.setLandController(this);
+
+      viewBalanceStage.setTitle("View balance - Statera");
+      viewBalanceStage.setScene(scene);
+      viewBalanceStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 }

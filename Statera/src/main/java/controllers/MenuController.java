@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -19,11 +18,8 @@ public class MenuController {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/BiomeMenu.fxml"));
       Scene scene = new Scene(loader.load(), 600, 500);
-
       this.biomeMenuController = loader.getController();
-
       this.biomeMenuController.setLandController(this.landController);
-
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Select Biome - Statera");
       stage.setScene(scene);
@@ -45,7 +41,6 @@ public class MenuController {
 
   public void setLandController(LandController landController) {
     this.landController = landController;
-    System.out.println("LandController set in MenuController: " + landController);
   }
 
   public void onClickedReplayGame(ActionEvent event) {
@@ -56,5 +51,4 @@ public class MenuController {
   public BiomeMenuController getBiomeMenuController() {
     return biomeMenuController;
   }
-
 }
