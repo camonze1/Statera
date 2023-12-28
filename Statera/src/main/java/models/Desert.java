@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class Desert extends Biome {
 
+  //  Constructor  //
+
   public Desert() {
     this.type = BiomeEnum.DESERT;
     this.description = "This plot is a desert.";
@@ -19,6 +21,8 @@ public class Desert extends Biome {
     this.animalProportion = 8;
   }
 
+  //  Methods  //
+  
   public boolean isOccupied() {
     return true;
   }

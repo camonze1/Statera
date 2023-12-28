@@ -7,15 +7,24 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BiomeMenuController {
+public class BiomeController {
+
+  //  Attributes  //
+
   private BiomeEnum biomeSelected;
+
   private LandController landController;
+
+  //  Methods  //
 
   public void selectBiomeAndClose(ActionEvent event) {
     this.landController.setBiomeSelected(this.biomeSelected);
     home(event);
   }
 
+  //  FXML Methods  //
+
+  @FXML
   public void home(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
@@ -70,6 +79,8 @@ public class BiomeMenuController {
     System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
     selectBiomeAndClose(event);
   }
+
+  //  Getters & Setters  //
 
   public void setLandController(LandController landController) {
     this.landController = landController;

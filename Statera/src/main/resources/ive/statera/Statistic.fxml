@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
+  <stylesheets>
+    <URL value="@css/Statistic.css"/>
+  </stylesheets>
+
+  <HBox>
+    <VBox styleClass="box-button">
+      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home"
+              styleClass="home-button"/>
+    </VBox>
+    <VBox styleClass="box-label">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Statistics">
+      </Label>
+    </VBox>
+  </HBox>
+
+  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0" styleClass="body">
+    <HBox styleClass="box-progressbar">
+      <VBox prefHeight="50.0" prefWidth="500.0">
+        <Label styleClass="label" text="Environment balance :"/>
+        <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+      </VBox>
+      <Label fx:id="environmentBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+    </HBox>
+
+    <HBox styleClass="box-progressbar">
+      <VBox prefHeight="50.0" prefWidth="500.0">
+        <Label styleClass="label" text="Natural biomes balance :"/>
+        <ProgressBar fx:id="naturalBiomeBalanceProgressBar" styleClass="progress-bar"/>
+      </VBox>
+      <Label fx:id="naturalBiomeBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+    </HBox>
+    <HBox styleClass="box-progressbar">
+      <VBox prefHeight="50.0" prefWidth="500.0">
+        <Label styleClass="label" text="Building biomes balance :"/>
+        <ProgressBar fx:id="buildingBiomeBalanceProgressBar" styleClass="progress-bar"/>
+      </VBox>
+      <Label fx:id="buildingBiomeBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+    </HBox>
+    <HBox styleClass="box-progressbar">
+      <VBox prefHeight="50.0" prefWidth="500.0">
+        <Label styleClass="label" text="Water biomes balance :"/>
+        <ProgressBar fx:id="waterBiomeBalanceProgressBar" styleClass="progress-bar"/>
+      </VBox>
+      <Label fx:id="waterBiomeBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+    </HBox>
+  </VBox>
+</VBox>

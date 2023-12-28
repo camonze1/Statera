@@ -1,0 +1,120 @@
+.global {
+    -fx-background-color: #454862;
+    -fx-padding: 0px;
+}
+
+/* HEADER */
+
+.header {
+    -fx-padding: 10px 10px 20px 10px;
+    -fx-spacing: 40px;
+    -fx-alignment: bottom-center;
+}
+
+/* MENU BUTTON */
+
+.box-menu-button{
+    -fx-padding: 5px;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+}
+
+.menu-button {
+    -fx-background-color: #e5e5ec;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+    -fx-background-radius: 2px;
+}
+
+.menu-button:hover {
+    -fx-background-color: #cec7c7;
+}
+
+.menu-button:pressed {
+    -fx-background-color: #b6b2b2;
+    -fx-text-fill: white;
+}
+
+/* PROGRESS BAR */
+
+.box-progress-bar {
+    -fx-alignment: center;
+}
+
+.label-percentage {
+    -fx-padding: 20px 5px 5px 10px;
+    -fx-font-weight: bold;
+}
+
+.progress-bar {
+    -fx-padding: 5px 5px 5x 5px;
+    -fx-min-height: 25px;
+    -fx-max-height: 25px;
+    -fx-max-width: 400px;
+    -fx-min-width: 400px;
+    -fx-border-radius: 2px;
+    -fx-accent: #7777b0;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+/* STATISTIC BUTTON */
+
+.box-statistic-button{
+    -fx-padding: 5px;
+    -fx-min-width: 85px;
+    -fx-max-width: 85px;
+    -fx-min-height: 35px;
+    -fx-max-height: 35px;
+}
+
+.statistic-button {
+    -fx-background-color: #e5e5ec;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+    -fx-min-width: 75px;
+    -fx-max-width: 75px;
+    -fx-min-height: 25px;
+    -fx-max-height: 25px;
+    -fx-background-radius: 2px;
+}
+
+.statistic-button:hover {
+    -fx-background-color: #cec7c7;
+}
+
+.statistic-button:pressed {
+    -fx-background-color: #b6b2b2;
+    -fx-text-fill: white;
+}
+
+/* BODY */
+.body {
+    -fx-padding: 10px;
+    -fx-alignment: top-center;
+    -fx-spacing: 10px;
+    -fx-background-color: #454862;
+}
+
+.right-column {
+    -fx-background-color: transparent;
+}
+
+.left-column {
+    -fx-background-color: transparent;
+}
+
+/* FOOTER */
+.footer {
+    -fx-padding: 10px;
+    -fx-spacing: 100px;
+}

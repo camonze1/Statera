@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class Mountain extends Biome {
 
+  //  Constructor  //
+
   public Mountain() {
     this.type = BiomeEnum.MOUNTAIN;
     this.description = "This plot is a mountain.";
@@ -19,6 +21,8 @@ public class Mountain extends Biome {
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_mountain.jpg").toExternalForm());
     this.animalProportion = 8;
   }
+
+  //  Methods  //
 
   public boolean isOccupied() {
     return true;

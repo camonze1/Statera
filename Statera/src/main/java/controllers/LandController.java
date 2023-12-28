@@ -21,21 +21,37 @@ import java.util.List;
 import java.util.Random;
 
 public class LandController {
+
+  //  Attributes  //
+
   private Land land;
+
   private BiomeEnum biomeSelected;
+
   private Random random = new Random();
+
   private double naturalBiomeBalance;
+
   private double naturalBiomeBalanceRoundedValue;
+
   private double buildingBiomeBalance;
+
   private double buildingBiomeBalanceRoundedValue;
+
   private double waterBiomeBalance;
+
   private double waterBiomeBalanceRoundedValue;
+
   @FXML
   private GridPane gridPane;
+
   @FXML
   private ProgressBar environmentBalanceProgressBar;
+
   @FXML
   private Label environmentBalanceLabel;
+
+  //  Methods  //
 
   @FXML
   public void initialize() {
@@ -79,31 +95,31 @@ public class LandController {
         informationWindow("Tu ne peux pas poser une tuile qui n'est pas libre.");
       }
     }
-//    System.out.println("Tu viens de poser un biome : " + this.biomeSelected);
-//    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
-//    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
-//    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-//    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
-//    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
-//    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
-//    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
-//    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
-//    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-//    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
-//    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
-//    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
-//    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
-//    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
-//    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-//    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-//    System.out.println("Environment balance : " + this.land.environmentBalance());
+
+    //    System.out.println("Tu viens de poser un biome : " + this.biomeSelected);
+    //    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
+    //    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
+    //    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
+    //    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
+    //    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
+    //    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
+    //    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
+    //    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
+    //    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
+    //    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
+    //    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
+    //    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
+    //    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
+    //    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
+    //    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
+    //    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
+    //    System.out.println("Environment balance : " + this.land.environmentBalance());
   }
 
-  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
   public void updateBalance() {
     double environmentBalance = this.land.environmentBalance();
+    double environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
     environmentBalanceProgressBar.setProgress(environmentBalance / 100.0);
-    Double environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
     environmentBalanceLabel.setText("" + environmentBalanceRoundedValue + "%");
 
     naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
@@ -115,8 +131,10 @@ public class LandController {
     waterBiomeBalance = this.land.getBalanceOfWaterBiome();
     waterBiomeBalanceRoundedValue = roundToFirstDecimal(waterBiomeBalance);
   }
-  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
 
+  private double roundToFirstDecimal(double value) {
+    return Math.round(value * 10.0) / 10.0;
+  }
 
   public void buyBiome(int line, int column, BiomeEnum biomeSelected) {
     this.land.setBiome(line, column, biomeSelected);
@@ -142,22 +160,6 @@ public class LandController {
     }
   }
 
-  public void setBiomeOnPlot(int line, int column) {
-    Rectangle biomePlot = new Rectangle(35, 35);
-    biomePlot.setFill(new ImagePattern(this.land.getBiome(line, column).getImage()));
-    biomePlot.setOnMouseClicked(event -> onPlotClick(biomePlot));
-    this.land.getBiome(line, column).setRectangle(biomePlot);
-    show();
-  }
-
-  public void setRandomBiomeToFreeWasteland(BiomeEnum biomeType) {
-    List<int[]> freeWastelandCoordinates = land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
-    if (!freeWastelandCoordinates.isEmpty()) {
-      int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
-      land.setBiome(randomCoordinate[0], randomCoordinate[1], biomeType);
-    }
-  }
-
   private void informationWindow(String text) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Attention");
@@ -175,13 +177,64 @@ public class LandController {
     }
   }
 
-  public void setBiomeSelected(BiomeEnum biomeSelected) {
-    this.biomeSelected = biomeSelected;
+  //  FXML Methods  //
+
+  @FXML
+  public void onClickedMenu(ActionEvent event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage menuStage = new Stage();
+      MenuController menuController = loader.getController();
+      menuController.setLandController(this);
+      menuStage.setTitle("Menu - Statera");
+      menuStage.setScene(scene);
+      menuStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
-  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
-  private double roundToFirstDecimal(double value) {
-    return Math.round(value * 10.0) / 10.0;
+  @FXML
+  public void onClickedStatistics(ActionEvent event) {
+    try {
+
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage statisticsStage = new Stage();
+      StatisticController statisticController = loader.getController();
+      statisticController.setLandController(this);
+      statisticsStage.setTitle("View balance - Statera");
+      statisticsStage.setScene(scene);
+      statisticsStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  //  Getters and Setters  //
+
+
+  public void setBiomeOnPlot(int line, int column) {
+    Rectangle biomePlot = new Rectangle(35, 35);
+    biomePlot.setFill(new ImagePattern(this.land.getBiome(line, column).getImage()));
+    biomePlot.setOnMouseClicked(event -> onPlotClick(biomePlot));
+    this.land.getBiome(line, column).setRectangle(biomePlot);
+    show();
+  }
+
+  public void setRandomBiomeToFreeWasteland(BiomeEnum biomeType) {
+    List<int[]> freeWastelandCoordinates = land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
+    if (!freeWastelandCoordinates.isEmpty()) {
+      int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
+      land.setBiome(randomCoordinate[0], randomCoordinate[1], biomeType);
+    }
+  }
+
+  public void setBiomeSelected(BiomeEnum biomeSelected) {
+    this.biomeSelected = biomeSelected;
   }
 
   public ProgressBar getEnvironmentBalanceProgressBar() {
@@ -214,46 +267,5 @@ public class LandController {
 
   public double getWaterBiomeBalanceRoundedValue() {
     return waterBiomeBalanceRoundedValue;
-  }
-
-  //////////////////////////////////////////////////////////////////////////// A bouger dans la class land ///////////////////////////////////////////////////////////////////////////////
-
-  @FXML
-  public void onClickedMenu(ActionEvent event) {
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
-      Parent root = loader.load();
-      Scene scene = new Scene(root, 600, 500);
-      Stage menuStage = new Stage();
-
-      MenuController menuController = loader.getController();
-      menuController.setLandController(this);
-
-      menuStage.setTitle("Menu - Statera");
-      menuStage.setScene(scene);
-      menuStage.show();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  @FXML
-  public void onClickedBalance(ActionEvent event) {
-    try {
-
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Balance.fxml"));
-      Parent root = loader.load();
-      Scene scene = new Scene(root, 600, 500);
-      Stage viewBalanceStage = new Stage();
-
-      BalanceMenuController balanceMenuController = loader.getController();
-      balanceMenuController.setLandController(this);
-
-      viewBalanceStage.setTitle("View balance - Statera");
-      viewBalanceStage.setScene(scene);
-      viewBalanceStage.show();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 }

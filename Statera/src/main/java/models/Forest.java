@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class Forest extends Biome {
 
+  //  Constructor  //
+
   public Forest() {
     this.type = BiomeEnum.FOREST;
     this.description = "This plot is a forest.";
@@ -19,6 +21,8 @@ public class Forest extends Biome {
     this.animalProportion = 18;
   }
 
+  //  Methods  //
+  
   public boolean isOccupied() {
     return true;
   }

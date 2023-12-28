@@ -8,22 +8,24 @@
       xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controllers.LandController">
   <stylesheets>
-    <URL value="@css/Game.css"/>
+    <URL value="@css/Land.css"/>
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" styleClass="menu-button" text="≡"/>
-    <VBox>
-      <Label styleClass="label" text="Global balance :"/>
-      <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
-    </VBox>
-    <Label fx:id="environmentBalanceLabel" styleClass="label"/>
-  </HBox>
-
-
-  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Button fx:id="viewBalance" mnemonicParsing="false" onAction="#onClickedBalance" styleClass="view-balance-button"
-            text="View balance"/>
+    <HBox styleClass="box-menu-button">
+      <Button fx:id="menu" mnemonicParsing="false" onAction="#onClickedMenu" styleClass="menu-button" text="≡"/>
+    </HBox>
+    <HBox styleClass="box-progress-bar">
+      <VBox>
+        <Label styleClass="label-progress-bar" text="Global balance"/>
+        <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+      </VBox>
+      <Label fx:id="environmentBalanceLabel" styleClass="label-percentage"/>
+    </HBox>
+    <HBox styleClass="box-statistic-button">
+      <Button fx:id="statistic" mnemonicParsing="false" onAction="#onClickedStatistics" styleClass="statistic-button"
+              text="Statistics"/>
+    </HBox>
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">

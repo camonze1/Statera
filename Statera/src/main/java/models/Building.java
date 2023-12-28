@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class Building extends Biome {
 
+  //  Constructor  //
+
   public Building() {
     this.type = BiomeEnum.BUILDING;
     this.description = "This plot is a building.";
@@ -20,8 +22,9 @@ public class Building extends Biome {
     this.animalProportion = 0;
   }
 
+  //  Methods  //
+
   public boolean isOccupied() {
     return true;
   }
-
 }

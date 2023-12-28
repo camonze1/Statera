@@ -8,7 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
-public class BalanceMenuController {
+public class StatisticController {
+
+  //  Attributes  //
 
   private LandController landController;
 
@@ -36,6 +38,7 @@ public class BalanceMenuController {
   @FXML
   private Label waterBiomeBalanceLabel;
 
+  //  Methods  //
 
   public void setLandController(LandController landController) {
     this.landController = landController;
@@ -60,6 +63,9 @@ public class BalanceMenuController {
     }
   }
 
+  //  FXML Methods  //
+
+  @FXML
   public void home(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
