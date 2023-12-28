@@ -6,11 +6,42 @@
     -fx-font-size: 50px;
     -fx-font-family: "Bahnschrift";
     -fx-font-weight: bold;
-    -fx-padding: 50px 15px 15px 15px;
+    -fx-padding: 40px 35px 5px 5px;
     -fx-text-fill: white;
+    -fx-min-width: 500px;
+    -fx-max-width: 500px;
+    -fx-alignment: center;
 }
 
-.button {
+.box-label {
+    -fx-alignment: center;
+}
+
+/* MENU BUTTON */
+
+.box-button {
+    -fx-min-width: 65px;
+    -fx-max-width: 65px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-padding: 10px;
+}
+
+.home-button {
+    -fx-background-color: #e5e5ec;
+    -fx-font-size: 12px;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+    -fx-min-width: 55px;
+    -fx-max-width: 55px;
+    -fx-min-height: 30px;
+    -fx-max-height: 30px;
+    -fx-background-radius: 2px;
+}
+
+/* BODY */
+
+.button-biome {
     -fx-font-size: 12px;
     -fx-background-color: #e1d9d9;
     -fx-text-fill: black;
@@ -24,7 +55,7 @@
     -fx-font-family: default;
 }
 
-.button:hover {
+.button-biome:hover {
     -fx-background-color: #cec7c7;
 }
 

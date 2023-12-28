@@ -19,6 +19,7 @@ public class Water extends Biome {
     this.vegetationProportion = 0;
     this.buildingProportion = 0;
     this.waterValue = 20;
+    this.cost.replace(BiomeEnum.FREEWASTELAND, 1);
     this.color = Color.BLUE;
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_water.jpg").toExternalForm());
     this.animalProportion = 10;
