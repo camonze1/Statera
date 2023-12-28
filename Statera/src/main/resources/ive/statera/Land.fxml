@@ -8,7 +8,7 @@
       xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controllers.LandController">
   <stylesheets>
-    <URL value="@css/Game.css"/>
+    <URL value="@css/Land.css"/>
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">

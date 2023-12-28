@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BiomeMenuController {
+public class BiomeController {
   private BiomeEnum biomeSelected;
   private LandController landController;
 

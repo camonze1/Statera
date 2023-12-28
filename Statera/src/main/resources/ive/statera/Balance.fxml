@@ -6,9 +6,9 @@
 
 <?import javafx.geometry.Insets?>
 <VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BalanceMenuController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BalanceController">
   <stylesheets>
-    <URL value="@css/ViewBalance.css"/>
+    <URL value="@css/Balance.css"/>
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0" styleClass="header">

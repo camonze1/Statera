@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
-public class BalanceMenuController {
+public class BalanceController {
 
   private LandController landController;
 

@@ -246,8 +246,8 @@ public class LandController {
       Scene scene = new Scene(root, 600, 500);
       Stage viewBalanceStage = new Stage();
 
-      BalanceMenuController balanceMenuController = loader.getController();
-      balanceMenuController.setLandController(this);
+      BalanceController balanceController = loader.getController();
+      balanceController.setLandController(this);
 
       viewBalanceStage.setTitle("View balance - Statera");
       viewBalanceStage.setScene(scene);

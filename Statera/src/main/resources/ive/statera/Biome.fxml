@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 
 <?import java.net.URL?>
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BiomeMenuController" styleClass="global">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BiomeController" styleClass="global">
   <stylesheets>
-    <URL value="@css/BiomeMenu.css"/>
+    <URL value="@css/Biome.css"/>
   </stylesheets>
 
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">

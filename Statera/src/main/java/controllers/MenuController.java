@@ -11,15 +11,15 @@ import java.io.IOException;
 
 public class MenuController {
   private LandController landController;
-  private BiomeMenuController biomeMenuController;
+  private BiomeController biomeController;
 
   @FXML
   public void onClickedSelectBiomeButton(ActionEvent event) {
     try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/BiomeMenu.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Biome.fxml"));
       Scene scene = new Scene(loader.load(), 600, 500);
-      this.biomeMenuController = loader.getController();
-      this.biomeMenuController.setLandController(this.landController);
+      this.biomeController = loader.getController();
+      this.biomeController.setLandController(this.landController);
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Select Biome - Statera");
       stage.setScene(scene);
@@ -48,7 +48,7 @@ public class MenuController {
     landController.initializeLand();
   }
 
-  public BiomeMenuController getBiomeMenuController() {
-    return biomeMenuController;
+  public BiomeController getBiomeMenuController() {
+    return biomeController;
   }
 }
