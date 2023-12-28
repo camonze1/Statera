@@ -10,8 +10,22 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MenuController {
+
+  //  Attributes  //
+
   private LandController landController;
+
   private BiomeController biomeController;
+
+  //  Methods  //
+
+  public void home(ActionEvent event) {
+    Scene scene = ((Node) event.getSource()).getScene();
+    Stage stage = (Stage) scene.getWindow();
+    stage.close();
+  }
+
+  // FXML Methods  //
 
   @FXML
   public void onClickedSelectBiomeButton(ActionEvent event) {
@@ -29,25 +43,23 @@ public class MenuController {
     }
   }
 
-  public void home(ActionEvent event) {
-    Scene scene = ((Node) event.getSource()).getScene();
-    Stage stage = (Stage) scene.getWindow();
-    stage.close();
-  }
-
+  @FXML
   public void onClickedQuitGame() {
     System.exit(0);
   }
 
-  public void setLandController(LandController landController) {
-    this.landController = landController;
-  }
-
+  @FXML
   public void onClickedReplayGame(ActionEvent event) {
     home(event);
     landController.initializeLand();
   }
 
+  //  Getters and setters  //
+
+  public void setLandController(LandController landController) {
+    this.landController = landController;
+  }
+  
   public BiomeController getBiomeMenuController() {
     return biomeController;
   }

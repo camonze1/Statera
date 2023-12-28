@@ -6,7 +6,11 @@ import javafx.scene.paint.Color;
 
 public class Water extends Biome {
 
+  //  Attributes  //
+
   private int waterValue;
+
+  // Constructor //
 
   public Water() {
     this.type = BiomeEnum.WATER;
@@ -20,9 +24,13 @@ public class Water extends Biome {
     this.animalProportion = 10;
   }
 
+  //  Methods  //
+
   public boolean isOccupied() {
     return true;
   }
+
+  //  Getters and Setters  //
 
   public int getWaterValue() {
     return waterValue;

@@ -4,15 +4,12 @@ import enums.BiomeEnum;
 import java.util.*;
 
 public class Land {
-  private int humanBalance;
-  private int animalBalance;
-  private int naturalBiomeBalance;
-  private int waterBalance;
-  private int buildingBalance;
-  private int nbHuman;
-  private int nbAnimal;
-  private ArrayList<Animal> animal;
+
+  //  Attributes  //
+
   private ArrayList<ArrayList<Biome>> land;
+
+  //  Constructor  //
 
   public Land(int line, int column) {
     this.land = new ArrayList<ArrayList<Biome>>();
@@ -31,31 +28,9 @@ public class Land {
     }
   }
 
-  public Biome getBiome(int line, int column) {
-    return this.land.get(line).get(column);
-  }
+  //  Methods  //
 
-  public void setBiome(int line, int column, BiomeEnum type) {
-    if (type == BiomeEnum.GRASS) {
-      this.land.get(line).set(column, new Grass());
-    } else if (type == BiomeEnum.WATER) {
-      this.land.get(line).set(column, new Water());
-    } else if (type == BiomeEnum.DESERT) {
-      this.land.get(line).set(column, new Desert());
-    } else if (type == BiomeEnum.MOUNTAIN) {
-      this.land.get(line).set(column, new Mountain());
-    } else if (type == BiomeEnum.BUILDING) {
-      this.land.get(line).set(column, new Building());
-    } else if (type == BiomeEnum.FOREST) {
-      this.land.get(line).set(column, new Forest());
-    } else if (type == BiomeEnum.JUNGLE) {
-      this.land.get(line).set(column, new Jungle());
-    } else if (type == BiomeEnum.BLOCKEDWASTELAND) {
-      this.land.get(line).set(column, new BlockedWasteland());
-    } else if (type == BiomeEnum.FREEWASTELAND) {
-      this.land.get(line).set(column, new FreeWasteland());
-    }
-  }
+  // - - - - - - - - - - Balance - - - - - - - - - - //
 
   // This function gives the number of plots whose type is a natural biome.
   public int getNumberOfNaturalBiome() {
@@ -96,6 +71,21 @@ public class Land {
     return ((getBalanceOfNaturalBiome() + getBalanceOfBuildingBiome() + getBalanceOfWaterBiome()) / 3);
   }
 
+  public void globalBalance() {
+    // TODO
+    // Balance global du jeu -> 50% biosphere 50% environnement
+  }
+
+  public void biosphereBalance() {
+    // TODO
+    // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
+    // get les proportions des animals et humans par plot dans tout le land
+  }
+
+  // - - - - - - - - - - Balance - - - - - - - - - - //
+
+  //  Getters and Setters  //
+
   // This function gives the number of occupied plots.
   public HashMap<BiomeEnum, Integer> getCostOfPlot(int line, int column) {
     HashMap<BiomeEnum, Integer> cost = new HashMap<BiomeEnum, Integer>();
@@ -111,6 +101,7 @@ public class Land {
   public BiomeEnum getTypeOfBiomeByCoordinate(int line, int column) {
     return this.land.get(line).get(column).getType();
   }
+
   public List<int[]> getCoordinatesByBiomeType(BiomeEnum biomeType) {
     List<int[]> coordinatesList = new ArrayList<>();
     for (int i = 0; i < this.land.size(); i++) {
@@ -187,15 +178,30 @@ public class Land {
     return this.land.size() * this.land.get(0).size();
   }
 
-  public void globalBalance() {
-    // TODO
-    // Balance global du jeu -> 50% biosphere 50% environnement
+  public Biome getBiome(int line, int column) {
+    return this.land.get(line).get(column);
   }
 
-  public void biosphereBalance() {
-    // TODO
-    // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
-    // get les proportions des animals et humans par plot dans tout le land
+  public void setBiome(int line, int column, BiomeEnum type) {
+    if (type == BiomeEnum.GRASS) {
+      this.land.get(line).set(column, new Grass());
+    } else if (type == BiomeEnum.WATER) {
+      this.land.get(line).set(column, new Water());
+    } else if (type == BiomeEnum.DESERT) {
+      this.land.get(line).set(column, new Desert());
+    } else if (type == BiomeEnum.MOUNTAIN) {
+      this.land.get(line).set(column, new Mountain());
+    } else if (type == BiomeEnum.BUILDING) {
+      this.land.get(line).set(column, new Building());
+    } else if (type == BiomeEnum.FOREST) {
+      this.land.get(line).set(column, new Forest());
+    } else if (type == BiomeEnum.JUNGLE) {
+      this.land.get(line).set(column, new Jungle());
+    } else if (type == BiomeEnum.BLOCKEDWASTELAND) {
+      this.land.get(line).set(column, new BlockedWasteland());
+    } else if (type == BiomeEnum.FREEWASTELAND) {
+      this.land.get(line).set(column, new FreeWasteland());
+    }
   }
 
 }

@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 public class BalanceController {
 
+  //  Attributes  //
+
   private LandController landController;
 
   @FXML
@@ -36,6 +38,7 @@ public class BalanceController {
   @FXML
   private Label waterBiomeBalanceLabel;
 
+  //  Methods  //
 
   public void setLandController(LandController landController) {
     this.landController = landController;
@@ -60,6 +63,9 @@ public class BalanceController {
     }
   }
 
+  //  FXML Methods  //
+
+  @FXML
   public void home(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();

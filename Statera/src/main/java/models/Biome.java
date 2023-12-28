@@ -12,17 +12,28 @@ import javafx.scene.shape.Rectangle;
 
 public abstract class Biome {
 
+  //  Attributes  //
+
   protected BiomeEnum type;
+
   protected String description;
+
   protected int animalProportion;
+
   protected int waterProportion;
+
   protected int vegetationProportion;
+
   protected int buildingProportion;
+
   protected HashMap<BiomeEnum, Integer> cost;
+
   @FXML
   protected Rectangle rectangle;
   protected Image img;
   protected Color color;
+
+  //  Methods  //
 
   public Biome() {
     this.cost = new HashMap<BiomeEnum, Integer>();
@@ -30,13 +41,15 @@ public abstract class Biome {
     this.cost.put(BiomeEnum.DESERT, 0);
     this.cost.put(BiomeEnum.BLOCKEDWASTELAND, 0);
     this.cost.put(BiomeEnum.FREEWASTELAND, 0);
-    this.cost.put(BiomeEnum.FOREST , 0);
+    this.cost.put(BiomeEnum.FOREST, 0);
     this.cost.put(BiomeEnum.GRASS, 0);
     this.cost.put(BiomeEnum.JUNGLE, 0);
     this.cost.put(BiomeEnum.WATER, 0);
   }
 
   public abstract boolean isOccupied();
+
+  //  Getters and Setters  //
 
   public BiomeEnum getType() {
     return this.type;

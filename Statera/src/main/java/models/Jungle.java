@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class Jungle extends Biome {
 
+  //  Constructor  //
+
   public Jungle() {
     this.type = BiomeEnum.JUNGLE;
     this.description = "This plot is a jungle.";
@@ -18,6 +20,8 @@ public class Jungle extends Biome {
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_jungle.jpg").toExternalForm());
     this.animalProportion = 11;
   }
+
+  //  Methods  //
 
   public boolean isOccupied() {
     return true;

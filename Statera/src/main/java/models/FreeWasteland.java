@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class FreeWasteland extends Biome {
 
+  //  Constructor  //
+
   public FreeWasteland() {
     this.type = BiomeEnum.FREEWASTELAND;
     this.description = "This plot is empty.";
@@ -18,6 +20,8 @@ public class FreeWasteland extends Biome {
 
   }
 
+  //  Methods  //
+  
   public boolean isOccupied() {
     return false;
   }

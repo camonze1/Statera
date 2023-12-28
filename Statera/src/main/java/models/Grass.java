@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 public class Grass extends Biome {
 
+  //  Constructor  //
+
   public Grass() {
     this.type = BiomeEnum.GRASS;
     this.description = "This plot is a grass.";
@@ -18,6 +20,8 @@ public class Grass extends Biome {
     this.animalProportion = 15;
   }
 
+  //  Methods  //
+  
   public boolean isOccupied() {
     return true;
   }
