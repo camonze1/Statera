@@ -10,14 +10,15 @@
     <URL value="@css/Menu.css"/>
   </stylesheets>
 
-  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="header">
-    <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="MENU">
-    </Label>
-  </HBox>
-
-  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
-    <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button"
-            text="Home"/>
+  <HBox>
+    <VBox styleClass="box-button">
+      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home"
+              styleClass="home-button"/>
+    </VBox>
+    <VBox styleClass="box-label">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Menu">
+      </Label>
+    </VBox>
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">

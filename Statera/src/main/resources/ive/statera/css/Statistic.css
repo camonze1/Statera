@@ -1,0 +1,98 @@
+.global {
+  -fx-background-color: #454862;
+  -fx-padding: 0px;
+}
+
+/* HEADER */
+
+.header {
+  -fx-padding: 5px;
+}
+
+.title {
+  -fx-font-size: 50px;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-weight: bold;
+  -fx-padding: 40px 35px 40px 5px;
+  -fx-text-fill: white;
+  -fx-min-width: 500px;
+  -fx-max-width: 500px;
+  -fx-alignment: center;
+}
+
+/* MENU BUTTON */
+
+.box-button {
+  -fx-min-width: 65px;
+  -fx-max-width: 65px;
+  -fx-min-height: 40px;
+  -fx-max-height: 40px;
+  -fx-padding: 10px;
+}
+
+.home-button {
+  -fx-background-color: #e5e5ec;
+  -fx-font-size: 12px;
+  -fx-text-fill: black;
+  -fx-cursor: hand;
+  -fx-min-width: 55px;
+  -fx-max-width: 55px;
+  -fx-min-height: 30px;
+  -fx-max-height: 30px;
+  -fx-background-radius: 2px;
+}
+
+.home-button:hover {
+  -fx-background-color: #cec7c7;
+}
+
+.home-button:pressed {
+  -fx-background-color: #b6b2b2;
+  -fx-text-fill: white;
+}
+
+.box-label {
+  -fx-alignment: center;
+}
+
+.box-progressbar {
+  -fx-padding: 10px 10px 10px 20px;
+  -fx-spacing: 10px;
+  -fx-alignment: bottom-center;
+}
+
+.label-percentage {
+  -fx-padding: 5px;
+  -fx-font-weight: bold;
+  -fx-alignment: center;
+  -fx-min-width: 60px;
+  -fx-max-width: 60px;
+}
+
+.body {
+  -fx-spacing: 5px;
+  -fx-padding: 20px 5px;
+  -fx-max-height: 250px;
+  -fx-min-height: 250px;
+}
+
+.label {
+  -fx-text-fill: white;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  -fx-padding: 0px;
+  -fx-min-height: 25px;
+  -fx-max-height: 25px;
+  -fx-max-width: 550px;
+  -fx-min-width: 300px;
+  -fx-accent: #7777b0;
+
+}
+
+/* FOOTER */
+.footer {
+  -fx-padding: 10px;
+  -fx-spacing: 100px;
+}

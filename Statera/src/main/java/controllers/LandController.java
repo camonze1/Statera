@@ -197,18 +197,18 @@ public class LandController {
   }
 
   @FXML
-  public void onClickedBalance(ActionEvent event) {
+  public void onClickedStatistics(ActionEvent event) {
     try {
 
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Balance.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
-      Stage viewBalanceStage = new Stage();
-      BalanceController balanceController = loader.getController();
-      balanceController.setLandController(this);
-      viewBalanceStage.setTitle("View balance - Statera");
-      viewBalanceStage.setScene(scene);
-      viewBalanceStage.show();
+      Stage statisticsStage = new Stage();
+      StatisticController statisticController = loader.getController();
+      statisticController.setLandController(this);
+      statisticsStage.setTitle("View balance - Statera");
+      statisticsStage.setScene(scene);
+      statisticsStage.show();
     } catch (IOException e) {
       e.printStackTrace();
     }
