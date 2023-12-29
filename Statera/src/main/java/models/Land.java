@@ -193,6 +193,8 @@ public class Land {
       this.land.get(line).set(column, new Mountain());
     } else if (type == BiomeEnum.BUILDING) {
       this.land.get(line).set(column, new Building());
+    } else if (type == BiomeEnum.PUBLICBUILDING) {
+      this.land.get(line).set(column, new PublicBuilding());
     } else if (type == BiomeEnum.FOREST) {
       this.land.get(line).set(column, new Forest());
     } else if (type == BiomeEnum.JUNGLE) {

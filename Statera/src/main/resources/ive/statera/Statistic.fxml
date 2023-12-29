@@ -4,20 +4,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.geometry.Insets?>
-<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
   <stylesheets>
-    <URL value="@css/Statistic.css"/>
+    <URL value="@css/Statistic.css" />
   </stylesheets>
 
   <HBox>
     <VBox styleClass="box-button">
-      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home"
-              styleClass="home-button"/>
+      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button" text="Home" />
     </VBox>
     <VBox styleClass="box-label">
-      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Statistics">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" prefHeight="72.0" prefWidth="500.0" styleClass="title" text="Statistics">
       </Label>
     </VBox>
   </HBox>
@@ -25,32 +22,42 @@
   <VBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0" styleClass="body">
     <HBox styleClass="box-progressbar">
       <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Environment balance :"/>
-        <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+        <Label styleClass="label" text="Environment balance :" />
+        <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar" />
       </VBox>
-      <Label fx:id="environmentBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+      <Label fx:id="environmentBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
     </HBox>
 
     <HBox styleClass="box-progressbar">
       <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Natural biomes balance :"/>
-        <ProgressBar fx:id="naturalBiomeBalanceProgressBar" styleClass="progress-bar"/>
+        <Label styleClass="label" text="Natural biomes balance :" />
+        <ProgressBar fx:id="naturalBiomeBalanceProgressBar" styleClass="progress-bar" />
       </VBox>
-      <Label fx:id="naturalBiomeBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+      <Label fx:id="naturalBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
     </HBox>
     <HBox styleClass="box-progressbar">
       <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Building biomes balance :"/>
-        <ProgressBar fx:id="buildingBiomeBalanceProgressBar" styleClass="progress-bar"/>
+        <Label styleClass="label" text="Building biomes balance :" />
+        <ProgressBar fx:id="buildingBiomeBalanceProgressBar" styleClass="progress-bar" />
       </VBox>
-      <Label fx:id="buildingBiomeBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+      <Label fx:id="buildingBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
     </HBox>
     <HBox styleClass="box-progressbar">
       <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Water biomes balance :"/>
-        <ProgressBar fx:id="waterBiomeBalanceProgressBar" styleClass="progress-bar"/>
+        <Label styleClass="label" text="Water biomes balance :" />
+        <ProgressBar fx:id="waterBiomeBalanceProgressBar" styleClass="progress-bar" />
       </VBox>
-      <Label fx:id="waterBiomeBalanceLabel" styleClass="label-percentage" prefHeight="30.0" prefWidth="70.0"/>
+      <Label fx:id="waterBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
     </HBox>
+      <HBox prefHeight="0.0" prefWidth="589.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Label" />
+                  <ProgressBar prefWidth="200.0" progress="0.0" />
+               </children>
+            </VBox>
+            <Label text="Label" />
+         </children></HBox>
   </VBox>
 </VBox>
