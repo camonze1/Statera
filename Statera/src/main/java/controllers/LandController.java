@@ -38,6 +38,10 @@ public class LandController {
 
   private double buildingBiomeBalanceRoundedValue;
 
+  private double qualityLifeBalance;
+
+  private double qualityLifeBalanceRoundedValue;
+
   private double waterBiomeBalance;
 
   private double waterBiomeBalanceRoundedValue;
@@ -50,6 +54,11 @@ public class LandController {
 
   @FXML
   private Label environmentBalanceLabel;
+
+  private Stage previousMenuStage;
+
+  private Stage previousStatisticStage;
+
 
   //  Methods  //
 
@@ -130,6 +139,9 @@ public class LandController {
 
     waterBiomeBalance = this.land.getBalanceOfWaterBiome();
     waterBiomeBalanceRoundedValue = roundToFirstDecimal(waterBiomeBalance);
+
+    qualityLifeBalance = this.land.getQualityOfLifeBalance();
+    qualityLifeBalanceRoundedValue = roundToFirstDecimal(qualityLifeBalance);
   }
 
   private double roundToFirstDecimal(double value) {
@@ -182,6 +194,10 @@ public class LandController {
   @FXML
   public void onClickedMenu(ActionEvent event) {
     try {
+      if (previousMenuStage != null) {
+        previousMenuStage.close();
+      }
+
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -190,7 +206,11 @@ public class LandController {
       menuController.setLandController(this);
       menuStage.setTitle("Menu - Statera");
       menuStage.setScene(scene);
+      menuStage.setResizable(false);
       menuStage.show();
+
+      previousMenuStage = menuStage;
+
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -200,6 +220,10 @@ public class LandController {
   public void onClickedStatistics(ActionEvent event) {
     try {
 
+      if (previousStatisticStage != null) {
+        previousStatisticStage.close();
+      }
+
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -208,7 +232,11 @@ public class LandController {
       statisticController.setLandController(this);
       statisticsStage.setTitle("View balance - Statera");
       statisticsStage.setScene(scene);
+      statisticsStage.setResizable(false);
       statisticsStage.show();
+
+      previousStatisticStage = statisticsStage;
+
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -267,5 +295,13 @@ public class LandController {
 
   public double getWaterBiomeBalanceRoundedValue() {
     return waterBiomeBalanceRoundedValue;
+  }
+
+  public double getQualityLifeBalanceRoundedValue() {
+    return qualityLifeBalanceRoundedValue;
+  }
+
+  public double getQualityLifeBalance() {
+    return qualityLifeBalance;
   }
 }
