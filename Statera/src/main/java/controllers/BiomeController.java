@@ -46,6 +46,13 @@ public class BiomeController {
   }
 
   @FXML
+  public void onClickedPublicBuildingButton(ActionEvent event){
+    this.biomeSelected = BiomeEnum.PUBLICBUILDING;
+    System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);
+    selectBiomeAndClose(event);
+  }
+
+  @FXML
   public void onClickedDesertButton(ActionEvent event) {
     this.biomeSelected = BiomeEnum.DESERT;
     System.out.println("Le biome que tu viens de choisir est : " + this.biomeSelected);

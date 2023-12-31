@@ -82,6 +82,23 @@ public class Land {
     // get les proportions des animals et humans par plot dans tout le land
   }
 
+  public double getQualityOfLifeBalance() {
+    int buildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
+
+    double targetPublicBuildingPercent = 0.2; //(int) (buildingNumber/2.33);
+
+    int publicBuildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
+    double currentPublicBuildingPercent = (double) publicBuildingNumber / buildingNumber;
+
+    double buildinglifeQualityBalance = (Math.abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
+    System.out.println("buildingNumber : " + buildingNumber);
+    System.out.println("publicBuildingNumber : " + publicBuildingNumber);
+    System.out.println("currentPublicBuildingPercent : " + currentPublicBuildingPercent);
+    System.out.println("buildinglifeQualityBalance : " + buildinglifeQualityBalance);
+
+    return 100 - buildinglifeQualityBalance;
+  }
+
   // - - - - - - - - - - Balance - - - - - - - - - - //
 
   //  Getters and Setters  //
@@ -193,6 +210,8 @@ public class Land {
       this.land.get(line).set(column, new Mountain());
     } else if (type == BiomeEnum.BUILDING) {
       this.land.get(line).set(column, new Building());
+    } else if (type == BiomeEnum.PUBLICBUILDING) {
+      this.land.get(line).set(column, new PublicBuilding());
     } else if (type == BiomeEnum.FOREST) {
       this.land.get(line).set(column, new Forest());
     } else if (type == BiomeEnum.JUNGLE) {
