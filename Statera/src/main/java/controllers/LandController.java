@@ -205,7 +205,7 @@ public class LandController {
       Scene scene = new Scene(root, 600, 500);
       Stage statisticsStage = new Stage();
       StatisticController statisticController = loader.getController();
-      statisticController.setLandController(this);
+      statisticController.updateViewStatisticController(this);
       statisticsStage.setTitle("View balance - Statera");
       statisticsStage.setScene(scene);
       statisticsStage.show();

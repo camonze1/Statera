@@ -40,7 +40,7 @@ public class StatisticController {
 
   //  Methods  //
 
-  public void setLandController(LandController landController) {
+  public void updateViewStatisticController(LandController landController) {
     this.landController = landController;
     if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
       environmentBalanceProgressBar.setProgress(landController.getEnvironmentBalanceProgressBar().getProgress());
