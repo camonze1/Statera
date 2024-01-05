@@ -44,65 +44,77 @@ public class StatisticController {
   @FXML
   private Label qualityLifeBalanceLabel;
 
+  @FXML
+  private Label numberOfAnimalsInLandLabel;
+
+  @FXML
+  private Label numberOfHumansInLandLabel;
+
   //  Methods  //
 
   public void updateViewStatisticController(LandController landController) {
     this.landController = landController;
     String progressBarStyleRed = "-fx-accent: red;";
     if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
-      if(landController.getEnvironmentBalanceProgressBar().getProgress()<0) {
+      if (landController.getEnvironmentBalanceProgressBar().getProgress() < 0) {
         environmentBalanceProgressBar.setStyle(progressBarStyleRed);
         environmentBalanceProgressBar.setProgress(1.0);
-      }
-      else{
+      } else {
         environmentBalanceProgressBar.setProgress(landController.getEnvironmentBalanceProgressBar().getProgress());
       }
       environmentBalanceLabel.setText(landController.getEnvironmentBalanceLabel().getText());
     }
 
     if (naturalBiomeBalanceProgressBar != null && naturalBiomeBalanceLabel != null) {
-      if(landController.getNaturalBiomeBalance()<0) {
+      if (landController.getNaturalBiomeBalance() < 0) {
         naturalBiomeBalanceProgressBar.setStyle(progressBarStyleRed);
         naturalBiomeBalanceProgressBar.setProgress(1.0);
-      }
-      else {
+      } else {
         naturalBiomeBalanceProgressBar.setProgress((landController.getNaturalBiomeBalance()) / 100.0);
       }
       naturalBiomeBalanceLabel.setText("" + landController.getNaturalBiomeBalanceRoundedValue() + "%");
     }
 
     if (buildingBiomeBalanceProgressBar != null && buildingBiomeBalanceLabel != null) {
-      if(landController.getBuildingBiomeBalance()<0) {
+      if (landController.getBuildingBiomeBalance() < 0) {
         buildingBiomeBalanceProgressBar.setStyle(progressBarStyleRed);
         buildingBiomeBalanceProgressBar.setProgress(1.0);
-      }
-      else{
+      } else {
         buildingBiomeBalanceProgressBar.setProgress((landController.getBuildingBiomeBalance()) / 100.0);
       }
       buildingBiomeBalanceLabel.setText("" + landController.getBuildingBiomeBalanceRoundedValue() + "%");
     }
 
     if (waterBiomeBalanceProgressBar != null && waterBiomeBalanceLabel != null) {
-      if(landController.getWaterBiomeBalance()<0){
+      if (landController.getWaterBiomeBalance() < 0) {
         waterBiomeBalanceProgressBar.setStyle(progressBarStyleRed);
         waterBiomeBalanceProgressBar.setProgress(1.0);
-      }
-      else {
+      } else {
         waterBiomeBalanceProgressBar.setProgress((landController.getWaterBiomeBalance()) / 100.0);
       }
       waterBiomeBalanceLabel.setText("" + landController.getWaterBiomeBalanceRoundedValue() + "%");
     }
 
     if (qualityLifeBalanceProgressBar != null && qualityLifeBalanceLabel != null) {
-      if(landController.getQualityLifeBalance()<0){
+      if (landController.getQualityLifeBalance() < 0) {
         qualityLifeBalanceProgressBar.setStyle(progressBarStyleRed);
         qualityLifeBalanceProgressBar.setProgress(1.0);
-      }
-      else {
+      } else {
         qualityLifeBalanceProgressBar.setProgress((landController.getQualityLifeBalance()) / 100.0);
       }
       qualityLifeBalanceLabel.setText("" + landController.getQualityLifeBalanceRoundedValue() + "%");
+    }
 
+    if (landController.getNumberOfAnimalsInLand() != 0) {
+      numberOfAnimalsInLandLabel.setText("- You have " + landController.getNumberOfAnimalsInLand() + " animals in total in your land");
+    } else {
+      numberOfAnimalsInLandLabel.setText("- You have " + landController.getNumberOfAnimalsInLand() + " animal in total in your land");
+    }
+
+    if (landController.getNumberOfHumansInLand() != 0) {
+      numberOfHumansInLandLabel.setText("- You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
+    } else {
+      numberOfHumansInLandLabel.setText("- You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
     }
   }
 

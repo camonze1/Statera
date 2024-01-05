@@ -27,7 +27,7 @@ cacccf
 /* HEADER */
 
 .header {
-    -fx-padding: 10px 10px 20px 10px;
+    -fx-padding: 20px 10px 30px 10px;
     -fx-spacing: 40px;
     -fx-alignment: bottom-center;
 }
@@ -86,6 +86,7 @@ cacccf
 
 .label {
     -fx-text-fill: #ebf2fa;
+    -fx-font-weight: bold;
 }
 
 /* STATISTIC BUTTON */

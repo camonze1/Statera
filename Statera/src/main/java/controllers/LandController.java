@@ -260,6 +260,14 @@ public class LandController {
     }
   }
 
+  public int getNumberOfAnimalsInLand() {
+    return this.land.getNumberOfAnimals();
+  }
+
+  public int  getNumberOfHumansInLand() {
+    return this.land.getNumberOfHumans();
+  }
+
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     this.biomeSelected = biomeSelected;
   }

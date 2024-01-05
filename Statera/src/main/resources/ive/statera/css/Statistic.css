@@ -22,6 +22,12 @@
 
 /* MENU BUTTON */
 
+.label {
+  -fx-text-fill: #ebf2fa;
+  -fx-font-weight: bold;
+
+}
+
 .box-button {
   -fx-min-width: 65px;
   -fx-max-width: 65px;
@@ -92,18 +98,27 @@
   -fx-min-width: 300px;
   -fx-accent: #427aa1;
   -fx-border-width: 0px;
-
 }
 
 .sub-title {
   -fx-font-size: 25px;
   -fx-font-family: "Bahnschrift";
   -fx-font-weight: bold;
-  /*-fx-padding: 40px 35px 40px 5px;*/
+  -fx-padding: 10px;
   -fx-text-fill: #ebf2fa;
   -fx-min-width: 250px;
   -fx-max-width: 250px;
   -fx-alignment: center;
+}
+
+.label-data {
+  -fx-font-size: 12px;
+  -fx-font-family: "Bahnschrift";
+  -fx-padding: 5px 5px 5px 80px;
+  -fx-text-fill: #ebf2fa;
+  -fx-min-width: 500px;
+  -fx-max-width: 500px;
+  -fx-alignment: center-left;
 }
 
 .scroll-pane {
@@ -169,10 +184,6 @@
   /*-fx-min-height: 200px;*/
   /*-fx-max-height: 200px;*/
   -fx-background-color: #679436;
-}
-
-.label {
-  -fx-text-fill: #ebf2fa;
 }
 
 /* FOOTER */

@@ -21,7 +21,7 @@
     </VBox>
   </HBox>
 
-  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="390.0" vbarPolicy="ALWAYS" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
     <VBox alignment="CENTER" styleClass="body">
 
       <HBox styleClass="sub-title">
@@ -63,10 +63,23 @@
         </VBox>
         <Label fx:id="qualityLifeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
       </HBox>
+      <HBox styleClass="box-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Biosphere balance"/>
+          <ProgressBar fx:id="biosphereBalanceProgressBar" styleClass="progress-bar"/>
+        </VBox>
+        <Label fx:id="biosphereBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <VBox>
+        <Label fx:id="numberOfAnimalsInLandLabel" styleClass="label-data"/>
+        <Label fx:id="numberOfHumansInLandLabel" styleClass="label-data"/>
+      </VBox>
 
       <HBox styleClass="sub-title">
         <Label fx:id="subTitleData" text="Data"/>
       </HBox>
+
+
     </VBox>
   </ScrollPane>
 

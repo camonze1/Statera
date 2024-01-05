@@ -20,9 +20,8 @@ public class Grass extends Biome {
   }
 
   //  Methods  //
-  
+
   public boolean isOccupied() {
     return true;
   }
-
 }

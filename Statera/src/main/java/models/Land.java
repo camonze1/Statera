@@ -222,4 +222,20 @@ public class Land {
       this.land.get(line).set(column, new FreeWasteland());
     }
   }
+
+  public int getNumberOfAnimals() {
+    int numberGrassAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.GRASS) * 15;
+    int numberForestAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.FOREST) * 18;
+    int numberJungleAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE) * 11;
+    int numberDesertAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.DESERT) * 8;
+    int numberMountainAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN) * 8;
+    int numberWaterAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.WATER) * 10;
+    int numberOfAnimals = numberGrassAnimals + numberForestAnimals + numberJungleAnimals + numberDesertAnimals + numberMountainAnimals + numberWaterAnimals;
+    return numberOfAnimals;
+  }
+
+  public int getNumberOfHumans() {
+    int numberHumans = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) * 50;
+    return numberHumans;
+  }
 }

@@ -20,6 +20,8 @@ public abstract class Biome {
 
   protected int animalProportion;
 
+  protected int humanProportion;
+
   protected int waterProportion;
 
   protected int vegetationProportion;
@@ -59,8 +61,8 @@ public abstract class Biome {
     return this.rectangle;
   }
 
-  public void setRectangle(Rectangle rectangle1) {
-    this.rectangle = rectangle1;
+  public void setRectangle(Rectangle rectangle) {
+    this.rectangle = rectangle;
   }
 
   public Image getImage() {
@@ -117,6 +119,10 @@ public abstract class Biome {
 
   public int getAnimalProportion() {
     return this.animalProportion;
+  }
+
+  public int getHumanProportion() {
+    return this.humanProportion;
   }
 
 }
