@@ -23,13 +23,13 @@
 
   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
     <Button fx:id="selectBiome" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton"
-            styleClass="select-biome-button" text="Select biome"/>
+            styleClass="button-style" text="Select biome"/>
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
-    <Button fx:id="replayGame" mnemonicParsing="false" onAction="#onClickedReplayGame" styleClass="replay-button"
+    <Button fx:id="replayGame" mnemonicParsing="false" onAction="#onClickedReplayGame" styleClass="button-style"
             text="Replay game"/>
-    <Button fx:id="quitGame" mnemonicParsing="false" onAction="#onClickedQuitGame" styleClass="quit-button"
+    <Button fx:id="quitGame" mnemonicParsing="false" onAction="#onClickedQuitGame" styleClass="button-style"
             text="Quit game"/>
   </HBox>
 

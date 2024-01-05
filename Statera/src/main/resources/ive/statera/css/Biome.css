@@ -1,5 +1,5 @@
 .global {
-    -fx-background-color: #454862;
+    -fx-background-color: #679436;
 }
 
 .title {
@@ -7,7 +7,7 @@
     -fx-font-family: "Bahnschrift";
     -fx-font-weight: bold;
     -fx-padding: 40px 35px 5px 5px;
-    -fx-text-fill: white;
+    -fx-text-fill: #ebf2fa;
     -fx-min-width: 500px;
     -fx-max-width: 500px;
     -fx-alignment: center;
@@ -28,7 +28,7 @@
 }
 
 .home-button {
-    -fx-background-color: #e5e5ec;
+    -fx-background-color: #ebf2fa;
     -fx-font-size: 12px;
     -fx-text-fill: black;
     -fx-cursor: hand;
@@ -43,7 +43,7 @@
 
 .button-biome {
     -fx-font-size: 12px;
-    -fx-background-color: #e1d9d9;
+    -fx-background-color: #ebf2fa;
     -fx-text-fill: black;
     -fx-cursor: hand;
     -fx-min-width: 100px;
@@ -56,12 +56,17 @@
 }
 
 .button-biome:hover {
-    -fx-background-color: #cec7c7;
+    -fx-background-color: #d5dce3;
+}
+
+.home-button:pressed {
+    -fx-background-color: #cacccf;
+    -fx-text-fill: #000000;
 }
 
 .body {
     -fx-padding: 10px;
     -fx-alignment: center;
     -fx-spacing: 15px;
-    -fx-background-color: #454862;
+    -fx-background-color: #679436;
 }

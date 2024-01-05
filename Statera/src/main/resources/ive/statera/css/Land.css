@@ -1,5 +1,26 @@
+/*
+
+COLORS THEME :
+
+DARK BLUE - MAIN PROGRESS BAR
+05668d
+MID-BLUE - SUB PROGRESS BAR
+427aa1
+GREEN - BACKGROUND
+679436
+LIGHT-GREEN
+a5be00
+WHITE - BUTTON
+ebf2fa
+WHITE - BUTTON HOVER
+d5dce3
+WHITE - BUTTON PRESSED
+cacccf
+
+*/
+
 .global {
-    -fx-background-color: #454862;
+    -fx-background-color: #679436;
     -fx-padding: 0px;
 }
 
@@ -22,7 +43,7 @@
 }
 
 .menu-button {
-    -fx-background-color: #e5e5ec;
+    -fx-background-color: #ebf2fa;
     -fx-font-size: 16px;
     -fx-text-fill: black;
     -fx-cursor: hand;
@@ -34,12 +55,12 @@
 }
 
 .menu-button:hover {
-    -fx-background-color: #cec7c7;
+    -fx-background-color: #d5dce3;
 }
 
 .menu-button:pressed {
-    -fx-background-color: #b6b2b2;
-    -fx-text-fill: white;
+    -fx-background-color: #cacccf;
+    -fx-text-fill: #000000;
 }
 
 /* PROGRESS BAR */
@@ -60,11 +81,11 @@
     -fx-max-width: 400px;
     -fx-min-width: 400px;
     -fx-border-radius: 2px;
-    -fx-accent: #7777b0;
+    -fx-accent: #05668d;
 }
 
 .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #ebf2fa;
 }
 
 /* STATISTIC BUTTON */
@@ -78,7 +99,7 @@
 }
 
 .statistic-button {
-    -fx-background-color: #e5e5ec;
+    -fx-background-color: #ebf2fa;
     -fx-text-fill: black;
     -fx-cursor: hand;
     -fx-min-width: 75px;
@@ -89,12 +110,12 @@
 }
 
 .statistic-button:hover {
-    -fx-background-color: #cec7c7;
+    -fx-background-color: #d5dce3;
 }
 
 .statistic-button:pressed {
-    -fx-background-color: #b6b2b2;
-    -fx-text-fill: white;
+    -fx-background-color: #cacccf;
+    -fx-text-fill: #000000;
 }
 
 /* BODY */
@@ -102,7 +123,7 @@
     -fx-padding: 10px;
     -fx-alignment: top-center;
     -fx-spacing: 10px;
-    -fx-background-color: #454862;
+    -fx-background-color: #679436;
 }
 
 .right-column {

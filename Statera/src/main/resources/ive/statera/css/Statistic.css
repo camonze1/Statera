@@ -1,5 +1,5 @@
 .global {
-  -fx-background-color: #454862;
+  -fx-background-color: #679436;
   -fx-padding: 0px;
 }
 
@@ -14,7 +14,7 @@
   -fx-font-family: "Bahnschrift";
   -fx-font-weight: bold;
   -fx-padding: 40px 35px 10px 5px;
-  -fx-text-fill: white;
+  -fx-text-fill: #ebf2fa;
   -fx-min-width: 500px;
   -fx-max-width: 500px;
   -fx-alignment: center;
@@ -31,7 +31,7 @@
 }
 
 .home-button {
-  -fx-background-color: #e5e5ec;
+  -fx-background-color: #ebf2fa;
   -fx-font-size: 12px;
   -fx-text-fill: black;
   -fx-cursor: hand;
@@ -43,12 +43,12 @@
 }
 
 .home-button:hover {
-  -fx-background-color: #cec7c7;
+  -fx-background-color: #d5dce3;
 }
 
 .home-button:pressed {
-  -fx-background-color: #b6b2b2;
-  -fx-text-fill: white;
+  -fx-background-color: #cacccf;
+  -fx-text-fill: #000000;
 }
 
 .box-label {
@@ -81,7 +81,7 @@
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #7db077;
+  -fx-accent: #05668d;
 }
 
 .sub-progress-bar {
@@ -90,7 +90,9 @@
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #b7b24f;
+  -fx-accent: #427aa1;
+  -fx-border-width: 0px;
+
 }
 
 .sub-title {
@@ -98,7 +100,7 @@
   -fx-font-family: "Bahnschrift";
   -fx-font-weight: bold;
   /*-fx-padding: 40px 35px 40px 5px;*/
-  -fx-text-fill: white;
+  -fx-text-fill: #ebf2fa;
   -fx-min-width: 250px;
   -fx-max-width: 250px;
   -fx-alignment: center;
@@ -166,11 +168,11 @@
   -fx-padding: 20px 5px;
   /*-fx-min-height: 200px;*/
   /*-fx-max-height: 200px;*/
-  -fx-background-color: #454862;
+  -fx-background-color: #679436;
 }
 
 .label {
-  -fx-text-fill: white;
+  -fx-text-fill: #ebf2fa;
 }
 
 /* FOOTER */
