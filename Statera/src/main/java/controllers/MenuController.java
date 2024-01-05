@@ -35,7 +35,7 @@ public class MenuController {
       this.biomeController = loader.getController();
       this.biomeController.setLandController(this.landController);
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      stage.setTitle("Select Biome - Statera");
+      stage.setTitle("Select biome - Statera");
       stage.setScene(scene);
       stage.show();
     } catch (IOException e) {

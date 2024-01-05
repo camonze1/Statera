@@ -14,7 +14,6 @@ public class Grass extends Biome {
     this.waterProportion = 0;
     this.vegetationProportion = 1;
     this.buildingProportion = 0;
-    this.cost.replace(BiomeEnum.FREEWASTELAND, 1);
     this.color = Color.GREEN;
     this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_grass.jpg").toExternalForm());
     this.animalProportion = 15;

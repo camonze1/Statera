@@ -101,24 +101,23 @@ public class LandController {
         buyBiome(line, column, this.biomeSelected);
         updateBalance();
       } else {
-        informationWindow("Tu ne peux pas poser une tuile qui n'est pas libre.");
+        informationWindow("You cannot place a tile that is not free.");
       }
     }
 
-    //    System.out.println("Tu viens de poser un biome : " + this.biomeSelected);
-    //    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
+    //    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
+    //    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
+    //    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
+    //    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
+    //    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
+    //    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
+    //    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
+    //    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
     //    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
-//        System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-//        System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
-//        System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
-//        System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
-//        System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
-//        System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
-//        System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-//        System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
+    //    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
+    //    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
     //    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
     //    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
-    //    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
     //    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
     //    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
     //    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
@@ -157,7 +156,7 @@ public class LandController {
       List<int[]> biomeCoordinates = this.land.getCoordinatesByBiomeType(key);
 
       if (biomeCoordinates.size() < numberOfBiomesToRemove) {
-        informationWindow("Tu n'as pas assez de ressource pour acheter ce biome.");
+        informationWindow("You don't have enough resources to buy this biome.");
         this.land.setFreeWasteland(line, column);
         setBiomeOnPlot(line, column);
         return;
@@ -230,7 +229,7 @@ public class LandController {
       Stage statisticsStage = new Stage();
       StatisticController statisticController = loader.getController();
       statisticController.updateViewStatisticController(this);
-      statisticsStage.setTitle("View balance - Statera");
+      statisticsStage.setTitle("Statistics - Statera");
       statisticsStage.setScene(scene);
       statisticsStage.setResizable(false);
       statisticsStage.show();

@@ -4,14 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
   <stylesheets>
-    <URL value="@css/Statistic.css" />
+    <URL value="@css/Statistic.css"/>
   </stylesheets>
 
   <HBox>
     <VBox styleClass="box-button">
-      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button" text="Home" />
+      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button"
+              text="Home"/>
     </VBox>
     <VBox styleClass="box-label">
       <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" prefHeight="72.0" prefWidth="500.0" styleClass="title" text="Statistics">
@@ -19,42 +21,53 @@
     </VBox>
   </HBox>
 
-  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="500.0" styleClass="body">
-    <HBox styleClass="box-progressbar">
-      <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Environment balance :" />
-        <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar" />
-      </VBox>
-      <Label fx:id="environmentBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
-    </HBox>
+  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="390.0" vbarPolicy="ALWAYS" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+    <VBox alignment="CENTER" styleClass="body">
 
-    <HBox styleClass="box-progressbar">
-      <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Natural biomes balance :" />
-        <ProgressBar fx:id="naturalBiomeBalanceProgressBar" styleClass="progress-bar" />
-      </VBox>
-      <Label fx:id="naturalBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
-    </HBox>
-    <HBox styleClass="box-progressbar">
-      <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Building biomes balance :" />
-        <ProgressBar fx:id="buildingBiomeBalanceProgressBar" styleClass="progress-bar" />
-      </VBox>
-      <Label fx:id="buildingBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
-    </HBox>
-    <HBox styleClass="box-progressbar">
-      <VBox prefHeight="50.0" prefWidth="500.0">
-        <Label styleClass="label" text="Water biomes balance :" />
-        <ProgressBar fx:id="waterBiomeBalanceProgressBar" styleClass="progress-bar" />
-      </VBox>
-      <Label fx:id="waterBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
-    </HBox>
+      <HBox styleClass="sub-title">
+        <Label fx:id="subTitleBalance" text="Balances"/>
+      </HBox>
+
       <HBox styleClass="box-progressbar">
         <VBox prefHeight="50.0" prefWidth="500.0">
-          <Label styleClass="label" text="Quality of life : " />
+          <Label styleClass="label" text="Environment balance"/>
+          <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+        </VBox>
+        <Label fx:id="environmentBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-sub-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Natural biomes balance"/>
+          <ProgressBar fx:id="naturalBiomeBalanceProgressBar" styleClass="sub-progress-bar"/>
+        </VBox>
+        <Label fx:id="naturalBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-sub-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Building biomes balance"/>
+          <ProgressBar fx:id="buildingBiomeBalanceProgressBar" styleClass="sub-progress-bar"/>
+        </VBox>
+        <Label fx:id="buildingBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-sub-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Water biomes balance"/>
+          <ProgressBar fx:id="waterBiomeBalanceProgressBar" styleClass="sub-progress-bar"/>
+        </VBox>
+        <Label fx:id="waterBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Quality of life"/>
           <ProgressBar fx:id="qualityLifeBalanceProgressBar" styleClass="progress-bar"/>
         </VBox>
-        <Label fx:id="qualityLifeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage" />
+        <Label fx:id="qualityLifeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
       </HBox>
-  </VBox>
+
+      <HBox styleClass="sub-title">
+        <Label fx:id="subTitleData" text="Data"/>
+      </HBox>
+    </VBox>
+  </ScrollPane>
+
 </VBox>

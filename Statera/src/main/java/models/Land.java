@@ -222,5 +222,4 @@ public class Land {
       this.land.get(line).set(column, new FreeWasteland());
     }
   }
-
 }

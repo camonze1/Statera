@@ -13,7 +13,7 @@
   -fx-font-size: 50px;
   -fx-font-family: "Bahnschrift";
   -fx-font-weight: bold;
-  -fx-padding: 40px 35px 40px 5px;
+  -fx-padding: 40px 35px 10px 5px;
   -fx-text-fill: white;
   -fx-min-width: 500px;
   -fx-max-width: 500px;
@@ -61,6 +61,12 @@
   -fx-alignment: bottom-center;
 }
 
+.box-sub-progressbar {
+  -fx-padding: 10px 10px 10px 70px;
+  -fx-spacing: 10px;
+  -fx-alignment: bottom-center;
+}
+
 .label-percentage {
   -fx-padding: 5px;
   -fx-font-weight: bold;
@@ -69,26 +75,102 @@
   -fx-max-width: 60px;
 }
 
-.body {
-  -fx-spacing: 5px;
-  -fx-padding: 20px 5px;
-  -fx-max-height: 250px;
-  -fx-min-height: 250px;
-}
-
-.label {
-  -fx-text-fill: white;
-}
-
-/* PROGRESS BAR */
 .progress-bar {
   -fx-padding: 0px;
   -fx-min-height: 25px;
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #7777b0;
+  -fx-accent: #7db077;
+}
 
+.sub-progress-bar {
+  -fx-padding: 0px;
+  -fx-min-height: 25px;
+  -fx-max-height: 25px;
+  -fx-max-width: 550px;
+  -fx-min-width: 300px;
+  -fx-accent: #b7b24f;
+}
+
+.sub-title {
+  -fx-font-size: 25px;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-weight: bold;
+  /*-fx-padding: 40px 35px 40px 5px;*/
+  -fx-text-fill: white;
+  -fx-min-width: 250px;
+  -fx-max-width: 250px;
+  -fx-alignment: center;
+}
+
+.scroll-pane {
+  -fx-background-color: transparent;
+  -fx-background: transparent;
+  -fx-border-width: 0;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+  -fx-background-color :transparent;
+  -fx-border-color :transparent;
+  -fx-background-radius : 0.0em;
+  -fx-border-radius :2.0em;
+}
+
+
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+  -fx-background-color :transparent;
+  -fx-background-radius : 0.0em;
+  -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+  -fx-background-color :transparent;
+  -fx-background-radius : 0.0em;
+  -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow{
+  -fx-shape : " ";
+  -fx-padding :0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow{
+  -fx-shape : " ";
+  -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+  -fx-background-color :derive(black,90.0%);
+  -fx-background-insets : 2.0, 0.0, 0.0;
+  -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+  -fx-background-color :derive(#4D4C4F,10.0%);
+  -fx-background-insets : 2.0, 0.0, 0.0;
+  -fx-background-radius : 2.0em;
+}
+
+.body {
+  -fx-spacing: 5px;
+  -fx-padding: 20px 5px;
+  /*-fx-min-height: 200px;*/
+  /*-fx-max-height: 200px;*/
+  -fx-background-color: #454862;
+}
+
+.label {
+  -fx-text-fill: white;
 }
 
 /* FOOTER */
