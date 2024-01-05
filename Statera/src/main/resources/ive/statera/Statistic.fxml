@@ -71,15 +71,25 @@
         <Label fx:id="biosphereBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
       </HBox>
       <VBox>
-        <Label fx:id="numberOfAnimalsInLandLabel" styleClass="label-data"/>
-        <Label fx:id="numberOfHumansInLandLabel" styleClass="label-data"/>
+        <Label fx:id="numberOfAnimalsInLandLabel" styleClass="label-info"/>
+        <Label fx:id="numberOfHumansInLandLabel" styleClass="label-info"/>
       </VBox>
 
       <HBox styleClass="sub-title">
         <Label fx:id="subTitleData" text="Data"/>
       </HBox>
 
-
+      <VBox>
+        <Label fx:id="numberOfWaterPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfGrassPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfForestPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfBuildingPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfPublicBuildingPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfDesertPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfJunglePlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfMountainPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfFreeWastelandPlotInLand" styleClass="label-info"/>
+      </VBox>
     </VBox>
   </ScrollPane>
 

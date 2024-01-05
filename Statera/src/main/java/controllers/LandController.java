@@ -260,6 +260,10 @@ public class LandController {
     }
   }
 
+  public int getNumberOfOccupiedPlotLandController(BiomeEnum biomeType){
+    return this.land.getNumberOfOccupiedPlotByType(biomeType);
+  }
+
   public int getNumberOfAnimalsInLand() {
     return this.land.getNumberOfAnimals();
   }

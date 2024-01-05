@@ -1,5 +1,6 @@
 package controllers;
 
+import enums.BiomeEnum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -49,6 +50,34 @@ public class StatisticController {
 
   @FXML
   private Label numberOfHumansInLandLabel;
+
+
+  @FXML
+  private Label numberOfWaterPlotInLand;
+
+  @FXML
+  private Label numberOfGrassPlotInLand;
+
+  @FXML
+  private Label numberOfForestPlotInLand;
+
+  @FXML
+  private Label numberOfBuildingPlotInLand;
+
+  @FXML
+  private Label numberOfPublicBuildingPlotInLand;
+
+  @FXML
+  private Label numberOfDesertPlotInLand;
+
+  @FXML
+  private Label numberOfJunglePlotInLand;
+
+  @FXML
+  private Label numberOfMountainPlotInLand;
+
+  @FXML
+  private Label numberOfFreeWastelandPlotInLand;
 
   //  Methods  //
 
@@ -106,16 +135,28 @@ public class StatisticController {
     }
 
     if (landController.getNumberOfAnimalsInLand() != 0) {
-      numberOfAnimalsInLandLabel.setText("- You have " + landController.getNumberOfAnimalsInLand() + " animals in total in your land");
+      numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animals in total in your land");
     } else {
-      numberOfAnimalsInLandLabel.setText("- You have " + landController.getNumberOfAnimalsInLand() + " animal in total in your land");
+      numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animal in total in your land");
     }
 
     if (landController.getNumberOfHumansInLand() != 0) {
-      numberOfHumansInLandLabel.setText("- You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
+      numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
     } else {
-      numberOfHumansInLandLabel.setText("- You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
+      numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
     }
+
+
+    numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plots of water");
+    numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plots of grass");
+    numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plots of forest");
+    numberOfBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plots of building");
+    numberOfPublicBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plots of public building");
+    numberOfDesertPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plots of desert");
+    numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plots of jungle");
+    numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
+    numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
+
   }
 
   //  FXML Methods  //
