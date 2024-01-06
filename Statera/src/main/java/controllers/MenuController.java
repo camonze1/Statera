@@ -42,7 +42,19 @@ public class MenuController {
       e.printStackTrace();
     }
   }
-
+  @FXML
+  public void onClickedInformationButton(ActionEvent event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Information.fxml"));
+      Scene scene = new Scene(loader.load(), 600, 500);
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      stage.setTitle("Information - Statera");
+      stage.setScene(scene);
+      stage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
   @FXML
   public void onClickedQuitGame() {
     System.exit(0);

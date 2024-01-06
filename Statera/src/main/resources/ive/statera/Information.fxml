@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InformationController">
+    <stylesheets>
+        <URL value="@css/Information.css"/>
+    </stylesheets>
+
+    <HBox>
+        <VBox styleClass="box-button">
+            <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home"
+                    styleClass="home-button"/>
+        </VBox>
+        <VBox styleClass="box-label">
+            <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Information">
+            </Label>
+        </VBox>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+        <Text text="To have a building, you need : "/>
+        <Text text="1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_forest.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_grass.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_water.jpg"/>
+            </image>
+        </ImageView>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+        <Text text="To have a desert, you need : "/>
+        <Text text="3 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_grass.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 2 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_water.jpg"/>
+            </image>
+        </ImageView>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+        <Text text="To have a forest, you need : "/>
+        <Text text="1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_grass.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_water.jpg"/>
+            </image>
+        </ImageView>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+            <Text text="To have a jungle, you need : "/>
+            <Text text="2 "/>
+            <ImageView fitHeight="20" fitWidth="20">
+                <image>
+                    <Image url="@img/tiles/b_forest.jpg"/>
+                </image>
+            </ImageView>
+            <Text text=" + 2 "/>
+            <ImageView fitHeight="20" fitWidth="20">
+                <image>
+                    <Image url="@img/tiles/b_grass.jpg"/>
+                </image>
+            </ImageView>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+        <Text text="To have a mountain, you need : "/>
+        <Text text="1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_forest.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 2 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_grass.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_water.jpg"/>
+            </image>
+        </ImageView>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+        <Text text="To have a public building, you need : "/>
+        <Text text="1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_forest.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_grass.jpg"/>
+            </image>
+        </ImageView>
+        <Text text=" + 1 "/>
+        <ImageView fitHeight="20" fitWidth="20">
+            <image>
+                <Image url="@img/tiles/b_water.jpg"/>
+            </image>
+        </ImageView>
+    </HBox>
+
+    <HBox prefHeight="100.0" prefWidth="400.0" styleClass="body" style="-fx-display: inline;">
+        <Text text="Water and grass are unlimited resources."/>
+    </HBox>
+
+
+
+    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
+    </HBox>
+</VBox>
+
+
