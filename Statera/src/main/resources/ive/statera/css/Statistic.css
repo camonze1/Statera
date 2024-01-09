@@ -1,5 +1,5 @@
 .global {
-  -fx-background-color: #679436;
+  -fx-background-color: #A98467;
   -fx-padding: 0px;
 }
 
@@ -14,7 +14,7 @@
   -fx-font-family: "Bahnschrift";
   -fx-font-weight: bold;
   -fx-padding: 40px 35px 10px 5px;
-  -fx-text-fill: #ebf2fa;
+  -fx-text-fill: #F0EAD2;
   -fx-min-width: 500px;
   -fx-max-width: 500px;
   -fx-alignment: center;
@@ -23,7 +23,7 @@
 /* MENU BUTTON */
 
 .label {
-  -fx-text-fill: #ebf2fa;
+  -fx-text-fill: #F0EAD2;
   -fx-font-weight: bold;
 
 }
@@ -37,7 +37,7 @@
 }
 
 .home-button {
-  -fx-background-color: #ebf2fa;
+  -fx-background-color: #F0EAD2;
   -fx-font-size: 12px;
   -fx-text-fill: black;
   -fx-cursor: hand;
@@ -87,7 +87,7 @@
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #05668d;
+  -fx-accent: #ADC178;
 }
 
 .sub-progress-bar {
@@ -96,7 +96,7 @@
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #427aa1;
+  -fx-accent: #DDE5B6;
   -fx-border-width: 0px;
 }
 
@@ -105,7 +105,7 @@
   -fx-font-family: "Bahnschrift";
   -fx-font-weight: bold;
   -fx-padding: 10px;
-  -fx-text-fill: #ebf2fa;
+  -fx-text-fill: #F0EAD2;
   -fx-min-width: 250px;
   -fx-max-width: 250px;
   -fx-alignment: center;
@@ -115,7 +115,7 @@
   -fx-font-size: 12px;
   -fx-font-family: "Bahnschrift";
   -fx-padding: 7px 0px 7px 80px;
-  -fx-text-fill: #ebf2fa;
+  -fx-text-fill: #F0EAD2;
   -fx-min-width: 500px;
   -fx-max-width: 500px;
   -fx-alignment: center;
@@ -181,7 +181,7 @@
 .body {
   -fx-spacing: 5px;
   -fx-padding: 20px 5px;
-  -fx-background-color: #679436;
+  -fx-background-color: #A98467;
 }
 
 /* FOOTER */

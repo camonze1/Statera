@@ -43,6 +43,11 @@ public class MenuController {
     }
   }
 
+//  @FXML
+//  public void onClickedUnlockBlockWastelandButton(ActionEvent event) {
+//    this.landController.unlockBlockWasteland();
+//  }
+
   @FXML
   public void onClickedQuitGame() {
     System.exit(0);
@@ -59,7 +64,7 @@ public class MenuController {
   public void setLandController(LandController landController) {
     this.landController = landController;
   }
-  
+
   public BiomeController getBiomeMenuController() {
     return biomeController;
   }
