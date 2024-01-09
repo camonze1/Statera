@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.StartController">
+    <stylesheets>
+        <URL value="@css/Start.css"/>
+    </stylesheets>
+
+    <StackPane>
+        <ImageView>
+            <image>
+                <Image url="@img/LogoStatera.png" />
+            </image>
+        </ImageView>
+        <VBox alignment="CENTER" styleClass="box-button">
+            <Button fx:id="start" mnemonicParsing="false" onAction="#onClickedStartButton" styleClass="button-style" text="Start"/>
+        </VBox>
+    </StackPane>
+
+</VBox>
