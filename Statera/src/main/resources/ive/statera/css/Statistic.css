@@ -49,11 +49,11 @@
 }
 
 .home-button:hover {
-  -fx-background-color: #d5dce3;
+  -fx-background-color: #DBD6BF;
 }
 
 .home-button:pressed {
-  -fx-background-color: #cacccf;
+  -fx-background-color: #ede5be;
   -fx-text-fill: #000000;
 }
 
@@ -87,7 +87,7 @@
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #ADC178;
+  -fx-accent: #82915A;
 }
 
 .sub-progress-bar {
@@ -96,7 +96,7 @@
   -fx-max-height: 25px;
   -fx-max-width: 550px;
   -fx-min-width: 300px;
-  -fx-accent: #DDE5B6;
+  -fx-accent: #ADC178;
   -fx-border-width: 0px;
 }
 

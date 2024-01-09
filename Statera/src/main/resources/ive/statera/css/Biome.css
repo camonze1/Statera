@@ -56,11 +56,11 @@
 }
 
 .button-biome:hover {
-    -fx-background-color: #d5dce3;
+    -fx-background-color: #DBD6BF;
 }
 
 .home-button:pressed {
-    -fx-background-color: #cacccf;
+    -fx-background-color: #ede5be;
     -fx-text-fill: #000000;
 }
 

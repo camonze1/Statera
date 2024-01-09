@@ -3,9 +3,9 @@
 COLORS THEME :
 
 DARK BLUE - MAIN PROGRESS BAR
-ADC178
+82915A
 MID-BLUE - SUB PROGRESS BAR
-DDE5B6
+ADC178
 GREEN - BACKGROUND
 A98467
 LIGHT-GREEN
@@ -13,9 +13,9 @@ a5be00
 WHITE - BUTTON
 F0EAD2
 WHITE - BUTTON HOVER
-F0EAD2
+DBD6BF
 WHITE - BUTTON PRESSED
-F0EAD2
+ede5be
 
 */
 
@@ -55,11 +55,11 @@ F0EAD2
 }
 
 .menu-button:hover {
-    -fx-background-color: #d5dce3;
+    -fx-background-color: #DBD6BF;
 }
 
 .menu-button:pressed {
-    -fx-background-color: #cacccf;
+    -fx-background-color: #ede5be;
     -fx-text-fill: #000000;
 }
 
@@ -81,7 +81,7 @@ F0EAD2
     -fx-max-width: 400px;
     -fx-min-width: 400px;
     -fx-border-radius: 2px;
-    -fx-accent: #ADC178;
+    -fx-accent: #82915A;
 }
 
 .label {
@@ -111,11 +111,11 @@ F0EAD2
 }
 
 .statistic-button:hover {
-    -fx-background-color: #d5dce3;
+    -fx-background-color: #DBD6BF;
 }
 
 .statistic-button:pressed {
-    -fx-background-color: #cacccf;
+    -fx-background-color: #ede5be;
     -fx-text-fill: #000000;
 }
 
