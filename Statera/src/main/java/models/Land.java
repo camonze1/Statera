@@ -1,6 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
+
 import java.util.*;
 
 public class Land {
@@ -62,7 +63,7 @@ public class Land {
     double targetBuildingPercentage = 0.2;
     int targetNumberOfBuildingBiomes = (int) (targetBuildingPercentage * totalPlot);
     System.out.println("targetNumberOfBuildingBiomes : " + targetNumberOfBuildingBiomes);
-    double currentBuildingPercentage = (double) (getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) + getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING))/ totalPlot;
+    double currentBuildingPercentage = (double) (getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) + getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING)) / totalPlot;
     double buildingBalance = (Math.abs(currentBuildingPercentage - targetBuildingPercentage) / targetBuildingPercentage) * 100;
     System.out.println(currentBuildingPercentage);
     return 100 - buildingBalance;

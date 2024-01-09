@@ -1,21 +1,21 @@
 .button-style {
-    -fx-font-size: 12px;
-    -fx-background-color: #ebf2fa;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    -fx-min-width: 100px;
-    -fx-max-width: 100px;
-    -fx-min-height: 25px;
-    -fx-max-height: 25px;
-    -fx-alignment: center top;
-    -fx-background-radius: 2px;
-    -fx-font-family: default;
+  -fx-font-size: 12px;
+  -fx-background-color: #F0EAD2;
+  -fx-text-fill: black;
+  -fx-cursor: hand;
+  -fx-min-width: 100px;
+  -fx-max-width: 100px;
+  -fx-min-height: 25px;
+  -fx-max-height: 25px;
+  -fx-alignment: center top;
+  -fx-background-radius: 2px;
+  -fx-font-family: default;
 }
 
 .button-style:hover {
-    -fx-background-color: #d5dce3;
+  -fx-background-color: #DBD6BF;
 }
 
 .box-button {
-    -fx-padding : 300px 10px 10px 10px;
- }
+  -fx-padding: 300px 10px 10px 10px;
+}

@@ -1,10 +1,12 @@
 package controllers;
 
+import ive.statera.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +39,7 @@ public class MenuController {
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Select biome - Statera");
       stage.setScene(scene);
+      stage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       stage.show();
     } catch (IOException e) {
       e.printStackTrace();
@@ -51,6 +54,7 @@ public class MenuController {
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Information - Statera");
       stage.setScene(scene);
+      stage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       stage.show();
     } catch (IOException e) {
       e.printStackTrace();

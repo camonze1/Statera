@@ -16,12 +16,14 @@
               text="Home"/>
     </VBox>
     <VBox styleClass="box-label">
-      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" prefHeight="72.0" prefWidth="500.0" styleClass="title" text="Statistics">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" prefHeight="72.0" prefWidth="500.0" styleClass="title"
+             text="Statistics">
       </Label>
     </VBox>
   </HBox>
 
-  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" hbarPolicy="AS_NEEDED"
+              styleClass="scroll-pane">
     <VBox alignment="CENTER" styleClass="body">
 
       <HBox styleClass="sub-title">

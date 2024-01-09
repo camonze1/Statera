@@ -1,6 +1,7 @@
 package controllers;
 
 import enums.BiomeEnum;
+import ive.statera.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import models.Land;
@@ -84,7 +86,6 @@ public class LandController {
       for (int col = 0; col < this.land.getLandSize()[1]; col++) {
         Rectangle plot = new Rectangle(35, 35);
 
-        // tooltip
         Tooltip tooltip = new Tooltip(this.land.getBiome(row, col).getDescription());
         Tooltip.install(plot, tooltip);
 
@@ -203,7 +204,6 @@ public class LandController {
       if (previousMenuStage != null) {
         previousMenuStage.close();
       }
-
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -212,6 +212,7 @@ public class LandController {
       menuController.setLandController(this);
       menuStage.setTitle("Menu - Statera");
       menuStage.setScene(scene);
+      menuStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       menuStage.setResizable(false);
       menuStage.show();
 
@@ -238,11 +239,11 @@ public class LandController {
       statisticController.updateViewStatisticController(this);
       statisticsStage.setTitle("Statistics - Statera");
       statisticsStage.setScene(scene);
+      statisticsStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       statisticsStage.setResizable(false);
       statisticsStage.show();
 
       previousStatisticStage = statisticsStage;
-
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -267,7 +268,7 @@ public class LandController {
     }
   }
 
-  public int getNumberOfOccupiedPlotLandController(BiomeEnum biomeType){
+  public int getNumberOfOccupiedPlotLandController(BiomeEnum biomeType) {
     return this.land.getNumberOfOccupiedPlotByType(biomeType);
   }
 
@@ -275,7 +276,7 @@ public class LandController {
     return this.land.getNumberOfAnimals();
   }
 
-  public int  getNumberOfHumansInLand() {
+  public int getNumberOfHumansInLand() {
     return this.land.getNumberOfHumans();
   }
 

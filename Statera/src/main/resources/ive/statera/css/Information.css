@@ -1,73 +1,73 @@
 .global {
-    -fx-background-color: #679436;
+  -fx-background-color: #A98467;
 }
 
 .title {
-    -fx-font-size: 50px;
-    -fx-font-family: "Bahnschrift";
-    -fx-font-weight: bold;
-    -fx-padding: 40px 35px 40px 5px;
-    -fx-text-fill: #ebf2fa;
-    -fx-min-width: 500px;
-    -fx-max-width: 500px;
-    -fx-alignment: center;
+  -fx-font-size: 50px;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-weight: bold;
+  -fx-padding: 40px 35px 40px 5px;
+  -fx-text-fill: #F0EAD2;
+  -fx-min-width: 500px;
+  -fx-max-width: 500px;
+  -fx-alignment: center;
 }
 
 .body {
-    -fx-spacing: 5px;
-    -fx-padding: 10px;
+  -fx-spacing: 5px;
+  -fx-padding: 10px;
 }
 
 /* MENU BUTTON */
 
 .box-button {
-    -fx-min-width: 65px;
-    -fx-max-width: 65px;
-    -fx-min-height: 40px;
-    -fx-max-height: 40px;
-    -fx-padding: 10px;
+  -fx-min-width: 65px;
+  -fx-max-width: 65px;
+  -fx-min-height: 40px;
+  -fx-max-height: 40px;
+  -fx-padding: 10px;
 }
 
 .home-button {
-    -fx-background-color: #ebf2fa;
-    -fx-font-size: 12px;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    -fx-min-width: 55px;
-    -fx-max-width: 55px;
-    -fx-min-height: 30px;
-    -fx-max-height: 30px;
-    -fx-background-radius: 2px;
+  -fx-background-color: #F0EAD2;
+  -fx-font-size: 12px;
+  -fx-text-fill: black;
+  -fx-cursor: hand;
+  -fx-min-width: 55px;
+  -fx-max-width: 55px;
+  -fx-min-height: 30px;
+  -fx-max-height: 30px;
+  -fx-background-radius: 2px;
 }
 
 .home-button:hover {
-    -fx-background-color: #d5dce3;
+  -fx-background-color: #DBD6BF;
 }
 
 .home-button:pressed {
-    -fx-background-color: #cacccf;
-    -fx-text-fill: #000000;
+  -fx-background-color: #cacccf;
+  -fx-text-fill: #000000;
 }
 
 .button-style {
-    -fx-font-size: 12px;
-    -fx-background-color: #ebf2fa;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    -fx-min-width: 100px;
-    -fx-max-width: 100px;
-    -fx-min-height: 25px;
-    -fx-max-height: 25px;
-    -fx-alignment: center top;
-    -fx-background-radius: 2px;
-    -fx-font-family: default;
+  -fx-font-size: 12px;
+  -fx-background-color: #F0EAD2;
+  -fx-text-fill: black;
+  -fx-cursor: hand;
+  -fx-min-width: 100px;
+  -fx-max-width: 100px;
+  -fx-min-height: 25px;
+  -fx-max-height: 25px;
+  -fx-alignment: center top;
+  -fx-background-radius: 2px;
+  -fx-font-family: default;
 }
 
 .button-style:hover {
-    -fx-background-color: #d5dce3;
+  -fx-background-color: #DBD6BF;
 }
 
 .home-button:pressed {
-    -fx-background-color: #cacccf;
-    -fx-text-fill: #000000;
+  -fx-background-color: #cacccf;
+  -fx-text-fill: #000000;
 }
