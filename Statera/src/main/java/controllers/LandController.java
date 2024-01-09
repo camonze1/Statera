@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Tooltip;
 import javafx.scene.paint.ImagePattern;
 import javafx.stage.Stage;
 import models.Land;
@@ -82,6 +83,11 @@ public class LandController {
     for (int row = 0; row < this.land.getLandSize()[0]; row++) {
       for (int col = 0; col < this.land.getLandSize()[1]; col++) {
         Rectangle plot = new Rectangle(35, 35);
+
+        // tooltip
+        Tooltip tooltip = new Tooltip(this.land.getBiome(row, col).getDescription());
+        Tooltip.install(plot, tooltip);
+
         new ImagePattern(this.land.getBiome(row, col).getImage());
         plot.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
         plot.setOnMouseClicked(event -> onPlotClick(plot));
@@ -91,6 +97,7 @@ public class LandController {
     updateBalance();
     show();
   }
+
 
   public void onPlotClick(Rectangle plot) {
     int line = GridPane.getColumnIndex(plot);
