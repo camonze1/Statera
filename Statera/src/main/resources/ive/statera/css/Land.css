@@ -3,24 +3,24 @@
 COLORS THEME :
 
 DARK BLUE - MAIN PROGRESS BAR
-05668d
+82915A
 MID-BLUE - SUB PROGRESS BAR
-427aa1
+ADC178
 GREEN - BACKGROUND
-679436
+A98467
 LIGHT-GREEN
 a5be00
 WHITE - BUTTON
-ebf2fa
+F0EAD2
 WHITE - BUTTON HOVER
-d5dce3
+DBD6BF
 WHITE - BUTTON PRESSED
-cacccf
+ede5be
 
 */
 
 .global {
-    -fx-background-color: #679436;
+    -fx-background-color: #A98467;
     -fx-padding: 0px;
 }
 
@@ -43,7 +43,7 @@ cacccf
 }
 
 .menu-button {
-    -fx-background-color: #ebf2fa;
+    -fx-background-color: #F0EAD2;
     -fx-font-size: 16px;
     -fx-text-fill: black;
     -fx-cursor: hand;
@@ -55,11 +55,11 @@ cacccf
 }
 
 .menu-button:hover {
-    -fx-background-color: #d5dce3;
+    -fx-background-color: #DBD6BF;
 }
 
 .menu-button:pressed {
-    -fx-background-color: #cacccf;
+    -fx-background-color: #ede5be;
     -fx-text-fill: #000000;
 }
 
@@ -81,11 +81,11 @@ cacccf
     -fx-max-width: 400px;
     -fx-min-width: 400px;
     -fx-border-radius: 2px;
-    -fx-accent: #05668d;
+    -fx-accent: #82915A;
 }
 
 .label {
-    -fx-text-fill: #ebf2fa;
+    -fx-text-fill: #F0EAD2;
     -fx-font-weight: bold;
 }
 
@@ -100,7 +100,7 @@ cacccf
 }
 
 .statistic-button {
-    -fx-background-color: #ebf2fa;
+    -fx-background-color: #F0EAD2;
     -fx-text-fill: black;
     -fx-cursor: hand;
     -fx-min-width: 75px;
@@ -111,11 +111,11 @@ cacccf
 }
 
 .statistic-button:hover {
-    -fx-background-color: #d5dce3;
+    -fx-background-color: #DBD6BF;
 }
 
 .statistic-button:pressed {
-    -fx-background-color: #cacccf;
+    -fx-background-color: #ede5be;
     -fx-text-fill: #000000;
 }
 
@@ -124,7 +124,7 @@ cacccf
     -fx-padding: 10px;
     -fx-alignment: top-center;
     -fx-spacing: 10px;
-    -fx-background-color: #679436;
+    -fx-background-color: #A98467;
 }
 
 .right-column {
