@@ -100,17 +100,17 @@ public class Land {
 
 
     double buildingLifeQualityPercent = 100 - buildinglifeQualityBalance;
-    System.out.println("buildingLifeQualityPercentOrigin : " + buildingLifeQualityPercent);
+//    System.out.println("buildingLifeQualityPercentOrigin : " + buildingLifeQualityPercent);
 
     if (this.environmentBalance() <50){
-      System.out.println("boucle if : ");
-      System.out.println("environmentBalance : " + environmentBalance());
+//      System.out.println("boucle if : ");
+//      System.out.println("environmentBalance : " + environmentBalance());
 
       buildingLifeQualityPercent = buildingLifeQualityPercent - (50-environmentBalance());
-      System.out.println("soustraction : " + (50-environmentBalance()));
+//      System.out.println("soustraction : " + (50-environmentBalance()));
 
     }
-    System.out.println("buildingLifeQualityPercent : " + buildingLifeQualityPercent);
+//    System.out.println("buildingLifeQualityPercent : " + buildingLifeQualityPercent);
 
     return buildingLifeQualityPercent;
   }
