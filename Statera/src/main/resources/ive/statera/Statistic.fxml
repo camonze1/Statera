@@ -15,17 +15,15 @@
       <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button"
               text="Home"/>
     </VBox>
-    <VBox styleClass="box-label">
+    <VBox styleClass="box-title">
       <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" prefHeight="72.0" prefWidth="500.0" styleClass="title"
              text="Statistics">
       </Label>
     </VBox>
   </HBox>
 
-  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" hbarPolicy="AS_NEEDED"
-              styleClass="scroll-pane">
+  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" styleClass="scroll-pane">
     <VBox alignment="CENTER" styleClass="body">
-
       <HBox styleClass="sub-title">
         <Label fx:id="subTitleBalance" text="Balances"/>
       </HBox>

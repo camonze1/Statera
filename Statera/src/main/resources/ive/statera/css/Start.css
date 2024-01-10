@@ -1,3 +1,9 @@
+/* BODY */
+
+.box-button {
+  -fx-padding: 280px 10px 10px 10px;
+}
+
 .button-style {
   -fx-font-size: 15px;
   -fx-background-color: #F0EAD2;
@@ -14,6 +20,5 @@
   -fx-background-color: #DBD6BF;
 }
 
-.box-button {
-  -fx-padding: 280px 10px 10px 10px;
-}
+/* END BODY */
+
