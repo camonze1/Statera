@@ -89,7 +89,6 @@ public class LandController {
         Tooltip tooltip = new Tooltip(this.land.getBiome(row, col).getDescription());
         Tooltip.install(plot, tooltip);
 
-        new ImagePattern(this.land.getBiome(row, col).getImage());
         plot.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
         plot.setOnMouseClicked(event -> onPlotClick(plot));
         this.land.getBiome(row, col).setRectangle(plot);
@@ -263,6 +262,8 @@ public class LandController {
 
   public void setBiomeOnPlot(int line, int column) {
     Rectangle biomePlot = new Rectangle(35, 35);
+    Tooltip tooltip = new Tooltip(this.land.getBiome(line, column).getDescription());
+    Tooltip.install(biomePlot, tooltip);
     biomePlot.setFill(new ImagePattern(this.land.getBiome(line, column).getImage()));
     biomePlot.setOnMouseClicked(event -> onPlotClick(biomePlot));
     this.land.getBiome(line, column).setRectangle(biomePlot);

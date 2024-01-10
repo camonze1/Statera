@@ -87,18 +87,27 @@ public class Land {
   public double getQualityOfLifeBalance() {
     int buildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
 
-    double targetPublicBuildingPercent = 0.2; //(int) (buildingNumber/2.33);
+    double targetPublicBuildingPercent = 0.5; //(int) (buildingNumber/2.33);
 
     int publicBuildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
     double currentPublicBuildingPercent = (double) publicBuildingNumber / buildingNumber;
 
     double buildinglifeQualityBalance = (Math.abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
-    System.out.println("buildingNumber : " + buildingNumber);
-    System.out.println("publicBuildingNumber : " + publicBuildingNumber);
-    System.out.println("currentPublicBuildingPercent : " + currentPublicBuildingPercent);
-    System.out.println("buildinglifeQualityBalance : " + buildinglifeQualityBalance);
 
-    return 100 - buildinglifeQualityBalance;
+    double buildingLifeQualityPercent = 100 - buildinglifeQualityBalance;
+    System.out.println("buildingLifeQualityPercentOrigin : " + buildingLifeQualityPercent);
+
+    if (this.environmentBalance() <50){
+      System.out.println("boucle if : ");
+      System.out.println("environmentBalance : " + environmentBalance());
+
+      buildingLifeQualityPercent = buildingLifeQualityPercent - (50-environmentBalance());
+      System.out.println("soustraction : " + (50-environmentBalance()));
+
+    }
+    System.out.println("buildingLifeQualityPercent : " + buildingLifeQualityPercent);
+
+    return buildingLifeQualityPercent;
   }
 
   // - - - - - - - - - - Balance - - - - - - - - - - //

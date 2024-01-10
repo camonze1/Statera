@@ -10,6 +10,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import models.*;
 
 public class BiomeController {
 
@@ -51,56 +52,60 @@ public class BiomeController {
     imgWaterView.setFitWidth(50);
     imgWaterView.setFitHeight(50);
     waterButton.setGraphic(imgWaterView);
-    waterButton.setTooltip(new Tooltip("Water"));
 
     Image imageGrass = new Image(getClass().getResource("/ive/statera/img/tiles/b_grass.jpg").toExternalForm());
     ImageView imgGrassView = new ImageView(imageGrass);
     imgGrassView.setFitWidth(50);
     imgGrassView.setFitHeight(50);
     grassButton.setGraphic(imgGrassView);
-    grassButton.setTooltip(new Tooltip("Grass"));
 
     Image imageForest = new Image(getClass().getResource("/ive/statera/img/tiles/b_forest.jpg").toExternalForm());
     ImageView imgForestView = new ImageView(imageForest);
     imgForestView.setFitWidth(50);
     imgForestView.setFitHeight(50);
     forestButton.setGraphic(imgForestView);
-    forestButton.setTooltip(new Tooltip("Forest"));
+    Forest forest = new Forest();
+    forestButton.setTooltip(new Tooltip(forest.getStringCost()));
 
     Image imgBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/b_building.jpg").toExternalForm());
     ImageView imgBuildingView = new ImageView(imgBuilding);
     imgBuildingView.setFitWidth(50);
     imgBuildingView.setFitHeight(50);
     buildingButton.setGraphic(imgBuildingView);
-    buildingButton.setTooltip(new Tooltip("Building"));
+    Building building = new Building();
+    buildingButton.setTooltip(new Tooltip(building.getStringCost()));
 
     Image imagePublicBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/building.png").toExternalForm());
     ImageView imgPublicBuildingView = new ImageView(imagePublicBuilding);
     imgPublicBuildingView.setFitWidth(50);
     imgPublicBuildingView.setFitHeight(50);
     publicBuildingButton.setGraphic(imgPublicBuildingView);
-    publicBuildingButton.setTooltip(new Tooltip("Public Building"));
+    PublicBuilding publicbuilding = new PublicBuilding();
+    publicBuildingButton.setTooltip(new Tooltip(publicbuilding.getStringCost()));
 
     Image imageDesert = new Image(getClass().getResource("/ive/statera/img/tiles/b_desert.jpg").toExternalForm());
     ImageView imgDesertView = new ImageView(imageDesert);
     imgDesertView.setFitWidth(50);
     imgDesertView.setFitHeight(50);
     desertButton.setGraphic(imgDesertView);
-    desertButton.setTooltip(new Tooltip("Desert"));
+    Desert desert = new Desert();
+    desertButton.setTooltip(new Tooltip(desert.getStringCost()));
 
     Image imageJungle = new Image(getClass().getResource("/ive/statera/img/tiles/b_jungle.jpg").toExternalForm());
     ImageView imgJungleView = new ImageView(imageJungle);
     imgJungleView.setFitWidth(50);
     imgJungleView.setFitHeight(50);
     jungleButton.setGraphic(imgJungleView);
-    jungleButton.setTooltip(new Tooltip("Jungle"));
+    Jungle jungle = new Jungle();
+    jungleButton.setTooltip(new Tooltip(jungle.getStringCost()));
 
     Image imageMountain = new Image(getClass().getResource("/ive/statera/img/tiles/b_mountain.jpg").toExternalForm());
     ImageView imgMountainView = new ImageView(imageMountain);
     imgMountainView.setFitWidth(50);
     imgMountainView.setFitHeight(50);
     mountainButton.setGraphic(imgMountainView);
-    mountainButton.setTooltip(new Tooltip("Mountain"));
+    Mountain mountain = new Mountain();
+    mountainButton.setTooltip(new Tooltip(mountain.getStringCost()));
   }
 
   //  FXML Methods  //
