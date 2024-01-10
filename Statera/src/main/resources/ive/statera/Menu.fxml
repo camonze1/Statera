@@ -11,32 +11,33 @@
   </stylesheets>
 
   <HBox>
-    <VBox styleClass="box-button">
+    <VBox styleClass="box-home-button">
       <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" text="Home"
               styleClass="home-button"/>
     </VBox>
-    <VBox styleClass="box-label">
+    <VBox styleClass="box-title">
       <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Menu">
       </Label>
     </VBox>
   </HBox>
 
-  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
-    <Button fx:id="information" mnemonicParsing="false" onAction="#onClickedInformationButton"
-            styleClass="button-style" text="Information"/>
-    <Button fx:id="selectBiome" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton"
-            styleClass="button-style" text="Select biome"/>
-    <Button fx:id="unlockWasteland" mnemonicParsing="false" onAction="#onClickedUnlockWastelandButton"
-            styleClass="button-style" text="Unlock wasteland"/>
-  </HBox>
+  <VBox styleClass="body">
+    <VBox alignment="CENTER" styleClass="box-buttons">
+      <Button fx:id="information" mnemonicParsing="false" onAction="#onClickedInformationButton"
+              styleClass="button-style" text="Information"/>
+      <Button fx:id="selectBiome" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton"
+              styleClass="button-style" text="Select biome"/>
+      <Button fx:id="unlockWasteland" mnemonicParsing="false" onAction="#onClickedUnlockWastelandButton"
+              styleClass="button-style" text="Unlock wasteland"/>
+    </VBox>
 
-  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
-    <Button fx:id="replayGame" mnemonicParsing="false" onAction="#onClickedReplayGame" styleClass="button-style"
-            text="Replay game"/>
-    <Button fx:id="quitGame" mnemonicParsing="false" onAction="#onClickedQuitGame" styleClass="button-style"
-            text="Quit game"/>
-  </HBox>
-
+    <HBox alignment="CENTER" styleClass="box-buttons">
+      <Button fx:id="replayGame" mnemonicParsing="false" onAction="#onClickedReplayGame" styleClass="button-style"
+              text="Replay game"/>
+      <Button fx:id="quitGame" mnemonicParsing="false" onAction="#onClickedQuitGame" styleClass="button-style"
+              text="Quit game"/>
+    </HBox>
+  </VBox>
   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
   </HBox>
 </VBox>

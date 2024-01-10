@@ -30,78 +30,78 @@
     <VBox alignment="CENTER" styleClass="body">
       <HBox>
         <Text text="To have a building, you need : 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_forest.jpg"/>
         </ImageView>
         <Text text=" + 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_grass.jpg"/>
         </ImageView>
         <Text text=" + 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_water.jpg"/>
         </ImageView>
       </HBox>
 
       <HBox>
         <Text text="To have a desert, you need : 3 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_grass.jpg"/>
         </ImageView>
         <Text text=" + 2 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_water.jpg"/>
         </ImageView>
       </HBox>
 
       <HBox>
         <Text text="To have a forest, you need : 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_grass.jpg"/>
         </ImageView>
         <Text text=" + 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_water.jpg"/>
         </ImageView>
       </HBox>
 
       <HBox>
         <Text text="To have a jungle, you need : 2 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_forest.jpg"/>
         </ImageView>
         <Text text=" + 2 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_grass.jpg"/>
         </ImageView>
       </HBox>
 
       <HBox>
         <Text text="To have a mountain, you need : 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_forest.jpg"/>
         </ImageView>
         <Text text=" + 2 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_grass.jpg"/>
         </ImageView>
         <Text text=" + 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_water.jpg"/>
         </ImageView>
       </HBox>
 
       <HBox>
         <Text text="To have a public building, you need : 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_forest.jpg"/>
         </ImageView>
         <Text text=" + 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_grass.jpg"/>
         </ImageView>
         <Text text=" + 1 "/>
-        <ImageView fitHeight="20" fitWidth="20">
+        <ImageView fitHeight="25" fitWidth="25">
           <Image url="@img/tiles/b_water.jpg"/>
         </ImageView>
       </HBox>

@@ -54,6 +54,8 @@
 
 Text {
   -fx-letter-spacing: 2.0;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-size: 15px;
 }
 
 /* SCROLL BAR */

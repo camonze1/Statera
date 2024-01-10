@@ -2,29 +2,9 @@
   -fx-background-color: #A98467;
 }
 
-.title {
-  -fx-font-size: 50px;
-  -fx-font-family: "Bahnschrift";
-  -fx-font-weight: bold;
-  -fx-padding: 40px 35px 40px 5px;
-  -fx-text-fill: #F0EAD2;
-  -fx-min-width: 500px;
-  -fx-max-width: 500px;
-  -fx-alignment: center;
-}
+/* HEADER */
 
-.box-label {
-  -fx-alignment: center;
-}
-
-.body {
-  -fx-spacing: 30px;
-  -fx-padding: 10px;
-}
-
-/* MENU BUTTON */
-
-.box-button {
+.box-home-button {
   -fx-min-width: 65px;
   -fx-max-width: 65px;
   -fx-min-height: 40px;
@@ -34,6 +14,7 @@
 
 .home-button {
   -fx-background-color: #F0EAD2;
+  -fx-font-family: "Bahnschrift";
   -fx-font-size: 12px;
   -fx-text-fill: black;
   -fx-cursor: hand;
@@ -53,21 +34,46 @@
   -fx-text-fill: #000000;
 }
 
+.box-title {
+  -fx-alignment: center;
+}
+
+.title {
+  -fx-font-size: 50px;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-weight: bold;
+  -fx-padding: 40px 35px 40px 5px;
+  -fx-text-fill: #F0EAD2;
+  -fx-min-width: 500px;
+  -fx-max-width: 500px;
+  -fx-alignment: center;
+}
+
+/* END HEADER */
+
+/* BODY */
+
+.body {
+  -fx-spacing: 90px;
+  -fx-padding: 10px;
+}
+
+.box-buttons {
+  -fx-spacing: 40px;
+}
+
 .button-style {
-  -fx-font-size: 12px;
+  -fx-font-size: 13px;
   -fx-background-color: #F0EAD2;
+  -fx-font-family: "Bahnschrift";
   -fx-text-fill: black;
   -fx-cursor: hand;
-  -fx-alignment: center top;
+  -fx-alignment: center center;
   -fx-background-radius: 2px;
-  -fx-font-family: default;
 }
 
 .button-style:hover {
   -fx-background-color: #DBD6BF;
 }
 
-.home-button:pressed {
-  -fx-background-color: #EDE5BE;
-  -fx-text-fill: #000000;
-}
+/* END BODY */
