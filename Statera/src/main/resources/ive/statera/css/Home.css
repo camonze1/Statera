@@ -26,7 +26,7 @@
 
 .intro-text {
   -fx-font-size: 16px;
-  -fx-font-family: Bahnschrift;
+  -fx-font-family: "Bahnschrift";
   -fx-text-alignment: justify;
   -fx-line-spacing: 5px;
   -fx-padding: 2px;
@@ -39,7 +39,7 @@
 .start-button {
   -fx-font-size: 15px;
   -fx-background-color: #F0EAD2;
-  -fx-font-family: Bahnschrift;
+  -fx-font-family: "Bahnschrift";
   -fx-text-fill: black;
   -fx-cursor: hand;
   -fx-alignment: center center;
