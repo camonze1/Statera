@@ -31,6 +31,10 @@ public class LandController {
 
   private BiomeEnum biomeSelected;
 
+  private boolean unlockBlockedWasteland = false;
+
+  private int numberOfUnlockedBlockedWasteland = 0;
+
   private Random random = new Random();
 
   private double naturalBiomeBalance;
@@ -104,13 +108,20 @@ public class LandController {
     int line = GridPane.getColumnIndex(plot);
     int column = GridPane.getRowIndex(plot);
 
-    if (this.biomeSelected != null) {
+    if (this.biomeSelected != null && !this.unlockBlockedWasteland) {
       if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
-        buyBiome(line, column, this.biomeSelected);
-        updateBalance();
+        this.buyBiome(line, column, this.biomeSelected);
+        this.updateBalance();
       } else {
-        informationWindow("You cannot place a tile that is not free.");
+        this.informationWindow("You cannot place a tile that is not free.");
       }
+    }
+
+    if (this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND && this.unlockBlockedWasteland) {
+      this.unlockWasteland(line, column);
+      this.updateBalance();
+    } else if (this.unlockBlockedWasteland && this.land.getBiome(line, column).getType() != BiomeEnum.BLOCKEDWASTELAND) {
+      informationWindow("You have to click on a blocked wasteland to unlock one");
     }
 
     //    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
@@ -179,13 +190,104 @@ public class LandController {
     }
   }
 
-  public void unlockWasteland() {
-    List<int[]> freeWastelandCoordinates = land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
-    if (!freeWastelandCoordinates.isEmpty()) {
-      int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
-      land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.WATER);
-      setBiomeOnPlot(randomCoordinate[0], randomCoordinate[1]);
+  public void unlockWasteland(int line, int column) {
+    int requiredWater = 0;
+    int requiredGrass = 0;
+    int requiredForest = 0;
+    int requiredBuilding = 0;
+    int requiredPublicBuilding = 0;
+    int requiredDesert = 0;
+    int requiredJungle = 0;
+    int requiredMountain = 0;
+
+    if (this.numberOfUnlockedBlockedWasteland == 0) {
+      requiredWater = 1;
+      requiredGrass = 1;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland == 1) {
+      requiredWater = 2;
+      requiredGrass = 2;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland >= 1 && this.numberOfUnlockedBlockedWasteland < 5) {
+      requiredWater = 3;
+      requiredGrass = 3;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland >= 5 && this.numberOfUnlockedBlockedWasteland < 8) {
+      requiredWater = 4;
+      requiredGrass = 4;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland >= 8 && this.numberOfUnlockedBlockedWasteland < 11) {
+      requiredWater = 5;
+      requiredGrass = 5;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland >= 11 && this.numberOfUnlockedBlockedWasteland < 14) {
+      requiredWater = 6;
+      requiredGrass = 6;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland >= 14 && this.numberOfUnlockedBlockedWasteland < 17) {
+      requiredWater = 7;
+      requiredGrass = 7;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
+      requiredJungle = numberOfUnlockedBlockedWasteland + 1;
+    } else if (this.numberOfUnlockedBlockedWasteland >= 17) {
+      requiredWater = 7;
+      requiredGrass = 7;
+      requiredForest = numberOfUnlockedBlockedWasteland + 1;
+      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
+      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
+      requiredJungle = numberOfUnlockedBlockedWasteland + 1;
+      requiredMountain = numberOfUnlockedBlockedWasteland + 1;
     }
+
+    if (this.unlockBlockedWasteland && hasEnoughResources(requiredWater, requiredGrass, requiredForest, requiredBuilding, requiredPublicBuilding, requiredDesert, requiredJungle, requiredMountain) &&
+        this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND) {
+      this.land.setFreeWasteland(line, column);
+      setBiomeOnPlot(line, column);
+      this.unlockBlockedWasteland = false;
+      numberOfUnlockedBlockedWasteland++;
+      informationWindow("You have unlocked a new wasteland!");
+    } else {
+      if (this.numberOfUnlockedBlockedWasteland >= 0 && this.numberOfUnlockedBlockedWasteland < 2) {
+        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass and " + requiredForest + " forest.");
+      } else if (this.numberOfUnlockedBlockedWasteland >= 2 && this.numberOfUnlockedBlockedWasteland < 5) {
+        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest and " + requiredBuilding + " building.");
+      } else if (this.numberOfUnlockedBlockedWasteland >= 5 && this.numberOfUnlockedBlockedWasteland < 8) {
+        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building and " + requiredPublicBuilding + " public building.");
+      } else if (this.numberOfUnlockedBlockedWasteland >= 8 && this.numberOfUnlockedBlockedWasteland < 11) {
+        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building, " + requiredPublicBuilding + " public building and " + requiredDesert + " desert.");
+      } else if (this.numberOfUnlockedBlockedWasteland >= 11 && this.numberOfUnlockedBlockedWasteland < 14) {
+        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building, " + requiredPublicBuilding + " public building, " + requiredDesert + " desert and " + requiredJungle + " jungle.");
+      } else if (this.numberOfUnlockedBlockedWasteland >= 14) {
+        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building, " + requiredPublicBuilding + " public building, " + requiredDesert + " desert, " + requiredJungle + " jungle and " + requiredMountain + " mountain.");
+      }
+      this.unlockBlockedWasteland = false;
+    }
+  }
+
+  private boolean hasEnoughResources(int requiredWater, int requiredGrass, int requiredForest, int requiredBuilding, int requiredPublicBuilding, int requiredDesert, int requiredJungle, int requiredMountain) {
+    int availableWater = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER);
+    int availableGrass = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS);
+    int availableForest = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST);
+    int availableBuilding = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
+    int availablePublicBuilding = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
+    int availableDesert = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT);
+    int availableJungle = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE);
+    int availableMountain = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN);
+
+    return availableWater >= requiredWater && availableGrass >= requiredGrass && availableForest >= requiredForest && availableBuilding >= requiredBuilding && availablePublicBuilding >= requiredPublicBuilding && availableDesert >= requiredDesert && availableJungle >= requiredJungle && availableMountain >= requiredMountain;
   }
 
   private void informationWindow(String text) {
@@ -291,6 +393,10 @@ public class LandController {
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     this.biomeSelected = biomeSelected;
+  }
+
+  public void setUnlockBlockedWasteland(boolean unlockBlockedWasteland) {
+    this.unlockBlockedWasteland = unlockBlockedWasteland;
   }
 
   public ProgressBar getEnvironmentBalanceProgressBar() {

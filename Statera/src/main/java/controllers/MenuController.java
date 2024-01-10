@@ -19,6 +19,8 @@ public class MenuController {
 
   private BiomeController biomeController;
 
+  public boolean unlockBlockedWasteland;
+
   //  Methods  //
 
   public void home(ActionEvent event) {
@@ -62,8 +64,10 @@ public class MenuController {
   }
 
   @FXML
-  public void onClickedUnlockWastelandButton(){
-    landController.unlockWasteland();
+  public void onClickedUnlockWastelandButton(ActionEvent event) {
+    this.unlockBlockedWasteland = true;
+    this.landController.setUnlockBlockedWasteland(unlockBlockedWasteland);
+    this.home(event);
   }
 
   @FXML
@@ -73,17 +77,13 @@ public class MenuController {
 
   @FXML
   public void onClickedReplayGame(ActionEvent event) {
-    home(event);
-    landController.initializeLand();
+    this.home(event);
+    this.landController.initializeLand();
   }
 
   //  Getters and setters  //
 
   public void setLandController(LandController landController) {
     this.landController = landController;
-  }
-
-  public BiomeController getBiomeMenuController() {
-    return biomeController;
   }
 }
