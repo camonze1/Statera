@@ -28,10 +28,10 @@
   -fx-background-color: #F0EAD2;
   -fx-text-fill: black;
   -fx-cursor: hand;
-  -fx-min-width: 100px;
-  -fx-max-width: 100px;
-  -fx-min-height: 25px;
-  -fx-max-height: 25px;
+  /*-fx-min-width: 100px;*/
+  /*-fx-max-width: 100px;*/
+  /*-fx-min-height: 25px;*/
+  /*-fx-max-height: 25px;*/
   -fx-alignment: center top;
   -fx-background-radius: 2px;
   -fx-font-family: default;

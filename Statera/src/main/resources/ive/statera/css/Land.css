@@ -100,10 +100,10 @@ EDE5BE
   -fx-background-color: #F0EAD2;
   -fx-text-fill: black;
   -fx-cursor: hand;
-  -fx-min-width: 75px;
-  -fx-max-width: 75px;
-  -fx-min-height: 25px;
-  -fx-max-height: 25px;
+  /*-fx-min-width: 75px;*/
+  /*-fx-max-width: 75px;*/
+  /*-fx-min-height: 25px;*/
+  /*-fx-max-height: 25px;*/
   -fx-background-radius: 2px;
 }
 

@@ -24,11 +24,10 @@
   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
     <Button fx:id="information" mnemonicParsing="false" onAction="#onClickedInformationButton"
             styleClass="button-style" text="Information"/>
-  </HBox>
-
-  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">
     <Button fx:id="selectBiome" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton"
             styleClass="button-style" text="Select biome"/>
+    <Button fx:id="unlockWasteland" mnemonicParsing="false" onAction="#onClickedUnlockWastelandButton"
+            styleClass="button-style" text="Unlock wasteland"/>
   </HBox>
 
   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" styleClass="body">

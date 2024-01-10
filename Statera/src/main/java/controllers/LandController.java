@@ -179,6 +179,15 @@ public class LandController {
     }
   }
 
+  public void unlockWasteland() {
+    List<int[]> freeWastelandCoordinates = land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
+    if (!freeWastelandCoordinates.isEmpty()) {
+      int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
+      land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.WATER);
+      setBiomeOnPlot(randomCoordinate[0], randomCoordinate[1]);
+    }
+  }
+
   private void informationWindow(String text) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle("Attention");

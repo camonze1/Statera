@@ -62,6 +62,11 @@ public class MenuController {
   }
 
   @FXML
+  public void onClickedUnlockWastelandButton(){
+    landController.unlockWasteland();
+  }
+
+  @FXML
   public void onClickedQuitGame() {
     System.exit(0);
   }
