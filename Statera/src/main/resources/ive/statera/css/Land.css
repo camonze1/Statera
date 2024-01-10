@@ -1,6 +1,5 @@
 /*
-COLORS THEME :
-
+COLORS
 Dark green - Main progress bar
 82915A
 Light green - Sub progress bar
@@ -13,7 +12,6 @@ Yellow - Button hover
 DBD6BF
 Yellow - Button pressed
 EDE5BE
-
 */
 
 .global {
@@ -66,11 +64,6 @@ EDE5BE
   -fx-alignment: center;
 }
 
-.label-percentage {
-  -fx-padding: 20px 5px 5px 10px;
-  -fx-font-weight: bold;
-}
-
 .progress-bar {
   -fx-padding: 5px 5px 5x 5px;
   -fx-min-height: 25px;
@@ -81,8 +74,8 @@ EDE5BE
   -fx-accent: #82915A;
 }
 
-.label {
-  -fx-text-fill: #F0EAD2;
+.label-percentage {
+  -fx-padding: 20px 5px 5px 10px;
   -fx-font-weight: bold;
 }
 
@@ -100,10 +93,6 @@ EDE5BE
   -fx-background-color: #F0EAD2;
   -fx-text-fill: black;
   -fx-cursor: hand;
-  /*-fx-min-width: 75px;*/
-  /*-fx-max-width: 75px;*/
-  /*-fx-min-height: 25px;*/
-  /*-fx-max-height: 25px;*/
   -fx-background-radius: 2px;
 }
 
@@ -116,7 +105,10 @@ EDE5BE
   -fx-text-fill: #000000;
 }
 
+/* END HEADER */
+
 /* BODY */
+
 .body {
   -fx-padding: 10px;
   -fx-alignment: top-center;
@@ -124,16 +116,9 @@ EDE5BE
   -fx-background-color: #A98467;
 }
 
-.right-column {
-  -fx-background-color: transparent;
+.label {
+  -fx-text-fill: #F0EAD2;
+  -fx-font-weight: bold;
 }
 
-.left-column {
-  -fx-background-color: transparent;
-}
-
-/* FOOTER */
-.footer {
-  -fx-padding: 10px;
-  -fx-spacing: 100px;
-}
+/* END BODY */
