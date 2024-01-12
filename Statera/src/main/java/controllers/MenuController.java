@@ -52,7 +52,7 @@ public class MenuController {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Information.fxml"));
       Scene scene = new Scene(loader.load(), 600, 500);
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      stage.setTitle("Information - Statera");
+      stage.setTitle("Informations - Statera");
       stage.setScene(scene);
       stage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       stage.show();

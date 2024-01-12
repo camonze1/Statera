@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class StatisticController {
@@ -53,7 +54,7 @@ public class StatisticController {
 
 
   @FXML
-  private Label numberOfWaterPlotInLand;
+  private Text numberOfWaterPlotInLand;
 
   @FXML
   private Label numberOfGrassPlotInLand;

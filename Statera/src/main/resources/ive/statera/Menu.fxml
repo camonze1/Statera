@@ -24,7 +24,7 @@
   <VBox styleClass="body">
     <VBox alignment="CENTER" styleClass="box-buttons">
       <Button fx:id="information" mnemonicParsing="false" onAction="#onClickedInformationButton"
-              styleClass="button-style" text="Information"/>
+              styleClass="button-style" text="Informations"/>
       <Button fx:id="selectBiome" mnemonicParsing="false" onAction="#onClickedSelectBiomeButton"
               styleClass="button-style" text="Select biome"/>
       <Button fx:id="unlockWasteland" mnemonicParsing="false" onAction="#onClickedUnlockWastelandButton"
