@@ -20,7 +20,7 @@
               styleClass="home-button"/>
     </VBox>
     <VBox>
-      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Information">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Informations">
       </Label>
     </VBox>
   </HBox>
@@ -28,6 +28,9 @@
   <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" styleClass="scroll-pane">
 
     <VBox alignment="CENTER" styleClass="body">
+      <HBox styleClass="sub-title">
+        <Label fx:id="subTitleResourceCosts" text="Resource costs"/>
+      </HBox>
       <HBox>
         <Text text="To have a building, you need : 1 forest "/>
         <ImageView fitHeight="25" fitWidth="25">

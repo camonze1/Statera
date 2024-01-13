@@ -52,6 +52,17 @@
   -fx-padding: 5px 5px 5px 70px;
 }
 
+.sub-title {
+  -fx-font-size: 25px;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-weight: bold;
+  -fx-padding: 10px;
+  -fx-text-fill: #F0EAD2;
+  -fx-min-width: 250px;
+  -fx-max-width: 250px;
+  -fx-alignment: center;
+}
+
 Text {
   -fx-letter-spacing: 2.0;
   -fx-font-family: "Bahnschrift";
