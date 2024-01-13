@@ -18,7 +18,7 @@ public class Land {
     for (int i = 0; i < line; i++) {
       ArrayList<Biome> lines = new ArrayList<Biome>();
       for (int j = 0; j < column; j++) {
-        int randomValue = random.nextInt(6);
+        int randomValue = random.nextInt(5);
         if (randomValue == 0) {
           lines.add(new FreeWasteland());
         } else {
@@ -42,7 +42,7 @@ public class Land {
     int totalPlot = getTotalOfNonBlockedWastelandPlot();
     double targetNaturalBiomePercentage = 0.4;
     int targetNumberOfNaturalBiomes = (int) (targetNaturalBiomePercentage * totalPlot);
-    System.out.println("targetNumberOfNaturalBiomes : " + targetNumberOfNaturalBiomes);
+//    System.out.println("targetNumberOfNaturalBiomes : " + targetNumberOfNaturalBiomes);
     double currentNaturalBiomePercentage = (double) getNumberOfNaturalBiome() / totalPlot;
     double naturalBiomeBalance = (Math.abs(currentNaturalBiomePercentage - targetNaturalBiomePercentage) / targetNaturalBiomePercentage) * 100;
     return 100 - naturalBiomeBalance;
@@ -52,7 +52,7 @@ public class Land {
     int totalPlot = getTotalOfNonBlockedWastelandPlot();
     double targetWaterPercentage = 0.4;
     int targetNumberOfWaterBiomes = (int) (targetWaterPercentage * totalPlot);
-    System.out.println("targetNumberOfWaterBiomes : " + targetNumberOfWaterBiomes);
+//    System.out.println("targetNumberOfWaterBiomes : " + targetNumberOfWaterBiomes);
     double currentWaterPercentage = (double) getNumberOfOccupiedPlotByType(BiomeEnum.WATER) / totalPlot;
     double waterBalance = (Math.abs(currentWaterPercentage - targetWaterPercentage) / targetWaterPercentage) * 100;
     return 100 - waterBalance;
@@ -62,10 +62,10 @@ public class Land {
     int totalPlot = getTotalOfNonBlockedWastelandPlot();
     double targetBuildingPercentage = 0.2;
     int targetNumberOfBuildingBiomes = (int) (targetBuildingPercentage * totalPlot);
-    System.out.println("targetNumberOfBuildingBiomes : " + targetNumberOfBuildingBiomes);
+//    System.out.println("targetNumberOfBuildingBiomes : " + targetNumberOfBuildingBiomes);
     double currentBuildingPercentage = (double) (getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) + getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING)) / totalPlot;
     double buildingBalance = (Math.abs(currentBuildingPercentage - targetBuildingPercentage) / targetBuildingPercentage) * 100;
-    System.out.println(currentBuildingPercentage);
+//    System.out.println(currentBuildingPercentage);
     return 100 - buildingBalance;
   }
 
@@ -87,18 +87,32 @@ public class Land {
   public double getQualityOfLifeBalance() {
     int buildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
 
-    double targetPublicBuildingPercent = 0.2; //(int) (buildingNumber/2.33);
+    double targetPublicBuildingPercent = 0.5; //(int) (buildingNumber/2.33);
 
     int publicBuildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
     double currentPublicBuildingPercent = (double) publicBuildingNumber / buildingNumber;
 
     double buildinglifeQualityBalance = (Math.abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
-    System.out.println("buildingNumber : " + buildingNumber);
-    System.out.println("publicBuildingNumber : " + publicBuildingNumber);
-    System.out.println("currentPublicBuildingPercent : " + currentPublicBuildingPercent);
-    System.out.println("buildinglifeQualityBalance : " + buildinglifeQualityBalance);
+    //    System.out.println("buildingNumber : " + buildingNumber);
+    //    System.out.println("publicBuildingNumber : " + publicBuildingNumber);
+    //    System.out.println("currentPublicBuildingPercent : " + currentPublicBuildingPercent);
+    //    System.out.println("buildinglifeQualityBalance : " + buildinglifeQualityBalance);
 
-    return 100 - buildinglifeQualityBalance;
+
+    double buildingLifeQualityPercent = 100 - buildinglifeQualityBalance;
+//    System.out.println("buildingLifeQualityPercentOrigin : " + buildingLifeQualityPercent);
+
+    if (this.environmentBalance() <50){
+//      System.out.println("boucle if : ");
+//      System.out.println("environmentBalance : " + environmentBalance());
+
+      buildingLifeQualityPercent = buildingLifeQualityPercent - (50-environmentBalance());
+//      System.out.println("soustraction : " + (50-environmentBalance()));
+
+    }
+//    System.out.println("buildingLifeQualityPercent : " + buildingLifeQualityPercent);
+
+    return buildingLifeQualityPercent;
   }
 
   // - - - - - - - - - - Balance - - - - - - - - - - //
