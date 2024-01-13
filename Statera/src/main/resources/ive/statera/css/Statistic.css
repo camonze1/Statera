@@ -124,16 +124,17 @@
 }
 
 Text {
-  -fx-letter-spacing: 2.0;
-  -fx-font-family: "Bahnschrift";
-  -fx-padding: 7px 0px 7px 80px;
-  -fx-text-fill: #F0EAD2;
   -fx-font-size: 14px;
-  -fx-alignment: center;
+  -fx-font-family: "Bahnschrift";
+  -fx-fill: #F0EAD2;
+  -fx-font-weight : bold;
+  -fx-letter-spacing: 2.0;
+
 }
 
 .box-biome-label {
-    -fx-spacing : 0px;
+    -fx-spacing : 5px;
+    -fx-padding : 7px 0px 7px;
 }
 
 /* SCROLL BAR */

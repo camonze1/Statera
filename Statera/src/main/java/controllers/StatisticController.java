@@ -57,28 +57,28 @@ public class StatisticController {
   private Text numberOfWaterPlotInLand;
 
   @FXML
-  private Label numberOfGrassPlotInLand;
+  private Text numberOfGrassPlotInLand;
 
   @FXML
-  private Label numberOfForestPlotInLand;
+  private Text numberOfForestPlotInLand;
 
   @FXML
-  private Label numberOfBuildingPlotInLand;
+  private Text numberOfBuildingPlotInLand;
 
   @FXML
-  private Label numberOfPublicBuildingPlotInLand;
+  private Text numberOfPublicBuildingPlotInLand;
 
   @FXML
-  private Label numberOfDesertPlotInLand;
+  private Text numberOfDesertPlotInLand;
 
   @FXML
-  private Label numberOfJunglePlotInLand;
+  private Text numberOfJunglePlotInLand;
 
   @FXML
-  private Label numberOfMountainPlotInLand;
+  private Text numberOfMountainPlotInLand;
 
   @FXML
-  private Label numberOfFreeWastelandPlotInLand;
+  private Text numberOfFreeWastelandPlotInLand;
 
   //  Methods  //
 
@@ -147,15 +147,15 @@ public class StatisticController {
       numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
     }
 
-    numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plots of water");
-    numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plots of grass");
-    numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plots of forest");
-    numberOfBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plots of building");
-    numberOfPublicBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plots of public building");
-    numberOfDesertPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plots of desert");
-    numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plots of jungle");
-    numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
-    numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
+    numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plot(s) of water");
+    numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plot(s) of grass");
+    numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plot(s) of forest");
+    numberOfBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plot(s) of building");
+    numberOfPublicBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plot(s) of public building");
+    numberOfDesertPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plot(s) of desert");
+    numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plot(s) of jungle");
+    numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plot(s) of mountain");
+    numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plot(s) of free wasteland");
 
   }
 
