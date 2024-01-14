@@ -52,10 +52,32 @@
   -fx-padding: 5px 5px 5px 70px;
 }
 
-Text {
-  -fx-letter-spacing: 2.0;
+.sub-title {
+  -fx-font-size: 25px;
   -fx-font-family: "Bahnschrift";
-  -fx-font-size: 15px;
+  -fx-padding: 10px;
+  -fx-min-width: 250px;
+  -fx-max-width: 250px;
+  -fx-alignment: center;
+}
+
+.label {
+  -fx-text-fill: #F0EAD2;
+  -fx-font-weight: bold;
+}
+
+Text {
+  -fx-font-size: 14px;
+  -fx-font-family: "Bahnschrift";
+  -fx-fill: #F0EAD2;
+  -fx-font-weight : bold;
+  -fx-letter-spacing: 2.0;
+
+}
+
+.box-meaning-balances {
+    -fx-spacing : 5px;
+    -fx-padding : 7px 0px 7px;
 }
 
 /* SCROLL BAR */

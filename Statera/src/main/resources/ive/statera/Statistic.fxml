@@ -146,6 +146,10 @@
           </ImageView>
         </HBox>
 
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfTotalNonBlockedWastelandPlot"/>
+        </HBox>
+
       </VBox>
 
     </VBox>
