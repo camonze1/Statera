@@ -1,3 +1,5 @@
+package ive.statera;
+
 import controllers.LandController;
 import enums.BiomeEnum;
 import io.cucumber.java.en.Given;
@@ -64,4 +66,8 @@ public void fenetreStatistiquesDevraitAfficher() {
 public void statistiquesDevraientEtreCorrectes() {
     // Ajoutez ici des assertions pour vérifier que les statistiques sont correctes
 }
+
+    @Given("l{string}application")
+    public void lUtilisateurAOuvertLApplication() {
+    }
 }

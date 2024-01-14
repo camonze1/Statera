@@ -322,4 +322,8 @@ public class LandController {
   public double getQualityLifeBalance() {
     return qualityLifeBalance;
   }
+
+  public Land getLand() {
+    return land;
+  }
 }
