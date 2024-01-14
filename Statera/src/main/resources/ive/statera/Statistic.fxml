@@ -4,6 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
 <VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
   <stylesheets>
@@ -80,16 +83,71 @@
       </HBox>
 
       <VBox>
-        <Label fx:id="numberOfWaterPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfGrassPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfForestPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfBuildingPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfPublicBuildingPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfDesertPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfJunglePlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfMountainPlotInLand" styleClass="label-info"/>
-        <Label fx:id="numberOfFreeWastelandPlotInLand" styleClass="label-info"/>
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfWaterPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_water.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfGrassPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_grass.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfForestPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_forest.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfBuildingPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_building.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfPublicBuildingPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/building.png"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfDesertPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_desert.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfJunglePlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_jungle.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfMountainPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/b_mountain.jpg"/>
+          </ImageView>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfFreeWastelandPlotInLand"/>
+          <ImageView fitHeight="25" fitWidth="25">
+            <Image url="@img/tiles/free_wasteland.png"/>
+          </ImageView>
+        </HBox>
+
       </VBox>
+
     </VBox>
   </ScrollPane>
 
