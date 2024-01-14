@@ -18,13 +18,9 @@
 
   <VBox styleClass="body">
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
-      <Text styleClass="intro-text" wrappingWidth="600">A nuclear war breaks out all over the world. This war will lead
-        to
-        the destruction
-        of the surface of the Earth. Only a few humans and animals have survived this tragedy on a small plot of healthy
-        land.
-        Your aim in this game is to rehabilitate the Earth by creating a perfect balance between biodiversity and human
-        activity.
+      <Text styleClass="intro-text" wrappingWidth="600">
+        A nuclear war breaks out all over the world. This war will lead to the destruction of the surface of the Earth. Only a few humans and animals have survived this tragedy on a small plot of healthy land.
+        Your aim in this game is to rehabilitate the Earth by creating a perfect balance between biodiversity and human activity.
       </Text>
     </HBox>
 

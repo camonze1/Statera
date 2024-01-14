@@ -12,11 +12,13 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Land;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.event.Event;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -107,39 +109,25 @@ public class LandController {
     int line = GridPane.getColumnIndex(plot);
     int column = GridPane.getRowIndex(plot);
 
-    if (this.biomeSelected != null && !this.unlockBlockedWasteland) {
-      if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
-        this.buyBiome(line, column, this.biomeSelected);
-        this.updateBalance();
-      } else {
-        this.informationWindow("Warning", "You cannot place a tile that is not free.");
+    if (!this.verifyEndGame()) {
+      if (this.biomeSelected != null && !this.unlockBlockedWasteland) {
+        if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
+          this.buyBiome(line, column, this.biomeSelected);
+          this.updateBalance();
+        } else {
+          this.informationWindow("Warning", "You cannot place a tile that is not free.");
+        }
       }
-    }
 
-    if (this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND && this.unlockBlockedWasteland) {
-      this.unlockWasteland(line, column);
-      this.updateBalance();
-    } else if (this.unlockBlockedWasteland && this.land.getBiome(line, column).getType() != BiomeEnum.BLOCKEDWASTELAND) {
-      informationWindow("Information", "You have to click on a blocked wasteland to unlock one");
+      if (this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND && this.unlockBlockedWasteland) {
+        this.unlockWasteland(line, column);
+        this.updateBalance();
+      } else if (this.unlockBlockedWasteland && this.land.getBiome(line, column).getType() != BiomeEnum.BLOCKEDWASTELAND) {
+        informationWindow("Information", "You have to click on a blocked wasteland to unlock one");
+      }
+    } else {
+      this.openEndGameWindow();
     }
-
-    //    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-    //    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
-    //    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
-    //    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
-    //    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
-    //    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
-    //    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-    //    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
-    //    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
-    //    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
-    //    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
-    //    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
-    //    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
-    //    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
-    //    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-    //    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-    //    System.out.println("Environment balance : " + this.land.environmentBalance());
   }
 
   public void updateBalance() {
@@ -174,7 +162,7 @@ public class LandController {
       List<int[]> biomeCoordinates = this.land.getCoordinatesByBiomeType(key);
 
       if (biomeCoordinates.size() < numberOfBiomesToRemove) {
-        informationWindow("Warning","You don't have enough resources to buy this biome.");
+        informationWindow("Warning", "You don't have enough resources to buy this biome.");
         this.land.setFreeWasteland(line, column);
         setBiomeOnPlot(line, column);
         return;
@@ -269,6 +257,30 @@ public class LandController {
     return availableWater >= requiredWater && availableGrass >= requiredGrass && availableForest >= requiredForest && availableBuilding >= requiredBuilding && availablePublicBuilding >= requiredPublicBuilding && availableDesert >= requiredDesert && availableJungle >= requiredJungle && availableMountain >= requiredMountain;
   }
 
+  public void openEndGameWindow() {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/End.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage endStage = new Stage();
+      EndController endController = loader.getController();
+      endController.setEndController(this);
+      endStage.setTitle("End game - Statera");
+      endStage.setScene(scene);
+      endStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
+      endStage.setOnCloseRequest(Event::consume);
+      endStage.initModality(Modality.APPLICATION_MODAL);
+      endStage.setResizable(false);
+      endStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public boolean verifyEndGame() {
+    return this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND) == 0;
+  }
+
   private void informationWindow(String title, String text) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setTitle(title);
@@ -316,11 +328,9 @@ public class LandController {
   @FXML
   public void onClickedStatistics(ActionEvent event) {
     try {
-
       if (previousStatisticStage != null) {
         previousStatisticStage.close();
       }
-
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -332,7 +342,6 @@ public class LandController {
       statisticsStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       statisticsStage.setResizable(false);
       statisticsStage.show();
-
       previousStatisticStage = statisticsStage;
     } catch (IOException e) {
       e.printStackTrace();

@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
 
-public class StatisticController {
+public class EndController {
 
   //  Attributes  //
 
@@ -81,7 +81,7 @@ public class StatisticController {
 
   //  Methods  //
 
-  public void updateViewStatisticController(LandController landController) {
+  public void setEndController(LandController landController) {
     this.landController = landController;
     if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
       if (landController.getEnvironmentBalanceProgressBar().getProgress() < 0) {
@@ -160,10 +160,17 @@ public class StatisticController {
   //  FXML Methods  //
 
   @FXML
-  public void home(ActionEvent event) {
+  public void onClickedQuitGame() {
+    System.exit(0);
+  }
+
+  @FXML
+  public void onClickedReplayGame(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
+    this.landController.initializeLand();
   }
+
 
 }

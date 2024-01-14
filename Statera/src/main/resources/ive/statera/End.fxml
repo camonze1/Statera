@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EndController">
+  <stylesheets>
+    <URL value="@css/End.css"/>
+  </stylesheets>
+
+  <VBox>
+    <VBox styleClass="box-title">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" prefHeight="72.0" prefWidth="500.0" styleClass="title"
+             text="Game over">
+      </Label>
+    </VBox>
+
+    <HBox alignment="CENTER" styleClass="box-buttons">
+      <Button fx:id="replayGame" mnemonicParsing="false" onAction="#onClickedReplayGame" styleClass="button-style"
+              text="Replay game"/>
+      <Button fx:id="quitGame" mnemonicParsing="false" onAction="#onClickedQuitGame" styleClass="button-style"
+              text="Quit game"/>
+    </HBox>
+  </VBox>
+
+  <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" styleClass="scroll-pane">
+    <VBox alignment="CENTER" styleClass="body">
+
+      <HBox alignment="CENTER">
+        <Text wrappingWidth="500" styleClass="end-text" text="Congratulations! You made it to the end of the game! While you ran out of tiles, your journey has been nothing short of amazing. Take a moment to pat yourself on the back for the strategic genius that you are! You've proven yourself a master of resource management and city-building. If you're feeling adventurous, go ahead and give the game another go. Try out different strategies and see what new challenges await you. Best of luck with all your future gaming endeavors in the Statera world!">
+        </Text>
+      </HBox>
+
+      <HBox styleClass="sub-title">
+        <Label fx:id="subTitleBalance" text="Balances"/>
+      </HBox>
+
+      <HBox styleClass="box-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Environment balance"/>
+          <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+        </VBox>
+        <Label fx:id="environmentBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-sub-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Natural biomes balance"/>
+          <ProgressBar fx:id="naturalBiomeBalanceProgressBar" styleClass="sub-progress-bar"/>
+        </VBox>
+        <Label fx:id="naturalBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-sub-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Building biomes balance"/>
+          <ProgressBar fx:id="buildingBiomeBalanceProgressBar" styleClass="sub-progress-bar"/>
+        </VBox>
+        <Label fx:id="buildingBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-sub-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Water biomes balance"/>
+          <ProgressBar fx:id="waterBiomeBalanceProgressBar" styleClass="sub-progress-bar"/>
+        </VBox>
+        <Label fx:id="waterBiomeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Quality of life"/>
+          <ProgressBar fx:id="qualityLifeBalanceProgressBar" styleClass="progress-bar"/>
+        </VBox>
+        <Label fx:id="qualityLifeBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Biosphere balance"/>
+          <ProgressBar fx:id="biosphereBalanceProgressBar" styleClass="progress-bar"/>
+        </VBox>
+        <Label fx:id="biosphereBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <VBox>
+        <Label fx:id="numberOfAnimalsInLandLabel" styleClass="label-info"/>
+        <Label fx:id="numberOfHumansInLandLabel" styleClass="label-info"/>
+      </VBox>
+
+      <HBox styleClass="sub-title">
+        <Label fx:id="subTitleData" text="Data"/>
+      </HBox>
+
+      <VBox>
+        <Label fx:id="numberOfWaterPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfGrassPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfForestPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfBuildingPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfPublicBuildingPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfDesertPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfJunglePlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfMountainPlotInLand" styleClass="label-info"/>
+        <Label fx:id="numberOfFreeWastelandPlotInLand" styleClass="label-info"/>
+      </VBox>
+    </VBox>
+  </ScrollPane>
+
+</VBox>
