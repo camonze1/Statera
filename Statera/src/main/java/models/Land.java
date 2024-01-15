@@ -79,7 +79,6 @@ public class Land {
   }
 
   public void biosphereBalance() {
-    // TODO
     // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
     // get les proportions des animals et humans par plot dans tout le land
   }

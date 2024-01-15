@@ -138,7 +138,7 @@
         </HBox>
 
       <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
-        <Text wrappingWidth="500">Quality of life :
+        <Text wrappingWidth="500">Quality of life : Quality of life is the balance between housing and public buildings.
         </Text>
       </HBox>
 
