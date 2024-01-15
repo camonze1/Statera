@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class EndController {
@@ -51,33 +52,32 @@ public class EndController {
   @FXML
   private Label numberOfHumansInLandLabel;
 
+  @FXML
+  private Text numberOfWaterPlotInLand;
 
   @FXML
-  private Label numberOfWaterPlotInLand;
+  private Text numberOfGrassPlotInLand;
 
   @FXML
-  private Label numberOfGrassPlotInLand;
+  private Text numberOfForestPlotInLand;
 
   @FXML
-  private Label numberOfForestPlotInLand;
+  private Text numberOfBuildingPlotInLand;
 
   @FXML
-  private Label numberOfBuildingPlotInLand;
+  private Text numberOfPublicBuildingPlotInLand;
 
   @FXML
-  private Label numberOfPublicBuildingPlotInLand;
+  private Text numberOfDesertPlotInLand;
 
   @FXML
-  private Label numberOfDesertPlotInLand;
+  private Text numberOfJunglePlotInLand;
 
   @FXML
-  private Label numberOfJunglePlotInLand;
+  private Text numberOfMountainPlotInLand;
 
   @FXML
-  private Label numberOfMountainPlotInLand;
-
-  @FXML
-  private Label numberOfFreeWastelandPlotInLand;
+  private Text numberOfFreeWastelandPlotInLand;
 
   //  Methods  //
 

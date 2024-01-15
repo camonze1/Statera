@@ -64,6 +64,19 @@
   -fx-alignment: center;
 }
 
+.box-biome-label {
+  -fx-spacing : 5px;
+  -fx-padding : 7px 0px 7px;
+}
+
+Text {
+  -fx-font-size: 14px;
+  -fx-font-family: "Bahnschrift";
+  -fx-fill: #F0EAD2;
+  -fx-font-weight : bold;
+  -fx-letter-spacing: 2.0;
+}
+
 .box-progressbar {
   -fx-padding: 10px 10px 10px 20px;
   -fx-spacing: 10px;
