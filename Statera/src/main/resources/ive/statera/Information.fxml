@@ -118,22 +118,22 @@
       </HBox>
 
       <HBox alignment="CENTER" styleClass="box-meaning-balances">
-        <Text wrappingWidth="600"> Natural biomes balance : The balance of natural biomes represents the current percentage
+        <Text wrappingWidth="500"> Natural biomes balance : The balance of natural biomes represents the current percentage
           of natural biomes in relation to all unblocked plots. The aim is to achieve 40% natural biomes. </Text>
       </HBox>
 
       <HBox alignment="CENTER" styleClass="box-meaning-balances">
-        <Text wrappingWidth="600"> Building biomes balance : The balance of building biomes represents the current percentage
+        <Text wrappingWidth="500"> Building biomes balance : The balance of building biomes represents the current percentage
           of building biomes in relation to all non-blocked plots. The aim is to achieve a 20% proportion of building biomes. </Text>
       </HBox>
 
       <HBox alignment="CENTER" styleClass="box-meaning-balances">
-        <Text wrappingWidth="600"> Water biomes balance : The water biomes balance represents the current percentage
+        <Text wrappingWidth="500"> Water biomes balance : The water biomes balance represents the current percentage
           of water biomes in relation to all unblocked plots. The aim is to achieve 40% water biomes. </Text>
       </HBox>
 
       <HBox alignment="CENTER" styleClass="box-meaning-balances">
-        <Text wrappingWidth="600"> Environment balance : The environment balance represents a weighted average of the
+        <Text wrappingWidth="500"> Environment balance : The environment balance represents a weighted average of the
           balances of natural biomes, building biomes and water biomes. This provides an indicator of the system's environmental balance. </Text>
       </HBox>
 
