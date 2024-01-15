@@ -79,6 +79,9 @@ public class EndController {
   @FXML
   private Text numberOfFreeWastelandPlotInLand;
 
+  @FXML
+  private Text textNumberOfUnlockBlockedWasteland;
+
   //  Methods  //
 
   public void setEndController(LandController landController) {
@@ -145,6 +148,11 @@ public class EndController {
       numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
     }
 
+    if (landController.getNumberOfUnlockedBlockedWasteland() == 0) {
+      this.textNumberOfUnlockBlockedWasteland.setText("You have reached the level 0 !");
+    } else {
+      this.textNumberOfUnlockBlockedWasteland.setText("You have reached the level " + landController.getNumberOfUnlockedBlockedWasteland() + " !");
+    }
     numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plots of water");
     numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plots of grass");
     numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plots of forest");
@@ -154,7 +162,6 @@ public class EndController {
     numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plots of jungle");
     numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
     numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
-
   }
 
   //  FXML Methods  //

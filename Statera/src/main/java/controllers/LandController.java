@@ -114,6 +114,9 @@ public class LandController {
         if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
           this.buyBiome(line, column, this.biomeSelected);
           this.updateBalance();
+          if(this.verifyEndGame()){
+            this.openEndGameWindow();
+          }
         } else {
           this.informationWindow("Warning", "You cannot place a tile that is not free.");
         }
@@ -209,36 +212,35 @@ public class LandController {
         this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND) {
       this.land.setFreeWasteland(line, column);
       setBiomeOnPlot(line, column);
-      informationWindow("Congratulations", "You have unlocked a blocked wasteland.");
       this.unlockBlockedWasteland = false;
       this.numberOfUnlockedBlockedWasteland++;
     } else {
       StringBuilder messageBuilder = new StringBuilder("Insufficient resources to unlock the wasteland you need: \n");
       if (requiredWater != 0) {
-        messageBuilder.append(requiredWater).append(" water, ");
+        messageBuilder.append(requiredWater).append(" water, \n");
       }
       if (requiredGrass != 0) {
-        messageBuilder.append(requiredGrass).append(" grass, ");
+        messageBuilder.append(requiredGrass).append(" grass, \n");
       }
       if (requiredForest != 0) {
-        messageBuilder.append(requiredForest).append(" forest, ");
+        messageBuilder.append(requiredForest).append(" forest, \n");
       }
       if (requiredBuilding != 0) {
-        messageBuilder.append(requiredBuilding).append(" building, ");
+        messageBuilder.append(requiredBuilding).append(" building, \n");
       }
       if (requiredPublicBuilding != 0) {
-        messageBuilder.append(requiredPublicBuilding).append(" public building, ");
+        messageBuilder.append(requiredPublicBuilding).append(" public building, \n");
       }
       if (requiredDesert != 0) {
-        messageBuilder.append(requiredDesert).append(" desert, ");
+        messageBuilder.append(requiredDesert).append(" desert, \n");
       }
       if (requiredJungle != 0) {
-        messageBuilder.append(requiredJungle).append(" jungle, ");
+        messageBuilder.append(requiredJungle).append(" jungle, \n");
       }
       if (requiredMountain != 0) {
-        messageBuilder.append(requiredMountain).append(" mountain, ");
+        messageBuilder.append(requiredMountain).append(" mountain, \n");
       }
-      messageBuilder.deleteCharAt(messageBuilder.length() - 2);
+      messageBuilder.deleteCharAt(messageBuilder.length() - 3);
       informationWindow("Information", messageBuilder.toString());
       this.unlockBlockedWasteland = false;
     }
@@ -431,5 +433,9 @@ public class LandController {
 
   public int getTotalOfNonBlockedWastelandPlot(){
     return this.land.getTotalOfNonBlockedWastelandPlot();
+  }
+
+  public int getNumberOfUnlockedBlockedWasteland() {
+    return numberOfUnlockedBlockedWasteland;
   }
 }

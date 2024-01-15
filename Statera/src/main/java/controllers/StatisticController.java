@@ -79,8 +79,12 @@ public class StatisticController {
 
   @FXML
   private Text numberOfFreeWastelandPlotInLand;
+
   @FXML
   private Text numberOfTotalNonBlockedWastelandPlot;
+
+  @FXML
+  private Text numberOfUnlockBlockedWasteland;
 
   //  Methods  //
 
@@ -147,7 +151,11 @@ public class StatisticController {
     } else {
       numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
     }
-
+    if (landController.getNumberOfUnlockedBlockedWasteland() == 0) {
+      numberOfUnlockBlockedWasteland.setText("You have unlock 0 plot of blocked wasteland");
+    } else {
+      numberOfUnlockBlockedWasteland.setText("You have unlock " + landController.getNumberOfUnlockedBlockedWasteland() + " plot(s) of blocked wasteland");
+    }
     numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plot(s) of water");
     numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plot(s) of grass");
     numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plot(s) of forest");
@@ -158,7 +166,6 @@ public class StatisticController {
     numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plot(s) of mountain");
     numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plot(s) of free wasteland");
     numberOfTotalNonBlockedWastelandPlot.setText("There are " + landController.getTotalOfNonBlockedWastelandPlot() + " non blocked plot(s)");
-
   }
 
   //  FXML Methods  //
