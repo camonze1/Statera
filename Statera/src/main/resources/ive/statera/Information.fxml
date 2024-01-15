@@ -123,7 +123,7 @@
         </HBox>
 
         <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
-          <Text wrappingWidth="500">Building biomes balance : The balance of building biomes represents the current percentage of building biomes in relation to all non-blocked plots.
+          <Text wrappingWidth="500">Building biomes balance : The balance of building biomes represents the current percentage of building biomes in relation to all unblocked plots.
           </Text>
         </HBox>
 
@@ -136,6 +136,22 @@
           <Text wrappingWidth="500">Environment balance : The environment balance represents a weighted average of the balances of natural biomes, building biomes and water biomes. This provides an indicator of the system's environmental balance.
           </Text>
         </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Quality of life :
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Biosphere balance : The biosphere balance represents the current harmonious proportional distribution of living beings, both human and animal, in relation to all unblocked plots.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Global balance : Global balance represents the equal distribution between the biosphere and the environment.
+        </Text>
+      </HBox>
+
     </VBox>
   </ScrollPane>
 </VBox>
