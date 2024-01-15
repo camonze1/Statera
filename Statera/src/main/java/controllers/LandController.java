@@ -53,6 +53,10 @@ public class LandController {
 
   private double waterBiomeBalanceRoundedValue;
 
+  private double biosphereBalance;
+
+  private double biosphereBalanceRoundedValue;
+
   @FXML
   private GridPane gridPane;
 
@@ -159,6 +163,9 @@ public class LandController {
 
     qualityLifeBalance = this.land.getQualityOfLifeBalance();
     qualityLifeBalanceRoundedValue = roundToFirstDecimal(qualityLifeBalance);
+
+    biosphereBalance = this.land.getBiosphereBalance();
+    biosphereBalanceRoundedValue = roundToFirstDecimal(biosphereBalance);
   }
 
   private double roundToFirstDecimal(double value) {
@@ -438,5 +445,13 @@ public class LandController {
 
   public double getQualityLifeBalance() {
     return qualityLifeBalance;
+  }
+
+  public double getBiosphereBalanceRoundedValue() {
+    return biosphereBalanceRoundedValue;
+  }
+
+  public double getBiosphereBalance() {
+    return biosphereBalance;
   }
 }

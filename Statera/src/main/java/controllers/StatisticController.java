@@ -46,6 +46,12 @@ public class StatisticController {
   private Label qualityLifeBalanceLabel;
 
   @FXML
+  private ProgressBar biosphereBalanceProgressBar;
+
+  @FXML
+  private Label biosphereBalanceLabel;
+
+  @FXML
   private Label numberOfAnimalsInLandLabel;
 
   @FXML
@@ -134,17 +140,33 @@ public class StatisticController {
       }
     }
 
-    if (landController.getNumberOfAnimalsInLand() != 0) {
-      numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animals in total in your land");
-    } else {
-      numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animal in total in your land");
-    }
+      if (biosphereBalanceProgressBar != null && biosphereBalanceLabel != null) {
+        if (landController.getBiosphereBalance() < 0) {
+          biosphereBalanceProgressBar.setProgress(0);
+          biosphereBalanceLabel.setText("0%");
+        } else {
+          biosphereBalanceProgressBar.setProgress((landController.getBiosphereBalance()) / 100.0);
+          biosphereBalanceLabel.setText("" + landController.getBiosphereBalanceRoundedValue() + "%");
+        }
+      }
 
-    if (landController.getNumberOfHumansInLand() != 0) {
-      numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
-    } else {
-      numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
-    }
+      if (landController.getNumberOfAnimalsInLand() != 0) {
+        numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animals in total in your land");
+      } else {
+        numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animal in total in your land");
+      }
+
+      if (landController.getNumberOfHumansInLand() != 0) {
+        numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
+      } else {
+        numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
+      }
+
+      if (landController.getNumberOfHumansInLand() != 0) {
+        numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
+      } else {
+        numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
+      }
 
     numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plots of water");
     numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plots of grass");

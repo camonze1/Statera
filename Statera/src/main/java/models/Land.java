@@ -78,40 +78,46 @@ public class Land {
     // Balance global du jeu -> 50% biosphere 50% environnement
   }
 
-  public void biosphereBalance() {
-    // TODO
-    // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
-    // get les proportions des animals et humans par plot dans tout le land
+  public double getBiosphereBalance() {
+    int humanNumber = getNumberOfHumans();
+    int animalNumber = getNumberOfAnimals();
+    int totalPlot = getTotalOfNonBlockedWastelandPlot();
+
+    int targetHumanNumber = (int)(totalPlot * 6.5);
+    int targetAnimalNumber = totalPlot * 100;
+
+
+    double humanBalance = (Math.abs(humanNumber - targetHumanNumber) / targetHumanNumber)  ;
+    double animalBalance = (Math.abs(animalNumber - targetAnimalNumber) / targetAnimalNumber) ;
+
+    System.out.println("humanNumber " + humanNumber);
+    System.out.println("animalNumber " + animalNumber);
+
+    System.out.println("targetHumanNumber " + targetHumanNumber);
+    System.out.println("targetAnimalNumber " + targetAnimalNumber);
+
+    System.out.println("humanBalance " + humanBalance);
+    System.out.println("animalBalance " + animalBalance);
+
+
+    return 100 -((humanBalance+animalBalance)/2);
   }
 
   public double getQualityOfLifeBalance() {
     int buildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
 
-    double targetPublicBuildingPercent = 0.5; //(int) (buildingNumber/2.33);
+    double targetPublicBuildingPercent = 0.5;
 
     int publicBuildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
     double currentPublicBuildingPercent = (double) publicBuildingNumber / buildingNumber;
 
     double buildinglifeQualityBalance = (Math.abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
-    //    System.out.println("buildingNumber : " + buildingNumber);
-    //    System.out.println("publicBuildingNumber : " + publicBuildingNumber);
-    //    System.out.println("currentPublicBuildingPercent : " + currentPublicBuildingPercent);
-    //    System.out.println("buildinglifeQualityBalance : " + buildinglifeQualityBalance);
-
 
     double buildingLifeQualityPercent = 100 - buildinglifeQualityBalance;
-//    System.out.println("buildingLifeQualityPercentOrigin : " + buildingLifeQualityPercent);
-
     if (this.environmentBalance() <50){
-//      System.out.println("boucle if : ");
-//      System.out.println("environmentBalance : " + environmentBalance());
-
       buildingLifeQualityPercent = buildingLifeQualityPercent - (50-environmentBalance());
-//      System.out.println("soustraction : " + (50-environmentBalance()));
 
     }
-//    System.out.println("buildingLifeQualityPercent : " + buildingLifeQualityPercent);
-
     return buildingLifeQualityPercent;
   }
 
@@ -239,19 +245,34 @@ public class Land {
     }
   }
 
+
   public int getNumberOfAnimals() {
-    int numberGrassAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.GRASS) * 15;
-    int numberForestAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.FOREST) * 18;
-    int numberJungleAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE) * 11;
-    int numberDesertAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.DESERT) * 8;
-    int numberMountainAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN) * 8;
-    int numberWaterAnimals = getNumberOfOccupiedPlotByType(BiomeEnum.WATER) * 10;
-    int numberOfAnimals = numberGrassAnimals + numberForestAnimals + numberJungleAnimals + numberDesertAnimals + numberMountainAnimals + numberWaterAnimals;
+    int numberOfAnimals = 0;
+
+      Grass grass = new Grass();
+      numberOfAnimals = numberOfAnimals + (getNumberOfOccupiedPlotByType(BiomeEnum.GRASS) *grass.getAnimalProportion());
+
+      Water water = new Water();
+      numberOfAnimals = numberOfAnimals + (getNumberOfOccupiedPlotByType(BiomeEnum.WATER)*water.getAnimalProportion());
+
+      Desert desert = new Desert();
+      numberOfAnimals = numberOfAnimals + (getNumberOfOccupiedPlotByType(BiomeEnum.DESERT)*desert.getAnimalProportion());
+
+      Mountain mountain = new Mountain();
+      numberOfAnimals = numberOfAnimals + (getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN)*mountain.getAnimalProportion());
+
+      Forest forest = new Forest();
+      numberOfAnimals = numberOfAnimals + (getNumberOfOccupiedPlotByType(BiomeEnum.FOREST)*forest.getAnimalProportion());
+
+      Jungle jungle = new Jungle();
+      numberOfAnimals = numberOfAnimals + (getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE)*jungle.getAnimalProportion());
+
     return numberOfAnimals;
   }
 
   public int getNumberOfHumans() {
-    int numberHumans = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) * 50;
+    Building building = new Building();
+    int numberHumans = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) * building.getHumanProportion();
     return numberHumans;
   }
 }
