@@ -123,6 +123,20 @@
   -fx-alignment: center;
 }
 
+Text {
+  -fx-font-size: 14px;
+  -fx-font-family: "Bahnschrift";
+  -fx-fill: #F0EAD2;
+  -fx-font-weight : bold;
+  -fx-letter-spacing: 2.0;
+
+}
+
+.box-biome-label {
+    -fx-spacing : 5px;
+    -fx-padding : 7px 0px 7px;
+}
+
 /* SCROLL BAR */
 
 .scroll-pane {
