@@ -3,6 +3,8 @@ package models;
 import enums.BiomeEnum;
 import java.util.*;
 
+import static java.lang.Math.abs;
+
 public class Land {
 
   //  Attributes  //
@@ -43,7 +45,7 @@ public class Land {
     int targetNumberOfNaturalBiomes = (int) (targetNaturalBiomePercentage * totalPlot);
     System.out.println("targetNumberOfNaturalBiomes : " + targetNumberOfNaturalBiomes);
     double currentNaturalBiomePercentage = (double) getNumberOfNaturalBiome() / totalPlot;
-    double naturalBiomeBalance = (Math.abs(currentNaturalBiomePercentage - targetNaturalBiomePercentage) / targetNaturalBiomePercentage) * 100;
+    double naturalBiomeBalance = (abs(currentNaturalBiomePercentage - targetNaturalBiomePercentage) / targetNaturalBiomePercentage) * 100;
     return 100 - naturalBiomeBalance;
   }
 
@@ -53,7 +55,7 @@ public class Land {
     int targetNumberOfWaterBiomes = (int) (targetWaterPercentage * totalPlot);
     System.out.println("targetNumberOfWaterBiomes : " + targetNumberOfWaterBiomes);
     double currentWaterPercentage = (double) getNumberOfOccupiedPlotByType(BiomeEnum.WATER) / totalPlot;
-    double waterBalance = (Math.abs(currentWaterPercentage - targetWaterPercentage) / targetWaterPercentage) * 100;
+    double waterBalance = (abs(currentWaterPercentage - targetWaterPercentage) / targetWaterPercentage) * 100;
     return 100 - waterBalance;
   }
 
@@ -63,7 +65,7 @@ public class Land {
     int targetNumberOfBuildingBiomes = (int) (targetBuildingPercentage * totalPlot);
     System.out.println("targetNumberOfBuildingBiomes : " + targetNumberOfBuildingBiomes);
     double currentBuildingPercentage = (double) (getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING) + getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING))/ totalPlot;
-    double buildingBalance = (Math.abs(currentBuildingPercentage - targetBuildingPercentage) / targetBuildingPercentage) * 100;
+    double buildingBalance = (abs(currentBuildingPercentage - targetBuildingPercentage) / targetBuildingPercentage) * 100;
     System.out.println(currentBuildingPercentage);
     return 100 - buildingBalance;
   }
@@ -81,6 +83,23 @@ public class Land {
     // TODO
     // Balance des êtres vivants -> 10 humans pour 100 animals pour 1 plot
     // get les proportions des animals et humans par plot dans tout le land
+    float NbHumans=6;
+    float NbAnimals=100;
+    float perc=0;
+    float ref=(NbAnimals/NbHumans);
+    if (getNumberOfHumans()!=0 && getNumberOfAnimals()!=0){
+      float values=(float)(getNumberOfAnimals()/getNumberOfHumans());
+      perc=100*abs(values/ref);
+      if(perc>100){
+        float diff=perc-100;
+        perc=100-diff;
+      }
+      System.out.println(perc);
+    }
+    else{
+      perc=0;
+      System.out.println(perc);
+    }
   }
 
   public double getQualityOfLifeBalance() {
@@ -91,7 +110,7 @@ public class Land {
     int publicBuildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
     double currentPublicBuildingPercent = (double) publicBuildingNumber / buildingNumber;
 
-    double buildinglifeQualityBalance = (Math.abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
+    double buildinglifeQualityBalance = (abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
     System.out.println("buildingNumber : " + buildingNumber);
     System.out.println("publicBuildingNumber : " + publicBuildingNumber);
     System.out.println("currentPublicBuildingPercent : " + currentPublicBuildingPercent);
