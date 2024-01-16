@@ -31,11 +31,12 @@
   <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" styleClass="scroll-pane">
     <VBox alignment="CENTER" styleClass="body">
 
-      <HBox alignment="CENTER">
+      <VBox alignment="CENTER" styleClass="box-text">
+        <Text styleClass="congratulation-text" fx:id="textNumberOfUnlockBlockedWasteland"/>
         <Text wrappingWidth="500" styleClass="end-text"
               text="Congratulations! You made it to the end of the game! While you ran out of tiles, your journey has been nothing short of amazing. Take a moment to pat yourself on the back for the strategic genius that you are! You've proven yourself a master of resource management and city-building. If you're feeling adventurous, go ahead and give the game another go. Try out different strategies and see what new challenges await you. Best of luck with all your future gaming endeavors in the Statera world!">
         </Text>
-      </HBox>
+      </VBox>
 
       <HBox styleClass="sub-title">
         <Label fx:id="subTitleBalance" text="Balances"/>

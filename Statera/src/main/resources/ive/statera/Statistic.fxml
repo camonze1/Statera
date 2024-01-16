@@ -84,6 +84,10 @@
 
       <VBox>
         <HBox alignment="CENTER" styleClass="box-biome-label">
+          <Text fx:id="numberOfUnlockBlockedWasteland"/>
+        </HBox>
+
+        <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfWaterPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
             <Image url="@img/tiles/b_water.jpg"/>
@@ -150,7 +154,6 @@
           <Text fx:id="numberOfTotalNonBlockedWastelandPlot"/>
         </HBox>
       </VBox>
-
     </VBox>
   </ScrollPane>
 
