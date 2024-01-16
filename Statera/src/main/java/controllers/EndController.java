@@ -87,11 +87,13 @@ public class EndController {
   public void setEndController(LandController landController) {
     this.landController = landController;
     if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
-      if (landController.getEnvironmentBalanceProgressBar().getProgress() < 0) {
+      if (landController.getEnvironmentBalance() < 0) {
         environmentBalanceProgressBar.setProgress(0);
+        environmentBalanceLabel.setText("0%");
       } else {
-        environmentBalanceProgressBar.setProgress(landController.getEnvironmentBalanceProgressBar().getProgress());
-        environmentBalanceLabel.setText(landController.getEnvironmentBalanceLabel().getText());
+        environmentBalanceProgressBar.setProgress((landController.getEnvironmentBalance()) / 100.0);
+        environmentBalanceLabel.setText("" + landController.getEnvironmentBalanceRoundedValue() + "%");
+
       }
     }
 

@@ -55,14 +55,22 @@ public class LandController {
 
   private double waterBiomeBalanceRoundedValue;
 
+  private double biosphereBalance;
+
+  private double biosphereBalanceRoundedValue;
+
+  private double environmentBalance;
+
+  private double environmentBalanceRoundedValue;
+
   @FXML
   private GridPane gridPane;
 
   @FXML
-  private ProgressBar environmentBalanceProgressBar;
+  private ProgressBar globalBalanceProgressBar;
 
   @FXML
-  private Label environmentBalanceLabel;
+  private Label globalBalanceLabel;
 
   private Stage previousMenuStage;
 
@@ -152,10 +160,14 @@ public class LandController {
   }
 
   public void updateBalance() {
-    double environmentBalance = this.land.environmentBalance();
-    double environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
-    environmentBalanceProgressBar.setProgress(environmentBalance / 100.0);
-    environmentBalanceLabel.setText("" + environmentBalanceRoundedValue + "%");
+
+    double globalBalance = this.land.globalBalance();
+    double globalBalanceRoundedValue = roundToFirstDecimal(globalBalance);
+    globalBalanceProgressBar.setProgress(globalBalance/100.0);
+    globalBalanceLabel.setText("" + globalBalanceRoundedValue  + "%");
+
+    environmentBalance = this.land.environmentBalance();
+    environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
 
     naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
     naturalBiomeBalanceRoundedValue = roundToFirstDecimal(naturalBiomeBalance);
@@ -168,6 +180,9 @@ public class LandController {
 
     qualityLifeBalance = this.land.getQualityOfLifeBalance();
     qualityLifeBalanceRoundedValue = roundToFirstDecimal(qualityLifeBalance);
+
+    biosphereBalance = this.land.getBiosphereBalance();
+    biosphereBalanceRoundedValue = roundToFirstDecimal(biosphereBalance);
   }
 
   private double roundToFirstDecimal(double value) {
@@ -400,12 +415,12 @@ public class LandController {
     this.unlockBlockedWasteland = unlockBlockedWasteland;
   }
 
-  public ProgressBar getEnvironmentBalanceProgressBar() {
-    return environmentBalanceProgressBar;
+  public double getEnvironmentBalance() {
+    return environmentBalance;
   }
 
-  public Label getEnvironmentBalanceLabel() {
-    return environmentBalanceLabel;
+  public double getEnvironmentBalanceRoundedValue() {
+    return environmentBalanceRoundedValue;
   }
 
   public double getNaturalBiomeBalance() {
@@ -451,4 +466,13 @@ public class LandController {
   public int getNumberOfUnlockedBlockedWasteland() {
     return numberOfUnlockedBlockedWasteland;
   }
+
+  public double getBiosphereBalanceRoundedValue() {
+    return biosphereBalanceRoundedValue;
+  }
+
+  public double getBiosphereBalance() {
+    return biosphereBalance;
+  }
+
 }

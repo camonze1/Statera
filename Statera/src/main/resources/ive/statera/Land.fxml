@@ -18,9 +18,9 @@
     <HBox styleClass="box-progress-bar">
       <VBox>
         <Label text="Global balance"/>
-        <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
+        <ProgressBar fx:id="globalBalanceProgressBar" styleClass="progress-bar"/>
       </VBox>
-      <Label fx:id="environmentBalanceLabel" styleClass="label-percentage"/>
+      <Label fx:id="globalBalanceLabel" styleClass="label-percentage"/>
     </HBox>
     <HBox styleClass="box-statistic-button">
       <Button fx:id="statistic" mnemonicParsing="false" onAction="#onClickedStatistics" styleClass="statistic-button"
