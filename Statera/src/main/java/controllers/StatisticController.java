@@ -89,20 +89,21 @@ public class StatisticController {
 
   public void updateViewStatisticController(LandController landController) {
     this.landController = landController;
-    String progressBarStyleRed = "-fx-accent: red;";
+
     if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
-      if (landController.getEnvironmentBalanceProgressBar().getProgress() < 0) {
+      if (landController.getEnvironmentBalance() < 0) {
         environmentBalanceProgressBar.setProgress(0);
+        environmentBalanceLabel.setText("0.0%");
       } else {
-        environmentBalanceProgressBar.setProgress(landController.getEnvironmentBalanceProgressBar().getProgress());
-        environmentBalanceLabel.setText(landController.getEnvironmentBalanceLabel().getText());
+        environmentBalanceProgressBar.setProgress(landController.getEnvironmentBalance()/100.0);
+        environmentBalanceLabel.setText("" + landController.getEnvironmentBalanceRoundedValue() + "%");
       }
     }
 
     if (naturalBiomeBalanceProgressBar != null && naturalBiomeBalanceLabel != null) {
       if (landController.getNaturalBiomeBalance() < 0) {
         naturalBiomeBalanceProgressBar.setProgress(0);
-        naturalBiomeBalanceLabel.setText("0%");
+        naturalBiomeBalanceLabel.setText("0.0%");
       } else {
         naturalBiomeBalanceProgressBar.setProgress((landController.getNaturalBiomeBalance()) / 100.0);
         naturalBiomeBalanceLabel.setText("" + landController.getNaturalBiomeBalanceRoundedValue() + "%");
@@ -113,7 +114,7 @@ public class StatisticController {
     if (buildingBiomeBalanceProgressBar != null && buildingBiomeBalanceLabel != null) {
       if (landController.getBuildingBiomeBalance() < 0) {
         buildingBiomeBalanceProgressBar.setProgress(0);
-        buildingBiomeBalanceLabel.setText("0%");
+        buildingBiomeBalanceLabel.setText("0.0%");
       } else {
         buildingBiomeBalanceProgressBar.setProgress((landController.getBuildingBiomeBalance()) / 100.0);
         buildingBiomeBalanceLabel.setText("" + landController.getBuildingBiomeBalanceRoundedValue() + "%");
@@ -123,7 +124,7 @@ public class StatisticController {
     if (waterBiomeBalanceProgressBar != null && waterBiomeBalanceLabel != null) {
       if (landController.getWaterBiomeBalance() < 0) {
         waterBiomeBalanceProgressBar.setProgress(0);
-        waterBiomeBalanceLabel.setText("0%");
+        waterBiomeBalanceLabel.setText("0.0%");
       } else {
         waterBiomeBalanceProgressBar.setProgress((landController.getWaterBiomeBalance()) / 100.0);
         waterBiomeBalanceLabel.setText("" + landController.getWaterBiomeBalanceRoundedValue() + "%");
@@ -133,7 +134,7 @@ public class StatisticController {
     if (qualityLifeBalanceProgressBar != null && qualityLifeBalanceLabel != null) {
       if (landController.getQualityLifeBalance() < 0) {
         qualityLifeBalanceProgressBar.setProgress(0);
-        qualityLifeBalanceLabel.setText("0%");
+        qualityLifeBalanceLabel.setText("0.0%");
       } else {
         qualityLifeBalanceProgressBar.setProgress((landController.getQualityLifeBalance()) / 100.0);
         qualityLifeBalanceLabel.setText("" + landController.getQualityLifeBalanceRoundedValue() + "%");
@@ -143,7 +144,7 @@ public class StatisticController {
       if (biosphereBalanceProgressBar != null && biosphereBalanceLabel != null) {
         if (landController.getBiosphereBalance() < 0) {
           biosphereBalanceProgressBar.setProgress(0);
-          biosphereBalanceLabel.setText("0%");
+          biosphereBalanceLabel.setText("0.0%");
         } else {
           biosphereBalanceProgressBar.setProgress((landController.getBiosphereBalance()) / 100.0);
           biosphereBalanceLabel.setText("" + landController.getBiosphereBalanceRoundedValue() + "%");

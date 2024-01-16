@@ -73,34 +73,36 @@ public class Land {
     return ((getBalanceOfNaturalBiome() + getBalanceOfBuildingBiome() + getBalanceOfWaterBiome()) / 3);
   }
 
-  public void globalBalance() {
-    // TODO
-    // Balance global du jeu -> 50% biosphere 50% environnement
+  public double globalBalance() {
+    double environmentBalance = environmentBalance();
+    double biosphereBalance = getBiosphereBalance();
+    return (environmentBalance + biosphereBalance)/2;
   }
 
   public double getBiosphereBalance() {
-    int humanNumber = getNumberOfHumans();
-    int animalNumber = getNumberOfAnimals();
-    int totalPlot = getTotalOfNonBlockedWastelandPlot();
 
-    int targetHumanNumber = (int)(totalPlot * 6.5);
-    int targetAnimalNumber = totalPlot * 100;
+    int targetHumanNumber =  6;
+    int targetAnimalNumber = 100;
 
-
-    double humanBalance = (Math.abs(humanNumber - targetHumanNumber) / targetHumanNumber)  ;
-    double animalBalance = (Math.abs(animalNumber - targetAnimalNumber) / targetAnimalNumber) ;
-
-    System.out.println("humanNumber " + humanNumber);
-    System.out.println("animalNumber " + animalNumber);
-
-    System.out.println("targetHumanNumber " + targetHumanNumber);
-    System.out.println("targetAnimalNumber " + targetAnimalNumber);
-
-    System.out.println("humanBalance " + humanBalance);
-    System.out.println("animalBalance " + animalBalance);
+    double biosphereBalance=0;
+    double targetBiosphereRatio=(targetAnimalNumber/targetHumanNumber);
 
 
-    return 100 -((humanBalance+animalBalance)/2);
+    if (getNumberOfHumans()!=0 && getNumberOfAnimals()!=0){
+      double currentRatioBiosphere=(getNumberOfAnimals()/getNumberOfHumans());
+      biosphereBalance=100*Math.abs(currentRatioBiosphere/targetBiosphereRatio);
+
+      if(biosphereBalance>100){
+        double diff=biosphereBalance-100;
+        biosphereBalance=100-diff;
+      }
+
+    }
+    else{
+      biosphereBalance=0;
+    }
+
+    return biosphereBalance;
   }
 
   public double getQualityOfLifeBalance() {
