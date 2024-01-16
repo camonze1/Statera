@@ -97,56 +97,56 @@
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfWaterPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_water.jpg"/>
+            <Image url="@img/tiles/water.png"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfGrassPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_grass.jpg"/>
+            <Image url="@img/tiles/grass.jpg"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfForestPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_forest.jpg"/>
+            <Image url="@img/tiles/forest.png"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfBuildingPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_building.jpg"/>
+            <Image url="@img/tiles/building.png"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfPublicBuildingPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/building.png"/>
+            <Image url="@img/tiles/public_building.png"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfDesertPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_desert.jpg"/>
+            <Image url="@img/tiles/desert.png"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfJunglePlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_jungle.jpg"/>
+            <Image url="@img/tiles/jungle.jpg"/>
           </ImageView>
         </HBox>
 
         <HBox alignment="CENTER" styleClass="box-biome-label">
           <Text fx:id="numberOfMountainPlotInLand"/>
           <ImageView fitHeight="25" fitWidth="25">
-            <Image url="@img/tiles/b_mountain.jpg"/>
+            <Image url="@img/tiles/mountain.jpg"/>
           </ImageView>
         </HBox>
 

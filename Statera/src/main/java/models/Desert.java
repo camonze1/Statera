@@ -17,7 +17,7 @@ public class Desert extends Biome {
     this.cost.replace(BiomeEnum.GRASS, 3);
     this.cost.replace(BiomeEnum.WATER, 2);
     this.color = Color.YELLOW;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_desert.jpg").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/desert.png").toExternalForm());
     this.animalProportion = 8;
   }
 

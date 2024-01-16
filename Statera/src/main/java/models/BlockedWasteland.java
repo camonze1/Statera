@@ -14,7 +14,7 @@ public class BlockedWasteland extends Biome {
     this.vegetationProportion = 0;
     this.buildingProportion = 0;
     this.color = Color.GRAY;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_wasteland_blocked.jpg").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/blocked_wasteland.png").toExternalForm());
   }
 
   //  Methods  //

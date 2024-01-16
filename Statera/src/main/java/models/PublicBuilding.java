@@ -15,7 +15,7 @@ public class PublicBuilding extends Biome{
         this.cost.replace(BiomeEnum.GRASS, 1);
         this.cost.replace(BiomeEnum.WATER, 1);
         this.color = Color.BLACK;
-        this.img = new Image(getClass().getResource("/ive/statera/img/tiles/building.png").toExternalForm());
+        this.img = new Image(getClass().getResource("/ive/statera/img/tiles/public_building.png").toExternalForm());
         this.animalProportion = 0;
     }
 
