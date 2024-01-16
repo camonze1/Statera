@@ -1,6 +1,7 @@
 package controllers;
 
 import enums.BiomeEnum;
+import ive.statera.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,12 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Land;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.event.Event;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -28,6 +32,10 @@ public class LandController {
   private Land land;
 
   private BiomeEnum biomeSelected;
+
+  private boolean unlockBlockedWasteland = false;
+
+  private int numberOfUnlockedBlockedWasteland = 0;
 
   private Random random = new Random();
 
@@ -60,6 +68,22 @@ public class LandController {
 
   private Stage previousStatisticStage;
 
+  private int requiredWater;
+
+  private int requiredGrass;
+
+  private int requiredForest;
+
+  private int requiredBuilding;
+
+  private int requiredPublicBuilding;
+
+  private int requiredDesert;
+
+  private int requiredJungle;
+
+  private int requiredMountain;
+
 
   //  Methods  //
 
@@ -69,6 +93,8 @@ public class LandController {
   }
 
   public void initializeLand() {
+    this.biomeSelected = null;
+    this.numberOfUnlockedBlockedWasteland = 0;
     this.land = new Land(15, 15);
     for (int i = 0; i < 5; i++) {
       setRandomBiomeToFreeWasteland(BiomeEnum.WATER);
@@ -84,11 +110,9 @@ public class LandController {
       for (int col = 0; col < this.land.getLandSize()[1]; col++) {
         Rectangle plot = new Rectangle(35, 35);
 
-        // tooltip
         Tooltip tooltip = new Tooltip(this.land.getBiome(row, col).getDescription());
         Tooltip.install(plot, tooltip);
 
-        new ImagePattern(this.land.getBiome(row, col).getImage());
         plot.setFill(new ImagePattern(this.land.getBiome(row, col).getImage()));
         plot.setOnMouseClicked(event -> onPlotClick(plot));
         this.land.getBiome(row, col).setRectangle(plot);
@@ -103,32 +127,28 @@ public class LandController {
     int line = GridPane.getColumnIndex(plot);
     int column = GridPane.getRowIndex(plot);
 
-    if (this.biomeSelected != null) {
-      if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
-        buyBiome(line, column, this.biomeSelected);
-        updateBalance();
-      } else {
-        informationWindow("You cannot place a tile that is not free.");
+    if (!this.verifyEndGame()) {
+      if (this.biomeSelected != null && !this.unlockBlockedWasteland) {
+        if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
+          this.buyBiome(line, column, this.biomeSelected);
+          this.updateBalance();
+          if (this.verifyEndGame()) {
+            this.openEndGameWindow();
+          }
+        } else {
+          this.informationWindow("Warning", "You cannot place a tile that is not free.");
+        }
       }
-    }
 
-    //    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-    //    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
-    //    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
-    //    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
-    //    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
-    //    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
-    //    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-    //    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
-    //    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
-    //    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
-    //    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
-    //    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
-    //    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
-    //    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
-    //    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-    //    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-    //    System.out.println("Environment balance : " + this.land.environmentBalance());
+      if (this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND && this.unlockBlockedWasteland) {
+        this.unlockWasteland(line, column);
+        this.updateBalance();
+      } else if (this.unlockBlockedWasteland && this.land.getBiome(line, column).getType() != BiomeEnum.BLOCKEDWASTELAND) {
+        informationWindow("Information", "You have to click on a blocked wasteland to unlock one");
+      }
+    } else {
+      this.openEndGameWindow();
+    }
   }
 
   public void updateBalance() {
@@ -163,7 +183,7 @@ public class LandController {
       List<int[]> biomeCoordinates = this.land.getCoordinatesByBiomeType(key);
 
       if (biomeCoordinates.size() < numberOfBiomesToRemove) {
-        informationWindow("You don't have enough resources to buy this biome.");
+        informationWindow("Warning", "You don't have enough resources to buy this biome.");
         this.land.setFreeWasteland(line, column);
         setBiomeOnPlot(line, column);
         return;
@@ -178,9 +198,103 @@ public class LandController {
     }
   }
 
-  private void informationWindow(String text) {
+  public void unlockWasteland(int line, int column) {
+    double waterCoefficient = 0.10;
+    double grassCoefficient = 0.10;
+    double forestCoefficient = 0.12;
+    double buildingCoefficient = 0.22;
+    double publicBuildingCoefficient = 0.20;
+    double desertCoefficient = 0.18;
+    double jungleCoefficient = 0.16;
+    double mountainCoefficient = 0.14;
+
+    this.requiredWater = (int) (this.numberOfUnlockedBlockedWasteland * waterCoefficient);
+    this.requiredGrass = (int) (this.numberOfUnlockedBlockedWasteland * grassCoefficient);
+    this.requiredForest = (int) (this.numberOfUnlockedBlockedWasteland * forestCoefficient);
+    this.requiredBuilding = (int) (this.numberOfUnlockedBlockedWasteland * buildingCoefficient);
+    this.requiredPublicBuilding = (int) (this.numberOfUnlockedBlockedWasteland * publicBuildingCoefficient);
+    this.requiredDesert = (int) (this.numberOfUnlockedBlockedWasteland * desertCoefficient);
+    this.requiredJungle = (int) (this.numberOfUnlockedBlockedWasteland * jungleCoefficient);
+    this.requiredMountain = (int) (this.numberOfUnlockedBlockedWasteland * mountainCoefficient);
+
+    if (this.unlockBlockedWasteland && hasEnoughResources(requiredWater, requiredGrass, requiredForest, requiredBuilding, requiredPublicBuilding, requiredDesert, requiredJungle, requiredMountain) &&
+        this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND) {
+      this.land.setFreeWasteland(line, column);
+      setBiomeOnPlot(line, column);
+      this.unlockBlockedWasteland = false;
+      this.numberOfUnlockedBlockedWasteland++;
+    } else {
+      StringBuilder messageBuilder = new StringBuilder("Insufficient resources to unlock the wasteland you need: \n");
+      if (requiredWater != 0) {
+        messageBuilder.append(requiredWater).append(" water, \n");
+      }
+      if (requiredGrass != 0) {
+        messageBuilder.append(requiredGrass).append(" grass, \n");
+      }
+      if (requiredForest != 0) {
+        messageBuilder.append(requiredForest).append(" forest, \n");
+      }
+      if (requiredBuilding != 0) {
+        messageBuilder.append(requiredBuilding).append(" building, \n");
+      }
+      if (requiredPublicBuilding != 0) {
+        messageBuilder.append(requiredPublicBuilding).append(" public building, \n");
+      }
+      if (requiredDesert != 0) {
+        messageBuilder.append(requiredDesert).append(" desert, \n");
+      }
+      if (requiredJungle != 0) {
+        messageBuilder.append(requiredJungle).append(" jungle, \n");
+      }
+      if (requiredMountain != 0) {
+        messageBuilder.append(requiredMountain).append(" mountain, \n");
+      }
+      messageBuilder.deleteCharAt(messageBuilder.length() - 3);
+      informationWindow("Information", messageBuilder.toString());
+      this.unlockBlockedWasteland = false;
+    }
+  }
+
+  private boolean hasEnoughResources(int requiredWater, int requiredGrass, int requiredForest, int requiredBuilding, int requiredPublicBuilding, int requiredDesert, int requiredJungle, int requiredMountain) {
+    int availableWater = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER);
+    int availableGrass = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS);
+    int availableForest = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST);
+    int availableBuilding = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
+    int availablePublicBuilding = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
+    int availableDesert = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT);
+    int availableJungle = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE);
+    int availableMountain = this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN);
+
+    return availableWater >= requiredWater && availableGrass >= requiredGrass && availableForest >= requiredForest && availableBuilding >= requiredBuilding && availablePublicBuilding >= requiredPublicBuilding && availableDesert >= requiredDesert && availableJungle >= requiredJungle && availableMountain >= requiredMountain;
+  }
+
+  public void openEndGameWindow() {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/End.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage endStage = new Stage();
+      EndController endController = loader.getController();
+      endController.setEndController(this);
+      endStage.setTitle("End game - Statera");
+      endStage.setScene(scene);
+      endStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
+      endStage.setOnCloseRequest(Event::consume);
+      endStage.initModality(Modality.APPLICATION_MODAL);
+      endStage.setResizable(false);
+      endStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public boolean verifyEndGame() {
+    return this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND) == 0;
+  }
+
+  private void informationWindow(String title, String text) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Attention");
+    alert.setTitle(title);
     alert.setHeaderText(null);
     alert.setContentText(text);
     alert.showAndWait();
@@ -203,7 +317,6 @@ public class LandController {
       if (previousMenuStage != null) {
         previousMenuStage.close();
       }
-
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -212,6 +325,7 @@ public class LandController {
       menuController.setLandController(this);
       menuStage.setTitle("Menu - Statera");
       menuStage.setScene(scene);
+      menuStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       menuStage.setResizable(false);
       menuStage.show();
 
@@ -225,11 +339,9 @@ public class LandController {
   @FXML
   public void onClickedStatistics(ActionEvent event) {
     try {
-
       if (previousStatisticStage != null) {
         previousStatisticStage.close();
       }
-
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -238,11 +350,10 @@ public class LandController {
       statisticController.updateViewStatisticController(this);
       statisticsStage.setTitle("Statistics - Statera");
       statisticsStage.setScene(scene);
+      statisticsStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       statisticsStage.setResizable(false);
       statisticsStage.show();
-
       previousStatisticStage = statisticsStage;
-
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -253,6 +364,8 @@ public class LandController {
 
   public void setBiomeOnPlot(int line, int column) {
     Rectangle biomePlot = new Rectangle(35, 35);
+    Tooltip tooltip = new Tooltip(this.land.getBiome(line, column).getDescription());
+    Tooltip.install(biomePlot, tooltip);
     biomePlot.setFill(new ImagePattern(this.land.getBiome(line, column).getImage()));
     biomePlot.setOnMouseClicked(event -> onPlotClick(biomePlot));
     this.land.getBiome(line, column).setRectangle(biomePlot);
@@ -267,7 +380,7 @@ public class LandController {
     }
   }
 
-  public int getNumberOfOccupiedPlotLandController(BiomeEnum biomeType){
+  public int getNumberOfOccupiedPlotLandController(BiomeEnum biomeType) {
     return this.land.getNumberOfOccupiedPlotByType(biomeType);
   }
 
@@ -275,12 +388,16 @@ public class LandController {
     return this.land.getNumberOfAnimals();
   }
 
-  public int  getNumberOfHumansInLand() {
+  public int getNumberOfHumansInLand() {
     return this.land.getNumberOfHumans();
   }
 
   public void setBiomeSelected(BiomeEnum biomeSelected) {
     this.biomeSelected = biomeSelected;
+  }
+
+  public void setUnlockBlockedWasteland(boolean unlockBlockedWasteland) {
+    this.unlockBlockedWasteland = unlockBlockedWasteland;
   }
 
   public ProgressBar getEnvironmentBalanceProgressBar() {
@@ -325,5 +442,13 @@ public class LandController {
 
   public Land getLand() {
     return land;
+  }
+
+  public int getTotalOfNonBlockedWastelandPlot() {
+    return this.land.getTotalOfNonBlockedWastelandPlot();
+  }
+
+  public int getNumberOfUnlockedBlockedWasteland() {
+    return numberOfUnlockedBlockedWasteland;
   }
 }

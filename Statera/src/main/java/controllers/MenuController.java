@@ -1,10 +1,12 @@
 package controllers;
 
+import ive.statera.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,6 +18,8 @@ public class MenuController {
   private LandController landController;
 
   private BiomeController biomeController;
+
+  public boolean unlockBlockedWasteland;
 
   //  Methods  //
 
@@ -37,6 +41,7 @@ public class MenuController {
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       stage.setTitle("Select biome - Statera");
       stage.setScene(scene);
+      stage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       stage.show();
     } catch (IOException e) {
       e.printStackTrace();
@@ -49,12 +54,20 @@ public class MenuController {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Information.fxml"));
       Scene scene = new Scene(loader.load(), 600, 500);
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      stage.setTitle("Information - Statera");
+      stage.setTitle("Informations - Statera");
       stage.setScene(scene);
+      stage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       stage.show();
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  @FXML
+  public void onClickedUnlockWastelandButton(ActionEvent event) {
+    this.unlockBlockedWasteland = true;
+    this.landController.setUnlockBlockedWasteland(unlockBlockedWasteland);
+    this.home(event);
   }
 
   @FXML
@@ -64,17 +77,13 @@ public class MenuController {
 
   @FXML
   public void onClickedReplayGame(ActionEvent event) {
-    home(event);
-    landController.initializeLand();
+    this.home(event);
+    this.landController.initializeLand();
   }
 
   //  Getters and setters  //
 
   public void setLandController(LandController landController) {
     this.landController = landController;
-  }
-
-  public BiomeController getBiomeMenuController() {
-    return biomeController;
   }
 }

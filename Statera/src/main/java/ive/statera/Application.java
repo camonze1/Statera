@@ -12,7 +12,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Start.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 700);
-        stage.getIcons().add(new Image(Application.class.getResource("img/statera_logo.png").openStream()));
+        stage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
         stage.setTitle("Statera");
         stage.setScene(scene);
         stage.setResizable(false);

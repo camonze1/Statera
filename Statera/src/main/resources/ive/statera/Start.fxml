@@ -9,19 +9,18 @@
 <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0"
       xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controllers.StartController">
-    <stylesheets>
-        <URL value="@css/Start.css"/>
-    </stylesheets>
+  <stylesheets>
+    <URL value="@css/Start.css"/>
+  </stylesheets>
 
-    <StackPane>
-        <ImageView>
-            <image>
-                <Image url="@img/LogoStatera.png" />
-            </image>
-        </ImageView>
-        <VBox alignment="CENTER" styleClass="box-button">
-            <Button fx:id="start" mnemonicParsing="false" onAction="#onClickedStartButton" styleClass="button-style" text="Start"/>
-        </VBox>
-    </StackPane>
+  <StackPane>
+    <ImageView>
+        <Image url="@img/logo_statera.png"/>
+    </ImageView>
+    <VBox alignment="CENTER" styleClass="box-button">
+      <Button fx:id="start" mnemonicParsing="false" onAction="#onClickedStartButton" styleClass="button-style"
+              text="Start"/>
+    </VBox>
+  </StackPane>
 
 </VBox>

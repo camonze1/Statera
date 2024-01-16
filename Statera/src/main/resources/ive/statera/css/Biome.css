@@ -1,140 +1,143 @@
 .global {
-    -fx-background-color: #A98467;
+  -fx-background-color: #A98467;
 }
 
-.title {
-    -fx-font-size: 50px;
-    -fx-font-family: "Bahnschrift";
-    -fx-font-weight: bold;
-    -fx-padding: 40px 35px 5px 5px;
-    -fx-text-fill: #F0EAD2;
-    -fx-min-width: 500px;
-    -fx-max-width: 500px;
-    -fx-alignment: center;
-}
+/* HEADER */
 
-.box-label {
-    -fx-alignment: center;
-}
-
-/* MENU BUTTON */
-
-.box-button {
-    -fx-min-width: 65px;
-    -fx-max-width: 65px;
-    -fx-min-height: 40px;
-    -fx-max-height: 40px;
-    -fx-padding: 10px;
+.box-home-button {
+  -fx-min-width: 65px;
+  -fx-max-width: 65px;
+  -fx-min-height: 40px;
+  -fx-max-height: 40px;
+  -fx-padding: 10px;
 }
 
 .home-button {
-    -fx-background-color: #F0EAD2;
-    -fx-font-size: 12px;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    -fx-min-width: 55px;
-    -fx-max-width: 55px;
-    -fx-min-height: 30px;
-    -fx-max-height: 30px;
-    -fx-background-radius: 2px;
+  -fx-background-color: #F0EAD2;
+  -fx-font-size: 12px;
+  -fx-text-fill: black;
+  -fx-cursor: hand;
+  -fx-min-width: 55px;
+  -fx-max-width: 55px;
+  -fx-min-height: 30px;
+  -fx-max-height: 30px;
+  -fx-background-radius: 2px;
 }
+
+.home-button:pressed {
+  -fx-background-color: #EDE5BE;
+  -fx-text-fill: #000000;
+}
+
+.box-title {
+  -fx-alignment: center;
+}
+
+.title {
+  -fx-font-size: 50px;
+  -fx-font-family: "Bahnschrift";
+  -fx-font-weight: bold;
+  -fx-padding: 40px 35px 5px 5px;
+  -fx-text-fill: #F0EAD2;
+  -fx-min-width: 500px;
+  -fx-max-width: 500px;
+  -fx-alignment: center;
+}
+
+/* END HEADER */
 
 /* BODY */
 
-/* Scroll bar */
+.body {
+  -fx-padding: 10px;
+  -fx-alignment: center;
+  -fx-spacing: 0px;
+  -fx-background-color: #A98467;
+}
+
+/* BIOMES BUTTONS */
+
+.left-column-button {
+  -fx-spacing: 10px;
+  -fx-padding: 5px 5px 5px 80px;
+}
+
+.right-column-button {
+  -fx-spacing: 10px;
+  -fx-padding: 5px 80px 5px 5px;
+}
+
+.biome-button {
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+  -fx-alignment: center center;
+  -fx-background-radius: 2px;
+  -fx-padding: 0px;
+}
+
+.label-biome-button {
+  -fx-font-size: 12px;
+  -fx-font-family: "Bahnschrift";
+  -fx-text-fill: #F0EAD2;
+}
+
+/* END BIOMES BUTTONS */
+
+/* SCROLL BAR */
 .scroll-pane {
-    -fx-background-color: transparent;
-    -fx-background: transparent;
-    -fx-border-width: 0;
+  -fx-background-color: transparent;
+  -fx-background: transparent;
+  -fx-border-width: 0;
 }
 
 .scroll-bar:horizontal .track,
-.scroll-bar:vertical .track{
-    -fx-background-color :transparent;
-    -fx-border-color :transparent;
-    -fx-background-radius : 0.0em;
-    -fx-border-radius :2.0em;
+.scroll-bar:vertical .track {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-background-radius: 0.0em;
+  -fx-border-radius: 2.0em;
 }
 
-
-.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .increment-button,
 .scroll-bar:horizontal .decrement-button {
-    -fx-background-color :transparent;
-    -fx-background-radius : 0.0em;
-    -fx-padding :0.0 0.0 10.0 0.0;
-
+  -fx-background-color: transparent;
+  -fx-background-radius: 0.0em;
+  -fx-padding: 0.0 0.0 10.0 0.0;
 }
 
-.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .increment-button,
 .scroll-bar:vertical .decrement-button {
-    -fx-background-color :transparent;
-    -fx-background-radius : 0.0em;
-    -fx-padding :0.0 10.0 0.0 0.0;
-
+  -fx-background-color: transparent;
+  -fx-background-radius: 0.0em;
+  -fx-padding: 0.0 10.0 0.0 0.0;
 }
 
 .scroll-bar .increment-arrow,
-.scroll-bar .decrement-arrow{
-    -fx-shape : " ";
-    -fx-padding :0.15em 0.0;
+.scroll-bar .decrement-arrow {
+  -fx-shape: " ";
+  -fx-padding: 0.15em 0.0;
 }
 
 .scroll-bar:vertical .increment-arrow,
-.scroll-bar:vertical .decrement-arrow{
-    -fx-shape : " ";
-    -fx-padding :0.0 0.15em;
+.scroll-bar:vertical .decrement-arrow {
+  -fx-shape: " ";
+  -fx-padding: 0.0 0.15em;
 }
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical .thumb {
-    -fx-background-color :derive(black,90.0%);
-    -fx-background-insets : 2.0, 0.0, 0.0;
-    -fx-background-radius : 2.0em;
+  -fx-background-color: derive(black, 90.0%);
+  -fx-background-insets: 2.0, 0.0, 0.0;
+  -fx-background-radius: 2.0em;
 }
 
 .scroll-bar:horizontal .thumb:hover,
 .scroll-bar:vertical .thumb:hover {
-    -fx-background-color :derive(#4D4C4F,10.0%);
-    -fx-background-insets : 2.0, 0.0, 0.0;
-    -fx-background-radius : 2.0em;
+  -fx-background-color: derive(#4D4C4F, 10.0%);
+  -fx-background-insets: 2.0, 0.0, 0.0;
+  -fx-background-radius: 2.0em;
 }
 
+/* END SCROLL BAR */
 
-.button-biome {
-    -fx-font-size: 12px;
-    -fx-background-color: #F0EAD2;
-    -fx-text-fill: black;
-    -fx-cursor: hand;
-    /*-fx-min-width: 100px;*/
-    /*-fx-max-width: 100px;*/
-    /*-fx-min-height: 25px;*/
-    /*-fx-max-height: 25px;*/
-    -fx-alignment: center top;
-    -fx-background-radius: 2px;
-    -fx-font-family: default;
-    -fx-padding: 0px;
-}
-
-.label-button {
-    -fx-padding: 0px;
-}
-
-.button-biome:hover {
-    -fx-background-color: #DBD6BF;
-}
-
-.home-button:pressed {
-    -fx-background-color: #ede5be;
-    -fx-text-fill: #000000;
-}
-
-.vbox-biome-button {
-    -fx-spacing: 15px;
-}
-
-.body {
-    -fx-padding: 10px;
-    -fx-alignment: center;
-    -fx-spacing: 15px;
-    -fx-background-color: #A98467;
-}
+/* END BODY */

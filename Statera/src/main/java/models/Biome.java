@@ -3,6 +3,7 @@ package models;
 import enums.BiomeEnum;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -125,4 +126,18 @@ public abstract class Biome {
     return this.humanProportion;
   }
 
+  public String getStringCost() {
+    HashMap<BiomeEnum, Integer> newCost = new HashMap<BiomeEnum, Integer>();
+    for (BiomeEnum key : cost.keySet()) {
+      if (cost.get(key) != 0) {
+        newCost.put(key, cost.get(key));
+      }
+    }
+
+    String res = "";
+    for (Map.Entry m : newCost.entrySet()) {
+      res = res + m.getKey() + " : " + m.getValue() + "\n";
+    }
+    return res;
+  }
 }

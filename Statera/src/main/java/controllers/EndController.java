@@ -10,7 +10,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class StatisticController {
+public class EndController {
 
   //  Attributes  //
 
@@ -52,7 +52,6 @@ public class StatisticController {
   @FXML
   private Label numberOfHumansInLandLabel;
 
-
   @FXML
   private Text numberOfWaterPlotInLand;
 
@@ -81,14 +80,11 @@ public class StatisticController {
   private Text numberOfFreeWastelandPlotInLand;
 
   @FXML
-  private Text numberOfTotalNonBlockedWastelandPlot;
-
-  @FXML
-  private Text numberOfUnlockBlockedWasteland;
+  private Text textNumberOfUnlockBlockedWasteland;
 
   //  Methods  //
 
-  public void updateViewStatisticController(LandController landController) {
+  public void setEndController(LandController landController) {
     this.landController = landController;
     if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
       if (landController.getEnvironmentBalanceProgressBar().getProgress() < 0) {
@@ -151,30 +147,37 @@ public class StatisticController {
     } else {
       numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
     }
+
     if (landController.getNumberOfUnlockedBlockedWasteland() == 0) {
-      numberOfUnlockBlockedWasteland.setText("You have unlock 0 plot of blocked wasteland");
+      this.textNumberOfUnlockBlockedWasteland.setText("You have reached the level 0 !");
     } else {
-      numberOfUnlockBlockedWasteland.setText("You have unlock " + landController.getNumberOfUnlockedBlockedWasteland() + " plot(s) of blocked wasteland");
+      this.textNumberOfUnlockBlockedWasteland.setText("You have reached the level " + landController.getNumberOfUnlockedBlockedWasteland() + " !");
     }
-    numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plot(s) of water");
-    numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plot(s) of grass");
-    numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plot(s) of forest");
-    numberOfBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plot(s) of building");
-    numberOfPublicBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plot(s) of public building");
-    numberOfDesertPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plot(s) of desert");
-    numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plot(s) of jungle");
-    numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plot(s) of mountain");
-    numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plot(s) of free wasteland");
-    numberOfTotalNonBlockedWastelandPlot.setText("There are " + landController.getTotalOfNonBlockedWastelandPlot() + " non blocked plot(s)");
+    numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plots of water");
+    numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plots of grass");
+    numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plots of forest");
+    numberOfBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plots of building");
+    numberOfPublicBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plots of public building");
+    numberOfDesertPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plots of desert");
+    numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plots of jungle");
+    numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
+    numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
   }
 
   //  FXML Methods  //
 
   @FXML
-  public void home(ActionEvent event) {
+  public void onClickedQuitGame() {
+    System.exit(0);
+  }
+
+  @FXML
+  public void onClickedReplayGame(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
+    this.landController.initializeLand();
   }
+
 
 }

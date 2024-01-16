@@ -4,53 +4,54 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BiomeController">
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="global" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BiomeController">
   <stylesheets>
-    <URL value="@css/Biome.css" />
+    <URL value="@css/Biome.css"/>
   </stylesheets>
 
   <HBox>
-    <VBox styleClass="box-button">
-      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button" text="Home" />
+    <VBox styleClass="box-home-button">
+      <Button fx:id="home" layoutX="8.0" layoutY="6.0" mnemonicParsing="false" onAction="#home" styleClass="home-button"
+              text="Home"/>
     </VBox>
-    <VBox styleClass="box-label">
+    <VBox styleClass="box-title">
       <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Choose a biome">
       </Label>
     </VBox>
   </HBox>
 
   <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="body">
-       <HBox prefHeight="100.0" prefWidth="200.0">
-          <children>
-             <VBox prefHeight="200.0" prefWidth="100.0" />
-          </children>
-       </HBox>
     <HBox>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="vbox-biome-button">
-        <Button fx:id="waterButton" layoutX="300.0" layoutY="318.0" mnemonicParsing="false" onAction="#onClickedWaterButton" styleClass="button-biome" />
-          <Label text="Water" />
-        <Button fx:id="grassButton" layoutX="300.0" layoutY="278.0" mnemonicParsing="false" onAction="#onClickedGrassButton" styleClass="button-biome" />
-          <Label text="Grass" />
-        <Button fx:id="forestButton" layoutX="300.0" layoutY="158.0" mnemonicParsing="false" onAction="#onClickedForestButton" styleClass="button-biome" />
-          <Label text="Forest" />
-        <Button fx:id="buildingButton" layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#onClickedBuildingButton" styleClass="button-biome" />
-          <Label text="Building" />
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="left-column-button">
+        <Button fx:id="waterButton" layoutX="300.0" layoutY="318.0" mnemonicParsing="false"
+                onAction="#onClickedWaterButton" styleClass="biome-button"/>
+        <Label text="Water" styleClass="label-biome-button"/>
+        <Button fx:id="grassButton" layoutX="300.0" layoutY="278.0" mnemonicParsing="false"
+                onAction="#onClickedGrassButton" styleClass="biome-button"/>
+        <Label text="Grass" styleClass="label-biome-button"/>
+        <Button fx:id="forestButton" layoutX="300.0" layoutY="158.0" mnemonicParsing="false"
+                onAction="#onClickedForestButton" styleClass="biome-button"/>
+        <Label text="Forest" styleClass="label-biome-button"/>
+        <Button fx:id="buildingButton" layoutX="300.0" layoutY="78.0" mnemonicParsing="false"
+                onAction="#onClickedBuildingButton" styleClass="biome-button"/>
+        <Label text="Building" styleClass="label-biome-button"/>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="vbox-biome-button">
-        <Button fx:id="publicBuildingButton" mnemonicParsing="false" onAction="#onClickedPublicBuildingButton" styleClass="button-biome" />
-            <Label text="Public Building" />
-          <Button fx:id="desertButton" layoutX="300.0" layoutY="118.0" mnemonicParsing="false" onAction="#onClickedDesertButton" styleClass="button-biome" />
-            <Label text="Desert" />
-          <Button fx:id="jungleButton" layoutX="300.0" layoutY="198.0" mnemonicParsing="false" onAction="#onClickedJungleButton" styleClass="button-biome" />
-            <Label text="Jungle" />
-          <Button fx:id="mountainButton" layoutX="300.0" layoutY="238.0" mnemonicParsing="false" onAction="#onClickedMountainButton" styleClass="button-biome" />
-            <Label text="Mountain" />
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="400.0" styleClass="right-column-button">
+        <Button fx:id="publicBuildingButton" mnemonicParsing="false" onAction="#onClickedPublicBuildingButton"
+                styleClass="biome-button"/>
+        <Label text="Public Building" styleClass="label-biome-button"/>
+        <Button fx:id="desertButton" layoutX="300.0" layoutY="118.0" mnemonicParsing="false"
+                onAction="#onClickedDesertButton" styleClass="biome-button"/>
+        <Label text="Desert" styleClass="label-biome-button"/>
+        <Button fx:id="jungleButton" layoutX="300.0" layoutY="198.0" mnemonicParsing="false"
+                onAction="#onClickedJungleButton" styleClass="biome-button"/>
+        <Label text="Jungle" styleClass="label-biome-button"/>
+        <Button fx:id="mountainButton" layoutX="300.0" layoutY="238.0" mnemonicParsing="false"
+                onAction="#onClickedMountainButton" styleClass="biome-button"/>
+        <Label text="Mountain" styleClass="label-biome-button"/>
       </VBox>
     </HBox>
   </VBox>
 
-
-
-  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="footer">
-  </HBox>
 </VBox>
