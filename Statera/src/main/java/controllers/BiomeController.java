@@ -47,19 +47,19 @@ public class BiomeController {
   }
 
   public void initialize() {
-    Image imageWater = new Image(getClass().getResource("/ive/statera/img/tiles/b_water.jpg").toExternalForm());
+    Image imageWater = new Image(getClass().getResource("/ive/statera/img/tiles/water.png").toExternalForm());
     ImageView imgWaterView = new ImageView(imageWater);
     imgWaterView.setFitWidth(50);
     imgWaterView.setFitHeight(50);
     waterButton.setGraphic(imgWaterView);
 
-    Image imageGrass = new Image(getClass().getResource("/ive/statera/img/tiles/b_grass.jpg").toExternalForm());
+    Image imageGrass = new Image(getClass().getResource("/ive/statera/img/tiles/grass.jpg").toExternalForm());
     ImageView imgGrassView = new ImageView(imageGrass);
     imgGrassView.setFitWidth(50);
     imgGrassView.setFitHeight(50);
     grassButton.setGraphic(imgGrassView);
 
-    Image imageForest = new Image(getClass().getResource("/ive/statera/img/tiles/b_forest.jpg").toExternalForm());
+    Image imageForest = new Image(getClass().getResource("/ive/statera/img/tiles/forest.png").toExternalForm());
     ImageView imgForestView = new ImageView(imageForest);
     imgForestView.setFitWidth(50);
     imgForestView.setFitHeight(50);
@@ -67,7 +67,7 @@ public class BiomeController {
     Forest forest = new Forest();
     forestButton.setTooltip(new Tooltip(forest.getStringCost()));
 
-    Image imgBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/b_building.jpg").toExternalForm());
+    Image imgBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/building.png").toExternalForm());
     ImageView imgBuildingView = new ImageView(imgBuilding);
     imgBuildingView.setFitWidth(50);
     imgBuildingView.setFitHeight(50);
@@ -75,7 +75,7 @@ public class BiomeController {
     Building building = new Building();
     buildingButton.setTooltip(new Tooltip(building.getStringCost()));
 
-    Image imagePublicBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/building.png").toExternalForm());
+    Image imagePublicBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/public_building.png").toExternalForm());
     ImageView imgPublicBuildingView = new ImageView(imagePublicBuilding);
     imgPublicBuildingView.setFitWidth(50);
     imgPublicBuildingView.setFitHeight(50);
@@ -83,7 +83,7 @@ public class BiomeController {
     PublicBuilding publicbuilding = new PublicBuilding();
     publicBuildingButton.setTooltip(new Tooltip(publicbuilding.getStringCost()));
 
-    Image imageDesert = new Image(getClass().getResource("/ive/statera/img/tiles/b_desert.jpg").toExternalForm());
+    Image imageDesert = new Image(getClass().getResource("/ive/statera/img/tiles/desert.png").toExternalForm());
     ImageView imgDesertView = new ImageView(imageDesert);
     imgDesertView.setFitWidth(50);
     imgDesertView.setFitHeight(50);
@@ -91,7 +91,7 @@ public class BiomeController {
     Desert desert = new Desert();
     desertButton.setTooltip(new Tooltip(desert.getStringCost()));
 
-    Image imageJungle = new Image(getClass().getResource("/ive/statera/img/tiles/b_jungle.jpg").toExternalForm());
+    Image imageJungle = new Image(getClass().getResource("/ive/statera/img/tiles/jungle.jpg").toExternalForm());
     ImageView imgJungleView = new ImageView(imageJungle);
     imgJungleView.setFitWidth(50);
     imgJungleView.setFitHeight(50);
@@ -99,7 +99,7 @@ public class BiomeController {
     Jungle jungle = new Jungle();
     jungleButton.setTooltip(new Tooltip(jungle.getStringCost()));
 
-    Image imageMountain = new Image(getClass().getResource("/ive/statera/img/tiles/b_mountain.jpg").toExternalForm());
+    Image imageMountain = new Image(getClass().getResource("/ive/statera/img/tiles/mountain.jpg").toExternalForm());
     ImageView imgMountainView = new ImageView(imageMountain);
     imgMountainView.setFitWidth(50);
     imgMountainView.setFitHeight(50);

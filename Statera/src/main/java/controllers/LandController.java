@@ -440,6 +440,10 @@ public class LandController {
     return qualityLifeBalance;
   }
 
+  public Land getLand() {
+    return land;
+  }
+
   public int getTotalOfNonBlockedWastelandPlot() {
     return this.land.getTotalOfNonBlockedWastelandPlot();
   }
