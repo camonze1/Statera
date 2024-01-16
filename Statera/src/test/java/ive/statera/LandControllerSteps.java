@@ -67,7 +67,7 @@ public void statistiquesDevraientEtreCorrectes() {
     // Ajoutez ici des assertions pour vérifier que les statistiques sont correctes
 }
 
-    @Given("l{string}application")
-    public void lUtilisateurAOuvertLApplication() {
-    }
+@Given("l'utilisateur a ouvert l'application")
+public void UtilisateurAOuvertLApplication() {
+}
 }
