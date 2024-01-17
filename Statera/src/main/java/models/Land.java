@@ -20,7 +20,7 @@ public class Land {
     for (int i = 0; i < line; i++) {
       ArrayList<Biome> lines = new ArrayList<Biome>();
       for (int j = 0; j < column; j++) {
-        int randomValue = random.nextInt(13);
+        int randomValue = random.nextInt(5);
         if (randomValue == 0) {
           lines.add(new FreeWasteland());
         } else {
