@@ -66,7 +66,7 @@ public class MenuController {
   @FXML
   public void onClickedUnlockWastelandButton(ActionEvent event) {
     this.unlockBlockedWasteland = true;
-    this.landController.setUnlockBlockedWasteland(unlockBlockedWasteland);
+    this.landController.setUnlockBlockedWasteland(this.unlockBlockedWasteland);
     this.home(event);
   }
 

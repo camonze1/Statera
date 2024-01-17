@@ -32,7 +32,6 @@ public class StartController {
       homeStage.show();
     } catch (IOException e) {
       e.printStackTrace();
-
     }
   }
 }

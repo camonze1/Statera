@@ -24,18 +24,25 @@ public class BiomeController {
 
   @FXML
   private Button waterButton;
+
   @FXML
   private Button grassButton;
+
   @FXML
   private Button forestButton;
+
   @FXML
   private Button buildingButton;
+
   @FXML
   private Button publicBuildingButton;
+
   @FXML
   private Button desertButton;
+
   @FXML
   private Button jungleButton;
+
   @FXML
   private Button mountainButton;
 
@@ -51,61 +58,61 @@ public class BiomeController {
     ImageView imgWaterView = new ImageView(imageWater);
     imgWaterView.setFitWidth(50);
     imgWaterView.setFitHeight(50);
-    waterButton.setGraphic(imgWaterView);
+    this.waterButton.setGraphic(imgWaterView);
 
     Image imageGrass = new Image(getClass().getResource("/ive/statera/img/tiles/grass.jpg").toExternalForm());
     ImageView imgGrassView = new ImageView(imageGrass);
     imgGrassView.setFitWidth(50);
     imgGrassView.setFitHeight(50);
-    grassButton.setGraphic(imgGrassView);
+    this.grassButton.setGraphic(imgGrassView);
 
     Image imageForest = new Image(getClass().getResource("/ive/statera/img/tiles/forest.png").toExternalForm());
     ImageView imgForestView = new ImageView(imageForest);
     imgForestView.setFitWidth(50);
     imgForestView.setFitHeight(50);
-    forestButton.setGraphic(imgForestView);
+    this.forestButton.setGraphic(imgForestView);
     Forest forest = new Forest();
-    forestButton.setTooltip(new Tooltip(forest.getStringCost()));
+    this.forestButton.setTooltip(new Tooltip(forest.getStringCost()));
 
     Image imgBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/building.png").toExternalForm());
     ImageView imgBuildingView = new ImageView(imgBuilding);
     imgBuildingView.setFitWidth(50);
     imgBuildingView.setFitHeight(50);
-    buildingButton.setGraphic(imgBuildingView);
+    this.buildingButton.setGraphic(imgBuildingView);
     Building building = new Building();
-    buildingButton.setTooltip(new Tooltip(building.getStringCost()));
+    this.buildingButton.setTooltip(new Tooltip(building.getStringCost()));
 
     Image imagePublicBuilding = new Image(getClass().getResource("/ive/statera/img/tiles/public_building.png").toExternalForm());
     ImageView imgPublicBuildingView = new ImageView(imagePublicBuilding);
     imgPublicBuildingView.setFitWidth(50);
     imgPublicBuildingView.setFitHeight(50);
-    publicBuildingButton.setGraphic(imgPublicBuildingView);
+    this.publicBuildingButton.setGraphic(imgPublicBuildingView);
     PublicBuilding publicbuilding = new PublicBuilding();
-    publicBuildingButton.setTooltip(new Tooltip(publicbuilding.getStringCost()));
+    this.publicBuildingButton.setTooltip(new Tooltip(publicbuilding.getStringCost()));
 
     Image imageDesert = new Image(getClass().getResource("/ive/statera/img/tiles/desert.png").toExternalForm());
     ImageView imgDesertView = new ImageView(imageDesert);
     imgDesertView.setFitWidth(50);
     imgDesertView.setFitHeight(50);
-    desertButton.setGraphic(imgDesertView);
+    this.desertButton.setGraphic(imgDesertView);
     Desert desert = new Desert();
-    desertButton.setTooltip(new Tooltip(desert.getStringCost()));
+    this.desertButton.setTooltip(new Tooltip(desert.getStringCost()));
 
     Image imageJungle = new Image(getClass().getResource("/ive/statera/img/tiles/jungle.jpg").toExternalForm());
     ImageView imgJungleView = new ImageView(imageJungle);
     imgJungleView.setFitWidth(50);
     imgJungleView.setFitHeight(50);
-    jungleButton.setGraphic(imgJungleView);
+    this.jungleButton.setGraphic(imgJungleView);
     Jungle jungle = new Jungle();
-    jungleButton.setTooltip(new Tooltip(jungle.getStringCost()));
+    this.jungleButton.setTooltip(new Tooltip(jungle.getStringCost()));
 
     Image imageMountain = new Image(getClass().getResource("/ive/statera/img/tiles/mountain.jpg").toExternalForm());
     ImageView imgMountainView = new ImageView(imageMountain);
     imgMountainView.setFitWidth(50);
     imgMountainView.setFitHeight(50);
-    mountainButton.setGraphic(imgMountainView);
+    this.mountainButton.setGraphic(imgMountainView);
     Mountain mountain = new Mountain();
-    mountainButton.setTooltip(new Tooltip(mountain.getStringCost()));
+    this.mountainButton.setTooltip(new Tooltip(mountain.getStringCost()));
   }
 
   //  FXML Methods  //

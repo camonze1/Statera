@@ -161,28 +161,33 @@ public class LandController {
 
   public void updateBalance() {
 
-    double globalBalance = this.land.globalBalance();
-    double globalBalanceRoundedValue = roundToFirstDecimal(globalBalance);
-    globalBalanceProgressBar.setProgress(globalBalance/100.0);
-    globalBalanceLabel.setText("" + globalBalanceRoundedValue  + "%");
+    if (this.globalBalanceProgressBar != null && this.globalBalanceLabel != null) {
+      if (this.getGlobalBalance() < 0) {
+        this.globalBalanceProgressBar.setProgress(0);
+        this.globalBalanceLabel.setText("0.0%");
+      } else {
+        this.globalBalanceProgressBar.setProgress((this.getGlobalBalance()) / 100.0);
+        this.globalBalanceLabel.setText("" + this.getGlobalBalanceRoundedValue() + "%");
+      }
+    }
 
-    environmentBalance = this.land.environmentBalance();
-    environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
+    this.environmentBalance = this.land.environmentBalance();
+    this.environmentBalanceRoundedValue = roundToFirstDecimal(this.environmentBalance);
 
-    naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
-    naturalBiomeBalanceRoundedValue = roundToFirstDecimal(naturalBiomeBalance);
+    this.naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
+    this.naturalBiomeBalanceRoundedValue = roundToFirstDecimal(this.naturalBiomeBalance);
 
-    buildingBiomeBalance = this.land.getBalanceOfBuildingBiome();
-    buildingBiomeBalanceRoundedValue = roundToFirstDecimal(buildingBiomeBalance);
+    this.buildingBiomeBalance = this.land.getBalanceOfBuildingBiome();
+    this.buildingBiomeBalanceRoundedValue = roundToFirstDecimal(this.buildingBiomeBalance);
 
-    waterBiomeBalance = this.land.getBalanceOfWaterBiome();
-    waterBiomeBalanceRoundedValue = roundToFirstDecimal(waterBiomeBalance);
+    this.waterBiomeBalance = this.land.getBalanceOfWaterBiome();
+    this.waterBiomeBalanceRoundedValue = roundToFirstDecimal(this.waterBiomeBalance);
 
-    qualityLifeBalance = this.land.getQualityOfLifeBalance();
-    qualityLifeBalanceRoundedValue = roundToFirstDecimal(qualityLifeBalance);
+    this.qualityLifeBalance = this.land.getQualityOfLifeBalance();
+    this.qualityLifeBalanceRoundedValue = roundToFirstDecimal(this.qualityLifeBalance);
 
-    biosphereBalance = this.land.getBiosphereBalance();
-    biosphereBalanceRoundedValue = roundToFirstDecimal(biosphereBalance);
+    this.biosphereBalance = this.land.getBiosphereBalance();
+    this.biosphereBalanceRoundedValue = roundToFirstDecimal(this.biosphereBalance);
   }
 
   private double roundToFirstDecimal(double value) {
@@ -205,7 +210,7 @@ public class LandController {
       }
 
       for (int i = 0; i < numberOfBiomesToRemove && !biomeCoordinates.isEmpty(); i++) {
-        int[] randomCoordinate = biomeCoordinates.get(random.nextInt(biomeCoordinates.size()));
+        int[] randomCoordinate = biomeCoordinates.get(this.random.nextInt(biomeCoordinates.size()));
         this.land.setFreeWasteland(randomCoordinate[0], randomCoordinate[1]);
         setBiomeOnPlot(randomCoordinate[0], randomCoordinate[1]);
         biomeCoordinates.remove(randomCoordinate);
@@ -232,7 +237,7 @@ public class LandController {
     this.requiredJungle = (int) (this.numberOfUnlockedBlockedWasteland * jungleCoefficient);
     this.requiredMountain = (int) (this.numberOfUnlockedBlockedWasteland * mountainCoefficient);
 
-    if (this.unlockBlockedWasteland && hasEnoughResources(requiredWater, requiredGrass, requiredForest, requiredBuilding, requiredPublicBuilding, requiredDesert, requiredJungle, requiredMountain) &&
+    if (this.unlockBlockedWasteland && hasEnoughResources(this.requiredWater, this.requiredGrass, this.requiredForest, this.requiredBuilding, this.requiredPublicBuilding, this.requiredDesert, this.requiredJungle, this.requiredMountain) &&
         this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND) {
       this.land.setFreeWasteland(line, column);
       setBiomeOnPlot(line, column);
@@ -240,29 +245,29 @@ public class LandController {
       this.numberOfUnlockedBlockedWasteland++;
     } else {
       StringBuilder messageBuilder = new StringBuilder("Insufficient resources to unlock the wasteland you need: \n");
-      if (requiredWater != 0) {
-        messageBuilder.append(requiredWater).append(" water, \n");
+      if (this.requiredWater != 0) {
+        messageBuilder.append(this.requiredWater).append(" water, \n");
       }
-      if (requiredGrass != 0) {
-        messageBuilder.append(requiredGrass).append(" grass, \n");
+      if (this.requiredGrass != 0) {
+        messageBuilder.append(this.requiredGrass).append(" grass, \n");
       }
-      if (requiredForest != 0) {
-        messageBuilder.append(requiredForest).append(" forest, \n");
+      if (this.requiredForest != 0) {
+        messageBuilder.append(this.requiredForest).append(" forest, \n");
       }
-      if (requiredBuilding != 0) {
-        messageBuilder.append(requiredBuilding).append(" building, \n");
+      if (this.requiredBuilding != 0) {
+        messageBuilder.append(this.requiredBuilding).append(" building, \n");
       }
-      if (requiredPublicBuilding != 0) {
-        messageBuilder.append(requiredPublicBuilding).append(" public building, \n");
+      if (this.requiredPublicBuilding != 0) {
+        messageBuilder.append(this.requiredPublicBuilding).append(" public building, \n");
       }
-      if (requiredDesert != 0) {
-        messageBuilder.append(requiredDesert).append(" desert, \n");
+      if (this.requiredDesert != 0) {
+        messageBuilder.append(this.requiredDesert).append(" desert, \n");
       }
-      if (requiredJungle != 0) {
-        messageBuilder.append(requiredJungle).append(" jungle, \n");
+      if (this.requiredJungle != 0) {
+        messageBuilder.append(this.requiredJungle).append(" jungle, \n");
       }
-      if (requiredMountain != 0) {
-        messageBuilder.append(requiredMountain).append(" mountain, \n");
+      if (this.requiredMountain != 0) {
+        messageBuilder.append(this.requiredMountain).append(" mountain, \n");
       }
       messageBuilder.deleteCharAt(messageBuilder.length() - 3);
       informationWindow("Information", messageBuilder.toString());
@@ -329,8 +334,8 @@ public class LandController {
   @FXML
   public void onClickedMenu(ActionEvent event) {
     try {
-      if (previousMenuStage != null) {
-        previousMenuStage.close();
+      if (this.previousMenuStage != null) {
+        this.previousMenuStage.close();
       }
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
@@ -344,7 +349,7 @@ public class LandController {
       menuStage.setResizable(false);
       menuStage.show();
 
-      previousMenuStage = menuStage;
+      this.previousMenuStage = menuStage;
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -354,8 +359,8 @@ public class LandController {
   @FXML
   public void onClickedStatistics(ActionEvent event) {
     try {
-      if (previousStatisticStage != null) {
-        previousStatisticStage.close();
+      if (this.previousStatisticStage != null) {
+        this.previousStatisticStage.close();
       }
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
       Parent root = loader.load();
@@ -368,7 +373,7 @@ public class LandController {
       statisticsStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       statisticsStage.setResizable(false);
       statisticsStage.show();
-      previousStatisticStage = statisticsStage;
+      this.previousStatisticStage = statisticsStage;
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -388,10 +393,10 @@ public class LandController {
   }
 
   public void setRandomBiomeToFreeWasteland(BiomeEnum biomeType) {
-    List<int[]> freeWastelandCoordinates = land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
+    List<int[]> freeWastelandCoordinates = this.land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
     if (!freeWastelandCoordinates.isEmpty()) {
-      int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
-      land.setBiome(randomCoordinate[0], randomCoordinate[1], biomeType);
+      int[] randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+      this.land.setBiome(randomCoordinate[0], randomCoordinate[1], biomeType);
     }
   }
 
@@ -416,47 +421,55 @@ public class LandController {
   }
 
   public double getEnvironmentBalance() {
-    return environmentBalance;
+    return this.environmentBalance;
   }
 
   public double getEnvironmentBalanceRoundedValue() {
-    return environmentBalanceRoundedValue;
+    return this.environmentBalanceRoundedValue;
   }
 
   public double getNaturalBiomeBalance() {
-    return naturalBiomeBalance;
+    return this.naturalBiomeBalance;
   }
 
   public double getNaturalBiomeBalanceRoundedValue() {
-    return naturalBiomeBalanceRoundedValue;
+    return this.naturalBiomeBalanceRoundedValue;
   }
 
   public double getBuildingBiomeBalance() {
-    return buildingBiomeBalance;
+    return this.buildingBiomeBalance;
   }
 
   public double getBuildingBiomeBalanceRoundedValue() {
-    return buildingBiomeBalanceRoundedValue;
+    return this.buildingBiomeBalanceRoundedValue;
   }
 
   public double getWaterBiomeBalance() {
-    return waterBiomeBalance;
+    return this.waterBiomeBalance;
   }
 
   public double getWaterBiomeBalanceRoundedValue() {
-    return waterBiomeBalanceRoundedValue;
+    return this.waterBiomeBalanceRoundedValue;
   }
 
   public double getQualityLifeBalanceRoundedValue() {
-    return qualityLifeBalanceRoundedValue;
+    return this.qualityLifeBalanceRoundedValue;
   }
 
   public double getQualityLifeBalance() {
     return qualityLifeBalance;
   }
 
+  public double getGlobalBalance() {
+    return this.land.globalBalance();
+  }
+
+  public double getGlobalBalanceRoundedValue() {
+    return this.roundToFirstDecimal(this.land.globalBalance());
+  }
+
   public Land getLand() {
-    return land;
+    return this.land;
   }
 
   public int getTotalOfNonBlockedWastelandPlot() {
@@ -464,15 +477,15 @@ public class LandController {
   }
 
   public int getNumberOfUnlockedBlockedWasteland() {
-    return numberOfUnlockedBlockedWasteland;
+    return this.numberOfUnlockedBlockedWasteland;
   }
 
   public double getBiosphereBalanceRoundedValue() {
-    return biosphereBalanceRoundedValue;
+    return this.biosphereBalanceRoundedValue;
   }
 
   public double getBiosphereBalance() {
-    return biosphereBalance;
+    return this.biosphereBalance;
   }
 
 }

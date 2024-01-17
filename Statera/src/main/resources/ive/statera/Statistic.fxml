@@ -33,6 +33,13 @@
 
       <HBox styleClass="box-progressbar">
         <VBox prefHeight="50.0" prefWidth="500.0">
+          <Label styleClass="label" text="Global balance"/>
+          <ProgressBar fx:id="globalBalanceProgressBar" styleClass="progress-bar"/>
+        </VBox>
+        <Label fx:id="globalBalanceLabel" prefHeight="30.0" prefWidth="70.0" styleClass="label-percentage"/>
+      </HBox>
+      <HBox styleClass="box-progressbar">
+        <VBox prefHeight="50.0" prefWidth="500.0">
           <Label styleClass="label" text="Environment balance"/>
           <ProgressBar fx:id="environmentBalanceProgressBar" styleClass="progress-bar"/>
         </VBox>

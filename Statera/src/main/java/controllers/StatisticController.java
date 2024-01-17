@@ -17,6 +17,12 @@ public class StatisticController {
   private LandController landController;
 
   @FXML
+  private ProgressBar globalBalanceProgressBar;
+
+  @FXML
+  private Label globalBalanceLabel;
+
+  @FXML
   private ProgressBar environmentBalanceProgressBar;
 
   @FXML
@@ -97,93 +103,98 @@ public class StatisticController {
   public void updateViewStatisticController(LandController landController) {
     this.landController = landController;
 
-    if (environmentBalanceProgressBar != null && environmentBalanceLabel != null) {
-      if (landController.getEnvironmentBalance() < 0) {
-        environmentBalanceProgressBar.setProgress(0);
-        environmentBalanceLabel.setText("0.0%");
+    if (this.globalBalanceProgressBar != null && this.globalBalanceLabel != null) {
+      if (this.landController.getGlobalBalance() < 0) {
+        this.globalBalanceProgressBar.setProgress(0);
+        this.globalBalanceLabel.setText("0.0%");
       } else {
-        environmentBalanceProgressBar.setProgress(landController.getEnvironmentBalance()/100.0);
-        environmentBalanceLabel.setText("" + landController.getEnvironmentBalanceRoundedValue() + "%");
+        this.globalBalanceProgressBar.setProgress(this.landController.getGlobalBalance() / 100.0);
+        this.globalBalanceLabel.setText("" + this.landController.getGlobalBalanceRoundedValue() + "%");
       }
     }
 
-    if (naturalBiomeBalanceProgressBar != null && naturalBiomeBalanceLabel != null) {
-      if (landController.getNaturalBiomeBalance() < 0) {
-        naturalBiomeBalanceProgressBar.setProgress(0);
-        naturalBiomeBalanceLabel.setText("0.0%");
+    if (this.environmentBalanceProgressBar != null && this.environmentBalanceLabel != null) {
+      if (this.landController.getEnvironmentBalance() < 0) {
+        this.environmentBalanceProgressBar.setProgress(0);
+        this.environmentBalanceLabel.setText("0%");
       } else {
-        naturalBiomeBalanceProgressBar.setProgress((landController.getNaturalBiomeBalance()) / 100.0);
-        naturalBiomeBalanceLabel.setText("" + landController.getNaturalBiomeBalanceRoundedValue() + "%");
-
+        this.environmentBalanceProgressBar.setProgress((this.landController.getEnvironmentBalance()) / 100.0);
+        this.environmentBalanceLabel.setText("" + this.landController.getEnvironmentBalanceRoundedValue() + "%");
       }
     }
 
-    if (buildingBiomeBalanceProgressBar != null && buildingBiomeBalanceLabel != null) {
-      if (landController.getBuildingBiomeBalance() < 0) {
-        buildingBiomeBalanceProgressBar.setProgress(0);
-        buildingBiomeBalanceLabel.setText("0.0%");
+    if (this.naturalBiomeBalanceProgressBar != null && this.naturalBiomeBalanceLabel != null) {
+      if (this.landController.getNaturalBiomeBalance() < 0) {
+        this.naturalBiomeBalanceProgressBar.setProgress(0);
+        this.naturalBiomeBalanceLabel.setText("0%");
       } else {
-        buildingBiomeBalanceProgressBar.setProgress((landController.getBuildingBiomeBalance()) / 100.0);
-        buildingBiomeBalanceLabel.setText("" + landController.getBuildingBiomeBalanceRoundedValue() + "%");
+        this.naturalBiomeBalanceProgressBar.setProgress((this.landController.getNaturalBiomeBalance()) / 100.0);
+        this.naturalBiomeBalanceLabel.setText("" + this.landController.getNaturalBiomeBalanceRoundedValue() + "%");
       }
     }
 
-    if (waterBiomeBalanceProgressBar != null && waterBiomeBalanceLabel != null) {
-      if (landController.getWaterBiomeBalance() < 0) {
-        waterBiomeBalanceProgressBar.setProgress(0);
-        waterBiomeBalanceLabel.setText("0.0%");
+    if (this.buildingBiomeBalanceProgressBar != null && this.buildingBiomeBalanceLabel != null) {
+      if (this.landController.getBuildingBiomeBalance() < 0) {
+        this.buildingBiomeBalanceProgressBar.setProgress(0);
+        this.buildingBiomeBalanceLabel.setText("0%");
       } else {
-        waterBiomeBalanceProgressBar.setProgress((landController.getWaterBiomeBalance()) / 100.0);
-        waterBiomeBalanceLabel.setText("" + landController.getWaterBiomeBalanceRoundedValue() + "%");
+        this.buildingBiomeBalanceProgressBar.setProgress((this.landController.getBuildingBiomeBalance()) / 100.0);
+        this.buildingBiomeBalanceLabel.setText("" + this.landController.getBuildingBiomeBalanceRoundedValue() + "%");
       }
     }
 
-    if (qualityLifeBalanceProgressBar != null && qualityLifeBalanceLabel != null) {
-      if (landController.getQualityLifeBalance() < 0) {
-        qualityLifeBalanceProgressBar.setProgress(0);
-        qualityLifeBalanceLabel.setText("0.0%");
+    if (this.waterBiomeBalanceProgressBar != null && this.waterBiomeBalanceLabel != null) {
+      if (this.landController.getWaterBiomeBalance() < 0) {
+        this.waterBiomeBalanceProgressBar.setProgress(0);
+        this.waterBiomeBalanceLabel.setText("0%");
       } else {
-        qualityLifeBalanceProgressBar.setProgress((landController.getQualityLifeBalance()) / 100.0);
-        qualityLifeBalanceLabel.setText("" + landController.getQualityLifeBalanceRoundedValue() + "%");
+        this.waterBiomeBalanceProgressBar.setProgress((this.landController.getWaterBiomeBalance()) / 100.0);
+        this.waterBiomeBalanceLabel.setText("" + this.landController.getWaterBiomeBalanceRoundedValue() + "%");
       }
     }
 
-      if (biosphereBalanceProgressBar != null && biosphereBalanceLabel != null) {
-        if (landController.getBiosphereBalance() < 0) {
-          biosphereBalanceProgressBar.setProgress(0);
-          biosphereBalanceLabel.setText("0.0%");
-        } else {
-          biosphereBalanceProgressBar.setProgress((landController.getBiosphereBalance()) / 100.0);
-          biosphereBalanceLabel.setText("" + landController.getBiosphereBalanceRoundedValue() + "%");
-        }
-  }
-
-      if (landController.getNumberOfAnimalsInLand() != 0) {
-          numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animals in total in your land");
+    if (this.qualityLifeBalanceProgressBar != null && this.qualityLifeBalanceLabel != null) {
+      if (this.landController.getQualityLifeBalance() < 0) {
+        this.qualityLifeBalanceProgressBar.setProgress(0);
+        this.qualityLifeBalanceLabel.setText("0%");
       } else {
-          numberOfAnimalsInLandLabel.setText("You have " + landController.getNumberOfAnimalsInLand() + " animal in total in your land");
+        this.qualityLifeBalanceProgressBar.setProgress((this.landController.getQualityLifeBalance()) / 100.0);
+        this.qualityLifeBalanceLabel.setText("" + this.landController.getQualityLifeBalanceRoundedValue() + "%");
       }
+    }
 
-    if (landController.getNumberOfHumansInLand() != 0) {
-      numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " humans in total in your land");
+    if (this.landController.getNumberOfAnimalsInLand() != 0) {
+      this.numberOfAnimalsInLandLabel.setText("You have " + this.landController.getNumberOfAnimalsInLand() + " animals in total in your land");
     } else {
-      numberOfHumansInLandLabel.setText("You have " + landController.getNumberOfHumansInLand() + " human in total in your land");
+      this.numberOfAnimalsInLandLabel.setText("You have " + this.landController.getNumberOfAnimalsInLand() + " animal in total in your land");
     }
-    if (landController.getNumberOfUnlockedBlockedWasteland() == 0) {
-      numberOfUnlockBlockedWasteland.setText("You have unlock 0 plot of blocked wasteland");
+
+    if (this.landController.getNumberOfHumansInLand() != 0) {
+      this.numberOfHumansInLandLabel.setText("You have " + this.landController.getNumberOfHumansInLand() + " humans in total in your land");
     } else {
-      numberOfUnlockBlockedWasteland.setText("You have unlock " + landController.getNumberOfUnlockedBlockedWasteland() + " plot(s) of blocked wasteland");
+      this.numberOfHumansInLandLabel.setText("You have " + this.landController.getNumberOfHumansInLand() + " human in total in your land");
     }
-    numberOfWaterPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plot(s) of water");
-    numberOfGrassPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plot(s) of grass");
-    numberOfForestPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plot(s) of forest");
-    numberOfBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plot(s) of building");
-    numberOfPublicBuildingPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plot(s) of public building");
-    numberOfDesertPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plot(s) of desert");
-    numberOfJunglePlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plot(s) of jungle");
-    numberOfMountainPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plot(s) of mountain");
-    numberOfFreeWastelandPlotInLand.setText("There are " + landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plot(s) of free wasteland");
-    numberOfTotalNonBlockedWastelandPlot.setText("There are " + landController.getTotalOfNonBlockedWastelandPlot() + " non blocked plot(s)");
+
+    if (this.biosphereBalanceProgressBar != null && this.biosphereBalanceLabel != null) {
+      if (this.landController.getBiosphereBalance() < 0) {
+        this.biosphereBalanceProgressBar.setProgress(0);
+        this.biosphereBalanceLabel.setText("0.0%");
+      } else {
+        this.biosphereBalanceProgressBar.setProgress((this.landController.getBiosphereBalance()) / 100.0);
+        this.biosphereBalanceLabel.setText("" + this.landController.getBiosphereBalanceRoundedValue() + "%");
+      }
+    }
+
+    this.numberOfWaterPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.WATER) + " plots of water");
+    this.numberOfGrassPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.GRASS) + " plots of grass");
+    this.numberOfForestPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FOREST) + " plots of forest");
+    this.numberOfBuildingPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.BUILDING) + " plots of building");
+    this.numberOfPublicBuildingPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.PUBLICBUILDING) + " plots of public building");
+    this.numberOfDesertPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.DESERT) + " plots of desert");
+    this.numberOfJunglePlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plots of jungle");
+    this.numberOfMountainPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
+    this.numberOfFreeWastelandPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
+    this.numberOfTotalNonBlockedWastelandPlot.setText("There are " + landController.getTotalOfNonBlockedWastelandPlot() + " non blocked plot(s)");
 
   }
 
