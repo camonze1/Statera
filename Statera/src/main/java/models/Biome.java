@@ -1,14 +1,12 @@
 package models;
 
 import enums.BiomeEnum;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 
 public abstract class Biome {
@@ -23,18 +21,11 @@ public abstract class Biome {
 
   protected int humanProportion;
 
-  protected int waterProportion;
-
-  protected int vegetationProportion;
-
-  protected int buildingProportion;
-
   protected HashMap<BiomeEnum, Integer> cost;
 
   @FXML
   protected Rectangle rectangle;
   protected Image img;
-  protected Color color;
 
   //  Methods  //
 
@@ -70,10 +61,6 @@ public abstract class Biome {
     return img;
   }
 
-  public Color getColor() {
-    return this.color;
-  }
-
   public void setType(BiomeEnum type) {
     this.type = type;
   }
@@ -92,30 +79,6 @@ public abstract class Biome {
 
   public void setCost(HashMap<BiomeEnum, Integer> cost) {
     this.cost = cost;
-  }
-
-  public int getWaterProportion() {
-    return this.waterProportion;
-  }
-
-  public void setWaterProportion(int waterProportion) {
-    this.waterProportion = waterProportion;
-  }
-
-  public int getVegetationProportion() {
-    return this.vegetationProportion;
-  }
-
-  public void setVegetationProportion(int vegetationProportion) {
-    this.vegetationProportion = vegetationProportion;
-  }
-
-  public int getBuildingProportion() {
-    return this.buildingProportion;
-  }
-
-  public void setBuildingProportion(int buildingProportion) {
-    this.buildingProportion = buildingProportion;
   }
 
   public int getAnimalProportion() {
