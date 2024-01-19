@@ -12,7 +12,7 @@ public class Desert extends Biome {
     this.description = "This plot is a desert.";
     this.cost.replace(BiomeEnum.GRASS, 3);
     this.cost.replace(BiomeEnum.WATER, 2);
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/desert.png").toExternalForm());
+    this.img = getClass().getResource("/ive/statera/img/tiles/desert.png");
     this.animalProportion = 8;
   }
 

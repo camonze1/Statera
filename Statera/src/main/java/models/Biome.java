@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public abstract class Biome {
 
   @FXML
   protected Rectangle rectangle;
-  protected Image img;
+  protected URL img;
 
   //  Methods  //
 
@@ -58,7 +59,7 @@ public abstract class Biome {
   }
 
   public Image getImage() {
-    return img;
+    return new Image(img.toExternalForm());
   }
 
   public void setType(BiomeEnum type) {

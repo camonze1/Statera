@@ -12,7 +12,7 @@ public class Forest extends Biome {
     this.description = "This plot is a forest.";
     this.cost.replace(BiomeEnum.GRASS, 1);
     this.cost.replace(BiomeEnum.WATER, 1);
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/forest.png").toExternalForm());
+    this.img = getClass().getResource("/ive/statera/img/tiles/forest.png");
     this.animalProportion = 18;
   }
 

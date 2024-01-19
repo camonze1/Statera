@@ -10,7 +10,7 @@ public class Water extends Biome {
   public Water() {
     this.type = BiomeEnum.WATER;
     this.description = "This plot is a water.";
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/water.png").toExternalForm());
+    this.img = getClass().getResource("/ive/statera/img/tiles/water.png");
     this.animalProportion = 10;
   }
 

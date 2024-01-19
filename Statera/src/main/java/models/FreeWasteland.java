@@ -10,7 +10,7 @@ public class FreeWasteland extends Biome {
   public FreeWasteland() {
     this.type = BiomeEnum.FREEWASTELAND;
     this.description = "This plot is empty.";
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/free_wasteland.png").toExternalForm());
+    this.img = getClass().getResource("/ive/statera/img/tiles/free_wasteland.png");
     this.animalProportion = 0;
 
   }
