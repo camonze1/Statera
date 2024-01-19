@@ -1,0 +1,72 @@
+Feature: Game Information
+
+  As a player,
+  In order to understand my progress in the game,
+  I want to view the balance of the planet.
+
+  Scenario: View Planet Balance
+    Given I am a player
+    When I view the planet balance
+    Then I should see information about the planet's progress
+
+  Scenario: Understand Balances
+    Given I am a player
+    When I seek information about the different balances
+    Then I should understand their significance for my progress
+
+  Scenario: Track Quality of Life
+    Given I am a player
+    When I want to know about the quality of life of humans
+    Then I should be provided with relevant information
+
+
+Feature: Expanding the Planet
+
+  As a player,
+  In order to expand my planet,
+  I want to buy plots of land for animals, humans, infrastructure, or crops.
+
+  Scenario: Purchase Plots
+    Given I am a player
+    When I want to buy plots of land
+    And I need information on the required resources
+    Then I should be guided on the process of acquiring land
+
+  Scenario: Create Different Biomes
+    Given I am a player
+    When I want animals to live in their natural environment
+    And I want to create different biomes (forests, deserts, jungles)
+    Then I should be able to do so on the plots of land
+
+  Scenario: Build Public Utility Buildings
+    Given I am a player
+    When I want to build public utility buildings (schools, hospitals, etc.)
+    Then I should be able to do so to maintain the health of people
+
+
+Feature: Game Information and Navigation
+
+  As a player,
+  In order to understand the game,
+  I want to have a start interface explaining the aim of the game.
+
+  Scenario: Start Interface Explanation
+    Given I am a player
+    When I start the game
+    Then I should be presented with an interface explaining the aim of the game
+
+  Scenario: Information Page on Resources
+    Given I am a player
+    When I want to know my resources and how to buy biomes
+    Then I should have access to an information page presenting my resources and acquisition methods
+
+  Scenario: Replay the Game
+    Given I am a player
+    When I don't like the current game
+    And I want to replay
+    Then I should be able to initiate a new game
+
+  Scenario: Recap Interface after Losing
+    Given I am a player
+    When I lose my current game
+    Then I should be presented with a recap interface showing all the statistics of my game

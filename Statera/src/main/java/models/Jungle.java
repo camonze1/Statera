@@ -17,7 +17,7 @@ public class Jungle extends Biome {
     this.cost.replace(BiomeEnum.FOREST, 2);
     this.cost.replace(BiomeEnum.GRASS, 2);
     this.color = Color.GREENYELLOW;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_jungle.jpg").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/jungle.jpg").toExternalForm());
     this.animalProportion = 11;
   }
 

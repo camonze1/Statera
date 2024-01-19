@@ -15,7 +15,7 @@
 
   <StackPane>
     <ImageView>
-        <Image url="@img/logo_statera.png"/>
+      <Image url="@img/logo_statera.png"/>
     </ImageView>
     <VBox alignment="CENTER" styleClass="box-button">
       <Button fx:id="start" mnemonicParsing="false" onAction="#onClickedStartButton" styleClass="button-style"

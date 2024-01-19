@@ -17,7 +17,7 @@ public class Forest extends Biome {
     this.cost.replace(BiomeEnum.GRASS, 1);
     this.cost.replace(BiomeEnum.WATER, 1);
     this.color = Color.DARKGREEN;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/b_forest.jpg").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/forest.png").toExternalForm());
     this.animalProportion = 18;
   }
 

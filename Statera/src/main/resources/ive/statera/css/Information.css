@@ -49,13 +49,35 @@
 
 .body {
   -fx-spacing: 25px;
-  -fx-padding: 5px 5px 5px 70px;
+  -fx-padding: 5px 5px 5px 50px;
+}
+
+.sub-title {
+  -fx-font-size: 25px;
+  -fx-font-family: "Bahnschrift";
+  -fx-padding: 5px;
+  -fx-min-width: 500px;
+  -fx-max-width: 500px;
+  -fx-alignment: center;
+}
+
+.label {
+  -fx-text-fill: #F0EAD2;
+  -fx-font-weight: bold;
 }
 
 Text {
-  -fx-letter-spacing: 2.0;
+  -fx-font-size: 13px;
   -fx-font-family: "Bahnschrift";
-  -fx-font-size: 15px;
+  -fx-fill: #F0EAD2;
+  -fx-font-weight: bold;
+  -fx-letter-spacing: 2.0;
+  -fx-text-alignment: justify;
+}
+
+.box-meaning-balances {
+  -fx-spacing: 5px;
+  -fx-padding: 0px;
 }
 
 /* SCROLL BAR */
@@ -63,6 +85,8 @@ Text {
   -fx-background-color: transparent;
   -fx-background: transparent;
   -fx-border-width: 0;
+  -fx-padding: 0px 0px 20px 0px
+;
 }
 
 .scroll-bar:horizontal .track,

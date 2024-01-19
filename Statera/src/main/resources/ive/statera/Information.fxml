@@ -20,94 +20,143 @@
               styleClass="home-button"/>
     </VBox>
     <VBox>
-      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Information">
+      <Label fx:id="titleText" layoutX="110.0" layoutY="10.0" styleClass="title" text="Informations">
       </Label>
     </VBox>
   </HBox>
 
   <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="380.0" vbarPolicy="ALWAYS" styleClass="scroll-pane">
-
     <VBox alignment="CENTER" styleClass="body">
+      <HBox alignment="CENTER" styleClass="sub-title">
+        <Label fx:id="subTitleResourceCosts" text="Resource costs"/>
+      </HBox>
+
       <HBox>
-        <Text text="To have a building, you need : 1 "/>
+        <Text text="To have a building, you need : 1 forest "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_forest.jpg"/>
+          <Image url="@img/tiles/forest.png"/>
         </ImageView>
-        <Text text=" + 1 "/>
+        <Text text=" + 1 grass "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_grass.jpg"/>
+          <Image url="@img/tiles/grass.jpg"/>
         </ImageView>
-        <Text text=" + 1 "/>
+        <Text text=" + 1 water "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_water.jpg"/>
+          <Image url="@img/tiles/water.png"/>
         </ImageView>
       </HBox>
 
       <HBox>
-        <Text text="To have a desert, you need : 3 "/>
+        <Text text="To have a desert, you need : 3 grass "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_grass.jpg"/>
+          <Image url="@img/tiles/grass.jpg"/>
         </ImageView>
-        <Text text=" + 2 "/>
+        <Text text=" + 2 water "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_water.jpg"/>
-        </ImageView>
-      </HBox>
-
-      <HBox>
-        <Text text="To have a forest, you need : 1 "/>
-        <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_grass.jpg"/>
-        </ImageView>
-        <Text text=" + 1 "/>
-        <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_water.jpg"/>
+          <Image url="@img/tiles/water.png"/>
         </ImageView>
       </HBox>
 
       <HBox>
-        <Text text="To have a jungle, you need : 2 "/>
+        <Text text="To have a forest, you need : 1 grass "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_forest.jpg"/>
+          <Image url="@img/tiles/grass.jpg"/>
         </ImageView>
-        <Text text=" + 2 "/>
+        <Text text=" + 1 water "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_grass.jpg"/>
-        </ImageView>
-      </HBox>
-
-      <HBox>
-        <Text text="To have a mountain, you need : 1 "/>
-        <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_forest.jpg"/>
-        </ImageView>
-        <Text text=" + 2 "/>
-        <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_grass.jpg"/>
-        </ImageView>
-        <Text text=" + 1 "/>
-        <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_water.jpg"/>
+          <Image url="@img/tiles/water.png"/>
         </ImageView>
       </HBox>
 
       <HBox>
-        <Text text="To have a public building, you need : 1 "/>
+        <Text text="To have a jungle, you need : 2 forest "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_forest.jpg"/>
+          <Image url="@img/tiles/forest.png"/>
         </ImageView>
-        <Text text=" + 1 "/>
+        <Text text=" + 2 grass "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_grass.jpg"/>
+          <Image url="@img/tiles/grass.jpg"/>
         </ImageView>
-        <Text text=" + 1 "/>
+      </HBox>
+
+      <HBox>
+        <Text text="To have a mountain, you need : 1 forest "/>
         <ImageView fitHeight="25" fitWidth="25">
-          <Image url="@img/tiles/b_water.jpg"/>
+          <Image url="@img/tiles/forest.png"/>
+        </ImageView>
+        <Text text=" + 2 grass "/>
+        <ImageView fitHeight="25" fitWidth="25">
+          <Image url="@img/tiles/grass.jpg"/>
+        </ImageView>
+        <Text text=" + 1 water "/>
+        <ImageView fitHeight="25" fitWidth="25">
+          <Image url="@img/tiles/water.png"/>
+        </ImageView>
+      </HBox>
+
+      <HBox>
+        <Text text="To have a public building, you need : 1 forest "/>
+        <ImageView fitHeight="25" fitWidth="25">
+          <Image url="@img/tiles/forest.png"/>
+        </ImageView>
+        <Text text=" + 1 grass "/>
+        <ImageView fitHeight="25" fitWidth="25">
+          <Image url="@img/tiles/grass.jpg"/>
+        </ImageView>
+        <Text text=" + 1 water "/>
+        <ImageView fitHeight="25" fitWidth="25">
+          <Image url="@img/tiles/water.png"/>
         </ImageView>
       </HBox>
 
       <HBox>
         <Text text="Water and grass are unlimited resources."/>
+      </HBox>
+
+      <HBox styleClass="sub-title">
+        <Label fx:id="subTitleMeaningOfBalances" text="Meaning of balances"/>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Natural biomes balance : The balance of natural biomes represents the current
+          percentage of natural biomes in relation to all unblocked plots.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Building biomes balance : The balance of building biomes represents the current
+          percentage of building biomes in relation to all unblocked plots.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Water biomes balance : The water biomes balance represents the current percentage of
+          water biomes in relation to all unblocked plots.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Environment balance : The environment balance represents a weighted average of the
+          balances of natural biomes, building biomes and water biomes. This provides an indicator of the system's
+          environmental balance.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Quality of life : Quality of life is the balance between housing and public buildings.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Biosphere balance : The biosphere balance represents the current harmonious
+          proportional distribution of living beings, both human and animal, in relation to all unblocked plots.
+        </Text>
+      </HBox>
+
+      <HBox alignment="CENTER_LEFT" styleClass="box-meaning-balances">
+        <Text wrappingWidth="500">Global balance : Global balance represents the equal distribution between the
+          biosphere and the environment.
+        </Text>
       </HBox>
 
     </VBox>

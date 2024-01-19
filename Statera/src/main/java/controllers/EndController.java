@@ -10,7 +10,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class StatisticController {
+public class EndController {
 
   //  Attributes  //
 
@@ -64,7 +64,6 @@ public class StatisticController {
   @FXML
   private Label numberOfHumansInLandLabel;
 
-
   @FXML
   private Text numberOfWaterPlotInLand;
 
@@ -93,14 +92,11 @@ public class StatisticController {
   private Text numberOfFreeWastelandPlotInLand;
 
   @FXML
-  private Text numberOfTotalNonBlockedWastelandPlot;
-
-  @FXML
-  private Text numberOfUnlockBlockedWasteland;
+  private Text textNumberOfUnlockBlockedWasteland;
 
   //  Methods  //
 
-  public void updateViewStatisticController(LandController landController) {
+  public void setEndController(LandController landController) {
     this.landController = landController;
 
     if (this.globalBalanceProgressBar != null && this.globalBalanceLabel != null) {
@@ -175,6 +171,12 @@ public class StatisticController {
       this.numberOfHumansInLandLabel.setText("You have " + this.landController.getNumberOfHumansInLand() + " human in total in your land");
     }
 
+    if (this.landController.getNumberOfUnlockedBlockedWasteland() == 0) {
+      this.textNumberOfUnlockBlockedWasteland.setText("You have reached the level 0 !");
+    } else {
+      this.textNumberOfUnlockBlockedWasteland.setText("You have reached the level " + this.landController.getNumberOfUnlockedBlockedWasteland() + " !");
+    }
+
     if (this.biosphereBalanceProgressBar != null && this.biosphereBalanceLabel != null) {
       if (this.landController.getBiosphereBalance() < 0) {
         this.biosphereBalanceProgressBar.setProgress(0);
@@ -194,17 +196,20 @@ public class StatisticController {
     this.numberOfJunglePlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.JUNGLE) + " plots of jungle");
     this.numberOfMountainPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
     this.numberOfFreeWastelandPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
-    this.numberOfTotalNonBlockedWastelandPlot.setText("There are " + landController.getTotalOfNonBlockedWastelandPlot() + " non blocked plot(s)");
-
   }
 
   //  FXML Methods  //
 
   @FXML
-  public void home(ActionEvent event) {
+  public void onClickedQuitGame() {
+    System.exit(0);
+  }
+
+  @FXML
+  public void onClickedReplayGame(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
+    this.landController.initializeLand();
   }
-
 }

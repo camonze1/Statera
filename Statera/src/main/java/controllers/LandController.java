@@ -12,11 +12,13 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Land;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
+import javafx.event.Event;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -74,6 +76,22 @@ public class LandController {
 
   private Stage previousStatisticStage;
 
+  private int requiredWater;
+
+  private int requiredGrass;
+
+  private int requiredForest;
+
+  private int requiredBuilding;
+
+  private int requiredPublicBuilding;
+
+  private int requiredDesert;
+
+  private int requiredJungle;
+
+  private int requiredMountain;
+
 
   //  Methods  //
 
@@ -83,6 +101,8 @@ public class LandController {
   }
 
   public void initializeLand() {
+    this.biomeSelected = null;
+    this.numberOfUnlockedBlockedWasteland = 0;
     this.land = new Land(15, 15);
     for (int i = 0; i < 5; i++) {
       setRandomBiomeToFreeWasteland(BiomeEnum.WATER);
@@ -115,65 +135,59 @@ public class LandController {
     int line = GridPane.getColumnIndex(plot);
     int column = GridPane.getRowIndex(plot);
 
-    if (this.biomeSelected != null && !this.unlockBlockedWasteland) {
-      if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
-        this.buyBiome(line, column, this.biomeSelected);
-        this.updateBalance();
-      } else {
-        this.informationWindow("You cannot place a tile that is not free.");
+    if (!this.verifyEndGame()) {
+      if (this.biomeSelected != null && !this.unlockBlockedWasteland) {
+        if (this.land.getBiome(line, column).getType() == BiomeEnum.FREEWASTELAND) {
+          this.buyBiome(line, column, this.biomeSelected);
+          this.updateBalance();
+          if (this.verifyEndGame()) {
+            this.openEndGameWindow();
+          }
+        } else {
+          this.informationWindow("Warning", "You cannot place a tile that is not free.");
+        }
       }
-    }
 
-    if (this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND && this.unlockBlockedWasteland) {
-      this.unlockWasteland(line, column);
-      this.updateBalance();
-    } else if (this.unlockBlockedWasteland && this.land.getBiome(line, column).getType() != BiomeEnum.BLOCKEDWASTELAND) {
-      informationWindow("You have to click on a blocked wasteland to unlock one");
+      if (this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND && this.unlockBlockedWasteland) {
+        this.unlockWasteland(line, column);
+        this.updateBalance();
+      } else if (this.unlockBlockedWasteland && this.land.getBiome(line, column).getType() != BiomeEnum.BLOCKEDWASTELAND) {
+        informationWindow("Information", "You have to click on a blocked wasteland to unlock one");
+      }
+    } else {
+      this.openEndGameWindow();
     }
-
-    //    System.out.println("Number of occupied plot of water : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-    //    System.out.println("Number of occupied plot of forest : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FOREST));
-    //    System.out.println("Number of occupied plot of jungle : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.JUNGLE));
-    //    System.out.println("Number of occupied plot of desert : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.DESERT));
-    //    System.out.println("Number of occupied plot of grass : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.GRASS));
-    //    System.out.println("Number of occupied plot of mountain : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.MOUNTAIN));
-    //    System.out.println("Number of occupied plot of building : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-    //    System.out.println("Number of occupied plot of free wasteland : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND));
-    //    System.out.println("Number of non occupied plot : " + this.land.getNumberOfNonOccupiedPlot());
-    //    System.out.println("Number of occupied plot : " + this.land.getNumberOfOccupiedPlot());
-    //    System.out.println("Total number of non blocked wasteland plot  : " + this.land.getTotalOfNonBlockedWastelandPlot());
-    //    System.out.println("Size of the land : " + this.land.getLandSize()[0] + "x" + this.land.getLandSize()[1]);
-    //    System.out.println("Total size of the land : " + this.land.getLandSizeTotal());
-    //    System.out.println("Number of natural biome : " + this.land.getNumberOfNaturalBiome());
-    //    System.out.println("Number of water biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.WATER));
-    //    System.out.println("Number of building biome : " + this.land.getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-    //    System.out.println("Environment balance : " + this.land.environmentBalance());
   }
 
   public void updateBalance() {
 
-    double globalBalance = this.land.globalBalance();
-    double globalBalanceRoundedValue = roundToFirstDecimal(globalBalance);
-    globalBalanceProgressBar.setProgress(globalBalance/100.0);
-    globalBalanceLabel.setText("" + globalBalanceRoundedValue  + "%");
+    if (this.globalBalanceProgressBar != null && this.globalBalanceLabel != null) {
+      if (this.getGlobalBalance() < 0) {
+        this.globalBalanceProgressBar.setProgress(0);
+        this.globalBalanceLabel.setText("0.0%");
+      } else {
+        this.globalBalanceProgressBar.setProgress((this.getGlobalBalance()) / 100.0);
+        this.globalBalanceLabel.setText("" + this.getGlobalBalanceRoundedValue() + "%");
+      }
+    }
 
-    environmentBalance = this.land.environmentBalance();
-    environmentBalanceRoundedValue = roundToFirstDecimal(environmentBalance);
+    this.environmentBalance = this.land.environmentBalance();
+    this.environmentBalanceRoundedValue = roundToFirstDecimal(this.environmentBalance);
 
-    naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
-    naturalBiomeBalanceRoundedValue = roundToFirstDecimal(naturalBiomeBalance);
+    this.naturalBiomeBalance = this.land.getBalanceOfNaturalBiome();
+    this.naturalBiomeBalanceRoundedValue = roundToFirstDecimal(this.naturalBiomeBalance);
 
-    buildingBiomeBalance = this.land.getBalanceOfBuildingBiome();
-    buildingBiomeBalanceRoundedValue = roundToFirstDecimal(buildingBiomeBalance);
+    this.buildingBiomeBalance = this.land.getBalanceOfBuildingBiome();
+    this.buildingBiomeBalanceRoundedValue = roundToFirstDecimal(this.buildingBiomeBalance);
 
-    waterBiomeBalance = this.land.getBalanceOfWaterBiome();
-    waterBiomeBalanceRoundedValue = roundToFirstDecimal(waterBiomeBalance);
+    this.waterBiomeBalance = this.land.getBalanceOfWaterBiome();
+    this.waterBiomeBalanceRoundedValue = roundToFirstDecimal(this.waterBiomeBalance);
 
-    qualityLifeBalance = this.land.getQualityOfLifeBalance();
-    qualityLifeBalanceRoundedValue = roundToFirstDecimal(qualityLifeBalance);
+    this.qualityLifeBalance = this.land.getQualityOfLifeBalance();
+    this.qualityLifeBalanceRoundedValue = roundToFirstDecimal(this.qualityLifeBalance);
 
-    biosphereBalance = this.land.getBiosphereBalance();
-    biosphereBalanceRoundedValue = roundToFirstDecimal(biosphereBalance);
+    this.biosphereBalance = this.land.getBiosphereBalance();
+    this.biosphereBalanceRoundedValue = roundToFirstDecimal(this.biosphereBalance);
   }
 
   private double roundToFirstDecimal(double value) {
@@ -189,14 +203,14 @@ public class LandController {
       List<int[]> biomeCoordinates = this.land.getCoordinatesByBiomeType(key);
 
       if (biomeCoordinates.size() < numberOfBiomesToRemove) {
-        informationWindow("You don't have enough resources to buy this biome.");
+        informationWindow("Warning", "You don't have enough resources to buy this biome.");
         this.land.setFreeWasteland(line, column);
         setBiomeOnPlot(line, column);
         return;
       }
 
       for (int i = 0; i < numberOfBiomesToRemove && !biomeCoordinates.isEmpty(); i++) {
-        int[] randomCoordinate = biomeCoordinates.get(random.nextInt(biomeCoordinates.size()));
+        int[] randomCoordinate = biomeCoordinates.get(this.random.nextInt(biomeCoordinates.size()));
         this.land.setFreeWasteland(randomCoordinate[0], randomCoordinate[1]);
         setBiomeOnPlot(randomCoordinate[0], randomCoordinate[1]);
         biomeCoordinates.remove(randomCoordinate);
@@ -205,88 +219,58 @@ public class LandController {
   }
 
   public void unlockWasteland(int line, int column) {
-    int requiredWater = 0;
-    int requiredGrass = 0;
-    int requiredForest = 0;
-    int requiredBuilding = 0;
-    int requiredPublicBuilding = 0;
-    int requiredDesert = 0;
-    int requiredJungle = 0;
-    int requiredMountain = 0;
+    double waterCoefficient = 0.10;
+    double grassCoefficient = 0.10;
+    double forestCoefficient = 0.12;
+    double buildingCoefficient = 0.22;
+    double publicBuildingCoefficient = 0.20;
+    double desertCoefficient = 0.18;
+    double jungleCoefficient = 0.16;
+    double mountainCoefficient = 0.14;
 
-    if (this.numberOfUnlockedBlockedWasteland == 0) {
-      requiredWater = 1;
-      requiredGrass = 1;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland == 1) {
-      requiredWater = 2;
-      requiredGrass = 2;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland >= 1 && this.numberOfUnlockedBlockedWasteland < 5) {
-      requiredWater = 3;
-      requiredGrass = 3;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland >= 5 && this.numberOfUnlockedBlockedWasteland < 8) {
-      requiredWater = 4;
-      requiredGrass = 4;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland >= 8 && this.numberOfUnlockedBlockedWasteland < 11) {
-      requiredWater = 5;
-      requiredGrass = 5;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland >= 11 && this.numberOfUnlockedBlockedWasteland < 14) {
-      requiredWater = 6;
-      requiredGrass = 6;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland >= 14 && this.numberOfUnlockedBlockedWasteland < 17) {
-      requiredWater = 7;
-      requiredGrass = 7;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
-      requiredJungle = numberOfUnlockedBlockedWasteland + 1;
-    } else if (this.numberOfUnlockedBlockedWasteland >= 17) {
-      requiredWater = 7;
-      requiredGrass = 7;
-      requiredForest = numberOfUnlockedBlockedWasteland + 1;
-      requiredBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredPublicBuilding = numberOfUnlockedBlockedWasteland + 1;
-      requiredDesert = numberOfUnlockedBlockedWasteland + 1;
-      requiredJungle = numberOfUnlockedBlockedWasteland + 1;
-      requiredMountain = numberOfUnlockedBlockedWasteland + 1;
-    }
+    this.requiredWater = (int) (this.numberOfUnlockedBlockedWasteland * waterCoefficient);
+    this.requiredGrass = (int) (this.numberOfUnlockedBlockedWasteland * grassCoefficient);
+    this.requiredForest = (int) (this.numberOfUnlockedBlockedWasteland * forestCoefficient);
+    this.requiredBuilding = (int) (this.numberOfUnlockedBlockedWasteland * buildingCoefficient);
+    this.requiredPublicBuilding = (int) (this.numberOfUnlockedBlockedWasteland * publicBuildingCoefficient);
+    this.requiredDesert = (int) (this.numberOfUnlockedBlockedWasteland * desertCoefficient);
+    this.requiredJungle = (int) (this.numberOfUnlockedBlockedWasteland * jungleCoefficient);
+    this.requiredMountain = (int) (this.numberOfUnlockedBlockedWasteland * mountainCoefficient);
 
-    if (this.unlockBlockedWasteland && hasEnoughResources(requiredWater, requiredGrass, requiredForest, requiredBuilding, requiredPublicBuilding, requiredDesert, requiredJungle, requiredMountain) &&
+    if (this.unlockBlockedWasteland && hasEnoughResources(this.requiredWater, this.requiredGrass, this.requiredForest, this.requiredBuilding, this.requiredPublicBuilding, this.requiredDesert, this.requiredJungle, this.requiredMountain) &&
         this.land.getBiome(line, column).getType() == BiomeEnum.BLOCKEDWASTELAND) {
       this.land.setFreeWasteland(line, column);
       setBiomeOnPlot(line, column);
       this.unlockBlockedWasteland = false;
-      numberOfUnlockedBlockedWasteland++;
-      informationWindow("You have unlocked a new wasteland!");
+      this.numberOfUnlockedBlockedWasteland++;
     } else {
-      if (this.numberOfUnlockedBlockedWasteland >= 0 && this.numberOfUnlockedBlockedWasteland < 2) {
-        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass and " + requiredForest + " forest.");
-      } else if (this.numberOfUnlockedBlockedWasteland >= 2 && this.numberOfUnlockedBlockedWasteland < 5) {
-        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest and " + requiredBuilding + " building.");
-      } else if (this.numberOfUnlockedBlockedWasteland >= 5 && this.numberOfUnlockedBlockedWasteland < 8) {
-        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building and " + requiredPublicBuilding + " public building.");
-      } else if (this.numberOfUnlockedBlockedWasteland >= 8 && this.numberOfUnlockedBlockedWasteland < 11) {
-        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building, " + requiredPublicBuilding + " public building and " + requiredDesert + " desert.");
-      } else if (this.numberOfUnlockedBlockedWasteland >= 11 && this.numberOfUnlockedBlockedWasteland < 14) {
-        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building, " + requiredPublicBuilding + " public building, " + requiredDesert + " desert and " + requiredJungle + " jungle.");
-      } else if (this.numberOfUnlockedBlockedWasteland >= 14) {
-        informationWindow("Insufficient resources to unlock the wasteland you need : " + requiredWater + " water, " + requiredGrass + " grass, " + requiredForest + " forest, " + requiredBuilding + " building, " + requiredPublicBuilding + " public building, " + requiredDesert + " desert, " + requiredJungle + " jungle and " + requiredMountain + " mountain.");
+      StringBuilder messageBuilder = new StringBuilder("Insufficient resources to unlock the wasteland you need: \n");
+      if (this.requiredWater != 0) {
+        messageBuilder.append(this.requiredWater).append(" water, \n");
       }
+      if (this.requiredGrass != 0) {
+        messageBuilder.append(this.requiredGrass).append(" grass, \n");
+      }
+      if (this.requiredForest != 0) {
+        messageBuilder.append(this.requiredForest).append(" forest, \n");
+      }
+      if (this.requiredBuilding != 0) {
+        messageBuilder.append(this.requiredBuilding).append(" building, \n");
+      }
+      if (this.requiredPublicBuilding != 0) {
+        messageBuilder.append(this.requiredPublicBuilding).append(" public building, \n");
+      }
+      if (this.requiredDesert != 0) {
+        messageBuilder.append(this.requiredDesert).append(" desert, \n");
+      }
+      if (this.requiredJungle != 0) {
+        messageBuilder.append(this.requiredJungle).append(" jungle, \n");
+      }
+      if (this.requiredMountain != 0) {
+        messageBuilder.append(this.requiredMountain).append(" mountain, \n");
+      }
+      messageBuilder.deleteCharAt(messageBuilder.length() - 3);
+      informationWindow("Information", messageBuilder.toString());
       this.unlockBlockedWasteland = false;
     }
   }
@@ -304,9 +288,33 @@ public class LandController {
     return availableWater >= requiredWater && availableGrass >= requiredGrass && availableForest >= requiredForest && availableBuilding >= requiredBuilding && availablePublicBuilding >= requiredPublicBuilding && availableDesert >= requiredDesert && availableJungle >= requiredJungle && availableMountain >= requiredMountain;
   }
 
-  private void informationWindow(String text) {
+  public void openEndGameWindow() {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/End.fxml"));
+      Parent root = loader.load();
+      Scene scene = new Scene(root, 600, 500);
+      Stage endStage = new Stage();
+      EndController endController = loader.getController();
+      endController.setEndController(this);
+      endStage.setTitle("End game - Statera");
+      endStage.setScene(scene);
+      endStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
+      endStage.setOnCloseRequest(Event::consume);
+      endStage.initModality(Modality.APPLICATION_MODAL);
+      endStage.setResizable(false);
+      endStage.show();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public boolean verifyEndGame() {
+    return this.land.getNumberOfOccupiedPlotByType(BiomeEnum.FREEWASTELAND) == 0;
+  }
+
+  private void informationWindow(String title, String text) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Attention");
+    alert.setTitle(title);
     alert.setHeaderText(null);
     alert.setContentText(text);
     alert.showAndWait();
@@ -326,8 +334,8 @@ public class LandController {
   @FXML
   public void onClickedMenu(ActionEvent event) {
     try {
-      if (previousMenuStage != null) {
-        previousMenuStage.close();
+      if (this.previousMenuStage != null) {
+        this.previousMenuStage.close();
       }
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Menu.fxml"));
       Parent root = loader.load();
@@ -341,7 +349,7 @@ public class LandController {
       menuStage.setResizable(false);
       menuStage.show();
 
-      previousMenuStage = menuStage;
+      this.previousMenuStage = menuStage;
 
     } catch (IOException e) {
       e.printStackTrace();
@@ -351,11 +359,9 @@ public class LandController {
   @FXML
   public void onClickedStatistics(ActionEvent event) {
     try {
-
-      if (previousStatisticStage != null) {
-        previousStatisticStage.close();
+      if (this.previousStatisticStage != null) {
+        this.previousStatisticStage.close();
       }
-
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/ive/statera/Statistic.fxml"));
       Parent root = loader.load();
       Scene scene = new Scene(root, 600, 500);
@@ -367,8 +373,7 @@ public class LandController {
       statisticsStage.getIcons().add(new Image(Application.class.getResource("img/logo_statera.png").openStream()));
       statisticsStage.setResizable(false);
       statisticsStage.show();
-
-      previousStatisticStage = statisticsStage;
+      this.previousStatisticStage = statisticsStage;
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -388,10 +393,10 @@ public class LandController {
   }
 
   public void setRandomBiomeToFreeWasteland(BiomeEnum biomeType) {
-    List<int[]> freeWastelandCoordinates = land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
+    List<int[]> freeWastelandCoordinates = this.land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
     if (!freeWastelandCoordinates.isEmpty()) {
-      int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
-      land.setBiome(randomCoordinate[0], randomCoordinate[1], biomeType);
+      int[] randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+      this.land.setBiome(randomCoordinate[0], randomCoordinate[1], biomeType);
     }
   }
 
@@ -416,51 +421,71 @@ public class LandController {
   }
 
   public double getEnvironmentBalance() {
-    return environmentBalance;
+    return this.environmentBalance;
   }
 
   public double getEnvironmentBalanceRoundedValue() {
-    return environmentBalanceRoundedValue;
+    return this.environmentBalanceRoundedValue;
   }
 
   public double getNaturalBiomeBalance() {
-    return naturalBiomeBalance;
+    return this.naturalBiomeBalance;
   }
 
   public double getNaturalBiomeBalanceRoundedValue() {
-    return naturalBiomeBalanceRoundedValue;
+    return this.naturalBiomeBalanceRoundedValue;
   }
 
   public double getBuildingBiomeBalance() {
-    return buildingBiomeBalance;
+    return this.buildingBiomeBalance;
   }
 
   public double getBuildingBiomeBalanceRoundedValue() {
-    return buildingBiomeBalanceRoundedValue;
+    return this.buildingBiomeBalanceRoundedValue;
   }
 
   public double getWaterBiomeBalance() {
-    return waterBiomeBalance;
+    return this.waterBiomeBalance;
   }
 
   public double getWaterBiomeBalanceRoundedValue() {
-    return waterBiomeBalanceRoundedValue;
+    return this.waterBiomeBalanceRoundedValue;
   }
 
   public double getQualityLifeBalanceRoundedValue() {
-    return qualityLifeBalanceRoundedValue;
+    return this.qualityLifeBalanceRoundedValue;
   }
 
   public double getQualityLifeBalance() {
     return qualityLifeBalance;
   }
 
+  public double getGlobalBalance() {
+    return this.land.globalBalance();
+  }
+
+  public double getGlobalBalanceRoundedValue() {
+    return this.roundToFirstDecimal(this.land.globalBalance());
+  }
+
+  public Land getLand() {
+    return this.land;
+  }
+
+  public int getTotalOfNonBlockedWastelandPlot() {
+    return this.land.getTotalOfNonBlockedWastelandPlot();
+  }
+
+  public int getNumberOfUnlockedBlockedWasteland() {
+    return this.numberOfUnlockedBlockedWasteland;
+  }
+
   public double getBiosphereBalanceRoundedValue() {
-    return biosphereBalanceRoundedValue;
+    return this.biosphereBalanceRoundedValue;
   }
 
   public double getBiosphereBalance() {
-    return biosphereBalance;
+    return this.biosphereBalance;
   }
 
 }
