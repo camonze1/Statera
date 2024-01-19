@@ -74,7 +74,6 @@ public class Land {
     return (environmentBalance + biosphereBalance) / 2;
   }
 
-
   public double getBiosphereBalance() {
     int targetHumanNumber = 6;
     int targetAnimalNumber = 100;
@@ -96,21 +95,17 @@ public class Land {
   public double getQualityOfLifeBalance() {
     double targetBuildingNumber = 2.0;
     double targetPublicNumber = 1.0;
-
     double qualityOfLifeBalance=0;
     double targetQualityOfLifeRatio=(double)(targetPublicNumber/targetBuildingNumber);
 
     if (getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING)!=0 && getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING)!=0) {
       double currentQualityOfLifeRatio = ((double) getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING) / (double) getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
-
       qualityOfLifeBalance = 100 * Math.abs(currentQualityOfLifeRatio / targetQualityOfLifeRatio);
-
       if (qualityOfLifeBalance > 100) {
         double diff = qualityOfLifeBalance - 100;
         qualityOfLifeBalance = 100 - diff;
       }
     }
-
     return qualityOfLifeBalance;
   }
 
