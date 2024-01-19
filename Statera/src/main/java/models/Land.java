@@ -106,21 +106,28 @@ public class Land {
   }
 
   public double getQualityOfLifeBalance() {
-    int buildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING);
 
-    double targetPublicBuildingPercent = 0.5;
+    double targetBuildingNumber = 2.0;
+    double targetPublicNumber = 1.0;
 
-    int publicBuildingNumber = getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING);
-    double currentPublicBuildingPercent = (double) publicBuildingNumber / buildingNumber;
+    double qualityOfLifeBalance=0;
+    double targetQualityOfLifeRatio=(double)(targetPublicNumber/targetBuildingNumber);
 
-    double buildinglifeQualityBalance = (Math.abs(currentPublicBuildingPercent - targetPublicBuildingPercent) / targetPublicBuildingPercent) * 100;
+    if (getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING)!=0 && getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING)!=0){
+      double currentQualityOfLifeRatio=((double)getNumberOfOccupiedPlotByType(BiomeEnum.PUBLICBUILDING)/(double)getNumberOfOccupiedPlotByType(BiomeEnum.BUILDING));
 
-    double buildingLifeQualityPercent = 100 - buildinglifeQualityBalance;
-    if (this.environmentBalance() <50){
-      buildingLifeQualityPercent = buildingLifeQualityPercent - (50-environmentBalance());
+      qualityOfLifeBalance=100*Math.abs(currentQualityOfLifeRatio/targetQualityOfLifeRatio);
+
+      if(qualityOfLifeBalance>100){
+        double diff=qualityOfLifeBalance-100;
+        qualityOfLifeBalance=100-diff;
+      }
 
     }
-    return buildingLifeQualityPercent;
+    else{
+      qualityOfLifeBalance=0;
+    }
+    return qualityOfLifeBalance;
   }
 
   // - - - - - - - - - - Balance - - - - - - - - - - //
