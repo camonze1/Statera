@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -21,12 +22,19 @@ public class MenuController {
 
   public boolean unlockBlockedWasteland;
 
+  @FXML
+  private Button unlockWasteland;
+
   //  Methods  //
 
   public void home(ActionEvent event) {
     Scene scene = ((Node) event.getSource()).getScene();
     Stage stage = (Stage) scene.getWindow();
     stage.close();
+  }
+
+  public void blockUnlockWastelandButton() {
+    this.unlockWasteland.setDisable(true);
   }
 
   // FXML Methods  //
