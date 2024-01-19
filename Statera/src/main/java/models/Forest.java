@@ -1,7 +1,6 @@
 package models;
 
 import enums.BiomeEnum;
-import javafx.scene.image.Image;
 
 public class Forest extends Biome {
 

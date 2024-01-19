@@ -12,7 +12,6 @@ import java.util.Random;
 
 public class LandSteps {
     private Land land;
-    private Random random;
     private int NmbrNatBiomes;
     private double NatBiomesBalance;
     @Given("the land is initialized")
@@ -21,32 +20,32 @@ public class LandSteps {
     }
     @When("the user places some biomes")
     public void BiomesPlaced(){
-        random=new Random();
+        Random random = new Random();
         List<int[]> freeWastelandCoordinates = this.land.getCoordinatesByBiomeType(BiomeEnum.FREEWASTELAND);
         if (!freeWastelandCoordinates.isEmpty()) {
-            int[] randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            int[] randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.GRASS);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.GRASS);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.WATER);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.WATER);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.FOREST);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.JUNGLE);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.DESERT);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.MOUNTAIN);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.BUILDING);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.BUILDING);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.BUILDING);
-            randomCoordinate = freeWastelandCoordinates.get(this.random.nextInt(freeWastelandCoordinates.size()));
+            randomCoordinate = freeWastelandCoordinates.get(random.nextInt(freeWastelandCoordinates.size()));
             this.land.setBiome(randomCoordinate[0], randomCoordinate[1], BiomeEnum.PUBLICBUILDING);
         }
     }

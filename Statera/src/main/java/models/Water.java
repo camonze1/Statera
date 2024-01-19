@@ -1,7 +1,7 @@
 package models;
 
 import enums.BiomeEnum;
-import javafx.scene.image.Image;
+
 
 public class Water extends Biome {
 
