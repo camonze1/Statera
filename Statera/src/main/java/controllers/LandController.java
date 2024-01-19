@@ -214,12 +214,12 @@ public class LandController {
   public void unlockWasteland(int line, int column) {
     double waterCoefficient = 0.10;
     double grassCoefficient = 0.10;
-    double forestCoefficient = 0.12;
-    double buildingCoefficient = 0.22;
-    double publicBuildingCoefficient = 0.20;
-    double desertCoefficient = 0.18;
-    double jungleCoefficient = 0.16;
-    double mountainCoefficient = 0.14;
+    double forestCoefficient = 0.10;
+    double buildingCoefficient = 0.20;
+    double publicBuildingCoefficient = 0.16;
+    double desertCoefficient = 0.14;
+    double jungleCoefficient = 0.12;
+    double mountainCoefficient = 0.10;
 
     int requiredWater = (int) (this.numberOfUnlockedBlockedWasteland * waterCoefficient);
     int requiredGrass = (int) (this.numberOfUnlockedBlockedWasteland * grassCoefficient);
