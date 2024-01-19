@@ -125,10 +125,6 @@ public class Land {
     return cost;
   }
 
-  public BiomeEnum getTypeOfBiomeByCoordinate(int line, int column) {
-    return this.land.get(line).get(column).getType();
-  }
-
   public List<int[]> getCoordinatesByBiomeType(BiomeEnum biomeType) {
     List<int[]> coordinatesList = new ArrayList<>();
     for (int i = 0; i < this.land.size(); i++) {
