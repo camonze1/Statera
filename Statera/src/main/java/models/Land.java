@@ -125,10 +125,6 @@ public class Land {
     return cost;
   }
 
-  public BiomeEnum getTypeOfBiomeByCoordinate(int line, int column) {
-    return this.land.get(line).get(column).getType();
-  }
-
   public List<int[]> getCoordinatesByBiomeType(BiomeEnum biomeType) {
     List<int[]> coordinatesList = new ArrayList<>();
     for (int i = 0; i < this.land.size(); i++) {
@@ -146,17 +142,6 @@ public class Land {
     this.land.get(line).set(column, new FreeWasteland());
   }
 
-  public int getNumberOfOccupiedPlot() {
-    int numberOccupiedPlot = 0;
-    for (int i = 0; i < this.land.get(1).size(); i++) {
-      for (int j = 0; j < this.land.get(1).size(); j++) {
-        if (this.land.get(i).get(j).getType() != BiomeEnum.BLOCKEDWASTELAND && this.land.get(i).get(j).getType() != BiomeEnum.FREEWASTELAND) {
-          numberOccupiedPlot = numberOccupiedPlot + 1;
-        }
-      }
-    }
-    return numberOccupiedPlot;
-  }
 
   // This function displays the number of occupied plots of the type entered.
   public int getNumberOfOccupiedPlotByType(BiomeEnum type) {
@@ -182,19 +167,6 @@ public class Land {
       }
     }
     return totalNumberOfAvailablePlot;
-  }
-
-  // This function gives the number of unoccupied plots. Wasteland biomes are considered unoccupied.
-  public int getNumberOfNonOccupiedPlot() {
-    int numberNonOccupiedPlot = 0;
-    for (int i = 0; i < this.land.get(1).size(); i++) {
-      for (int j = 0; j < this.land.get(1).size(); j++) {
-        if (this.land.get(i).get(j).getType() == BiomeEnum.BLOCKEDWASTELAND || this.land.get(i).get(j).getType() == BiomeEnum.FREEWASTELAND) {
-          numberNonOccupiedPlot = numberNonOccupiedPlot + 1;
-        }
-      }
-    }
-    return numberNonOccupiedPlot;
   }
 
   public int[] getLandSize() {
