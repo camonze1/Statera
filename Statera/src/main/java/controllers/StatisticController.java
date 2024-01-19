@@ -195,7 +195,7 @@ public class StatisticController {
     this.numberOfMountainPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.MOUNTAIN) + " plots of mountain");
     this.numberOfFreeWastelandPlotInLand.setText("There are " + this.landController.getNumberOfOccupiedPlotLandController(BiomeEnum.FREEWASTELAND) + " plots of free wasteland");
     this.numberOfTotalNonBlockedWastelandPlot.setText("There are " + landController.getTotalOfNonBlockedWastelandPlot() + " non blocked plot(s)");
-
+    this.numberOfUnlockBlockedWasteland.setText("You have unlock " + landController.getNumberOfUnlockedBlockedWasteland() + " blocked plot(s)");
   }
 
   //  FXML Methods  //

@@ -106,7 +106,7 @@ public class BiomeController {
     Jungle jungle = new Jungle();
     this.jungleButton.setTooltip(new Tooltip(jungle.getStringCost()));
 
-    Image imageMountain = new Image(getClass().getResource("/ive/statera/img/tiles/mountain.jpg").toExternalForm());
+    Image imageMountain = new Image(getClass().getResource("/ive/statera/img/tiles/mountain.png").toExternalForm());
     ImageView imgMountainView = new ImageView(imageMountain);
     imgMountainView.setFitWidth(50);
     imgMountainView.setFitHeight(50);

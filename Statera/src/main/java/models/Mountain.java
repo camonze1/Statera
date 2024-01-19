@@ -18,7 +18,7 @@ public class Mountain extends Biome {
     this.cost.replace(BiomeEnum.GRASS, 2);
     this.cost.replace(BiomeEnum.WATER, 1);
     this.color = Color.WHITE;
-    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/mountain.jpg").toExternalForm());
+    this.img = new Image(getClass().getResource("/ive/statera/img/tiles/mountain.png").toExternalForm());
     this.animalProportion = 8;
   }
 

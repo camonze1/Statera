@@ -13,7 +13,7 @@ git clone git_link_of_project
 
 Then you go on your favorite IDE and open the project, and run the project.
 
-You can run the project with the Statera.jar file in the folder target :
+You can also run the project with the Statera.jar file in the folder target :
 ```bash
 cd src/main/out/artifacts/Statera_jar
 ```
